@@ -1,4 +1,5 @@
 //Some other binary operations of arrays are append(), concat(), compare(), copy() etc.
+
 #include <stdio.h>
 
 struct Array{
