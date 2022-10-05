@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdbool.h>
 
-struct Array{
+struct array{
     int A[10];
     int size;
     int length;
 };
 
-bool isSorted(struct Array arr)
+bool isSorted(struct array arr)
 {
     for(int i = 0; i < arr.length-1; i++){
         if(arr.A[i] > arr.A[i+1]){
@@ -17,7 +17,7 @@ bool isSorted(struct Array arr)
     return true;
 }
 
-void insertSorted(struct Array *ptr, int val)
+void insertSorted(struct array *ptr, int val)
 {
     int i = ptr->length-1;
     while(i >= 0 && val < ptr->A[i]){
@@ -29,7 +29,7 @@ void insertSorted(struct Array *ptr, int val)
     return;
 }
 
-void rearrange(struct Array *ptr)
+void rearrange(struct array *ptr)
 {
     int i = 0;
     int j = ptr->length-1;
@@ -46,7 +46,7 @@ void rearrange(struct Array *ptr)
     return;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     printf("the array : ");
     for(int i = 0; i < arr.length; i++){
@@ -58,8 +58,8 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arr = {{2, 3, 6, 10, 15, 19, 22, 24, 27}, 10, 9};
-    struct Array ara = {{2, -13, 25, 10, -4, 7, -5, -18}, 10, 8};
+    struct array arr = {{2, 3, 6, 10, 15, 19, 22, 24, 27}, 10, 9};
+    struct array ara = {{2, -13, 25, 10, -4, 7, -5, -18}, 10, 8};
     int val;
     printf("Before insertion, ");
     display(arr);

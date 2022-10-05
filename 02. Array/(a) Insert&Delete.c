@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Array{
+struct array{
     int *A;
     int size;
     int length;
 };
 
-void insert(struct Array *ptr, int index, int val)
+void insert(struct array *ptr, int index, int val)
 {
     for(int i = ptr->length; i > index; i--){
         ptr->A[i] = ptr->A[i-1];
@@ -17,7 +17,7 @@ void insert(struct Array *ptr, int index, int val)
     return;
 }
 
-void delete(struct Array *ptr, int index)
+void delete(struct array *ptr, int index)
 {
     for(int i = index; i < ptr->length-1; i++){
         ptr->A[i] = ptr->A[i+1];
@@ -26,7 +26,7 @@ void delete(struct Array *ptr, int index)
     return;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     printf("\nThe array : ");
     for(int i = 0; i < arr.length; i++){
@@ -38,7 +38,7 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arr;
+    struct array arr;
     printf("Size of the array = ");
     scanf("%d", &arr.size);
 

@@ -1,11 +1,11 @@
 #include <stdio.h>
 
-struct Array{
+struct array{
     int A[10];
     int size;
 };
 
-void getMaxMin(struct Array arr, int* max, int* min)
+void getMaxMin(struct array arr, int* max, int* min)
 {
     *max = *min = arr.A[0];
     for(int i = 1; i < arr.size; i++){
@@ -20,7 +20,7 @@ void getMaxMin(struct Array arr, int* max, int* min)
 }
 
 //this function will find missing elements in a sorted array of n consecutive numbers
-void findMissingElementSorted(struct Array arr)
+void findMissingElementSorted(struct array arr)
 {
     int i, diff = arr.A[0];
     if(arr.A[0] != arr.A[arr.size-1]-(arr.size-1)){
@@ -44,7 +44,7 @@ void findMissingElementSorted(struct Array arr)
 }
 
 //this function will find missing elements in both sorted and unsorted array
-void findMissingElementUnsorted(struct Array arr)
+void findMissingElementUnsorted(struct array arr)
 {
     int max, min, i;
     getMaxMin(arr, &max, &min);
@@ -73,7 +73,7 @@ void findMissingElementUnsorted(struct Array arr)
     return;
 }
 
-void getDuplicatesSorted(struct Array arr)
+void getDuplicatesSorted(struct array arr)
 {
     int i, j;
     printf("Duplicate element(s) :");
@@ -89,7 +89,7 @@ void getDuplicatesSorted(struct Array arr)
     return;
 }
 
-void getDuplicatesUnsorted(struct Array arr)
+void getDuplicatesUnsorted(struct array arr)
 {
     int max, min, i;
     getMaxMin(arr, &max, &min);
@@ -111,7 +111,7 @@ void getDuplicatesUnsorted(struct Array arr)
     return;
 }
 
-void findPairSorted(struct Array arr)
+void findPairSorted(struct array arr)
 {
     int i = 0, j = arr.size-1;
     int sum = 10;
@@ -130,7 +130,7 @@ void findPairSorted(struct Array arr)
     return;
 }
 
-void findPairUnsorted(struct Array arr)
+void findPairUnsorted(struct array arr)
 {
     int max, min, i;
     getMaxMin(arr, &max, &min);
@@ -151,7 +151,7 @@ void findPairUnsorted(struct Array arr)
     return;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     printf("The given array : ");
     for(int i = 0; i < arr.size; i++){
@@ -163,12 +163,12 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arrMissingSorted = {{6, 7, 8, 9, 10, 11, 13, 14, 15, 16}, 10};
-    struct Array arrMissingUnsorted = {{3, 7, 4, 9, 12, 6, 1, 11, 2, 10}, 10};
-    struct Array arrDuplicateSorted = {{3, 6, 8, 8, 10, 12, 15, 15, 15, 20}, 10};
-    struct Array arrDuplicateUnsorted = {{8, 3, 6, 4, 6, 5, 6, 8, 2, 7}, 10};
-    struct Array arrPairSorted = {{1, 3, 4, 5, 6, 8, 9, 10, 12, 14}, 10};
-    struct Array arrPairUnsorted = {{6, 3, 8, 10, 16, 7, 5, 2, 9, 14}, 10};
+    struct array arrMissingSorted = {{6, 7, 8, 9, 10, 11, 13, 14, 15, 16}, 10};
+    struct array arrMissingUnsorted = {{3, 7, 4, 9, 12, 6, 1, 11, 2, 10}, 10};
+    struct array arrDuplicateSorted = {{3, 6, 8, 8, 10, 12, 15, 15, 15, 20}, 10};
+    struct array arrDuplicateUnsorted = {{8, 3, 6, 4, 6, 5, 6, 8, 2, 7}, 10};
+    struct array arrPairSorted = {{1, 3, 4, 5, 6, 8, 9, 10, 12, 14}, 10};
+    struct array arrPairUnsorted = {{6, 3, 8, 10, 16, 7, 5, 2, 9, 14}, 10};
 
     display(arrMissingSorted);
     findMissingElementSorted(arrMissingSorted);

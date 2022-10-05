@@ -1,13 +1,13 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-struct Array{
+struct array{
     int *A;
     int size;
     int length;
 };
 
-void reverse(struct Array *ptr)
+void reverse(struct array *ptr)
 {
     int i, j, temp;
     for(i = 0, j = ptr->length-1; i < j; i++, j--){
@@ -18,7 +18,7 @@ void reverse(struct Array *ptr)
     return;
 }
 
-void leftRotation(struct Array *ptr, int n)
+void leftRotation(struct array *ptr, int n)
 {
     int i, j = 0;
     int *r = (int*)malloc(n*sizeof(int)); //creating dynamic array for keeping rotating elements
@@ -35,7 +35,7 @@ void leftRotation(struct Array *ptr, int n)
     return;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     printf("the array : ");
     for(int i = 0; i < arr.length; i++){
@@ -47,7 +47,7 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arr;
+    struct array arr;
     printf("Size of the array = ");
     scanf("%d", &arr.size);
 

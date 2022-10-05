@@ -2,7 +2,7 @@
 
 #include <stdio.h>
 
-struct Array{
+struct array{
     int A[10];
     int size;
     int length;
@@ -46,7 +46,7 @@ int rbinarySearch(int ara[], int key, int low, int high)
 
 int main(void)
 {
-    struct Array arr = {{2, 3, 4, 5, 6}, 10, 5};
+    struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
     int pos, key;
     printf("Enter an element for searching : ");
     scanf("%d", &key);

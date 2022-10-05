@@ -2,15 +2,15 @@
 
 #include <stdio.h>
 
-struct Array{
+struct array{
     int A[20];
     int length;
 };
 
-struct Array merge(struct Array arr1, struct Array arr2)
+struct array merge(struct array arr1, struct array arr2)
 {
     int i = 0, j = 0, k = 0;
-    struct Array arr3;
+    struct array arr3;
 
     while(i < arr1.length && j < arr2.length){
         if(arr1.A[i] < arr2.A[j]){
@@ -33,10 +33,10 @@ struct Array merge(struct Array arr1, struct Array arr2)
 }
 
 //getUnion(), getIntersection() and getDifference() functions will work when the arrays are sorted
-struct Array getUnion(struct Array arr1, struct Array arr2)
+struct array getUnion(struct array arr1, struct array arr2)
 {
     int i = 0, j = 0, k = 0;
-    struct Array arr3;
+    struct array arr3;
 
     while(i < arr1.length && j < arr2.length){
         if(arr1.A[i] < arr2.A[j]){
@@ -62,10 +62,10 @@ struct Array getUnion(struct Array arr1, struct Array arr2)
     return arr3;
 }
 
-struct Array getIntersection(struct Array arr1, struct Array arr2)
+struct array getIntersection(struct array arr1, struct array arr2)
 {
     int i = 0, j = 0, k = 0;
-    struct Array arr3;
+    struct array arr3;
 
     while(i < arr1.length && j < arr2.length){
         if(arr1.A[i] == arr2.A[j]){
@@ -84,10 +84,10 @@ struct Array getIntersection(struct Array arr1, struct Array arr2)
     return arr3;
 }
 
-struct Array getDifference(struct Array arr1, struct Array arr2)
+struct array getDifference(struct array arr1, struct array arr2)
 {
     int i = 0, j = 0, k = 0;
-    struct Array arr3;
+    struct array arr3;
 
     while(i < arr1.length && j < arr2.length){
         if(arr1.A[i] < arr2.A[j]){
@@ -110,7 +110,7 @@ struct Array getDifference(struct Array arr1, struct Array arr2)
     return arr3;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     for(int i = 0; i < arr.length; i++){
         printf("%d ", arr.A[i]);
@@ -121,7 +121,7 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arr1, arr2, arr3;
+    struct array arr1, arr2, arr3;
     printf("**Insert arrays in sorted order**");
 
     printf("\n\nFor 1st array, number of elements (maximum 10 elements) = ");

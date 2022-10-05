@@ -1,17 +1,17 @@
 #include <stdio.h>
 
-struct Array{
+struct array{
     int A[10];
     int size;
     int length;
 };
 
-int getElement(struct Array arr, int index)
+int getElement(struct array arr, int index)
 {
     return arr.A[index];
 }
 
-void setElement(struct Array *ptr, int index, int val)
+void setElement(struct array *ptr, int index, int val)
 {
     if(index >= 0 && index < ptr->length){
         ptr->A[index] = val;
@@ -19,7 +19,7 @@ void setElement(struct Array *ptr, int index, int val)
     return;
 }
 
-int getMax(struct Array arr)
+int getMax(struct array arr)
 {
     int max = arr.A[0];
     for(int i = 1; i < arr.length; i++){
@@ -30,7 +30,7 @@ int getMax(struct Array arr)
     return max;
 }
 
-int getMin(struct Array arr)
+int getMin(struct array arr)
 {
     int min = arr.A[0];
     for(int i = 1; i < arr.length; i++){
@@ -41,7 +41,7 @@ int getMin(struct Array arr)
     return min;
 }
 
-int getSum(struct Array arr)
+int getSum(struct array arr)
 {
     int sum = 0;
     for(int i = 0; i < arr.length; i++){
@@ -50,13 +50,13 @@ int getSum(struct Array arr)
     return sum;
 }
 
-float getAverage(struct Array arr)
+float getAverage(struct array arr)
 {
     float avg = (float)getSum(arr)/arr.length;
     return avg;
 }
 
-void display(struct Array arr)
+void display(struct array arr)
 {
     printf("\nThe array : ");
     for(int i = 0; i < arr.length; i++){
@@ -68,7 +68,7 @@ void display(struct Array arr)
 
 int main(void)
 {
-    struct Array arr = {{2, 3, 4, 5, 6}, 10, 5};
+    struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
     int pos;
 
     printf("Enter a position for getting the element : ");
