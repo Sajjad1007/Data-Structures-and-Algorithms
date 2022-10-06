@@ -15,9 +15,12 @@ void createList(int arr[], int n)
 {
     struct node *t;
     first = (struct node*)malloc(sizeof(struct node));
-    first->data = arr[0];
-    first->next = NULL;
-    last = first;
+    if(n == 0) first = NULL;
+    else{
+        first->data = arr[0];
+        first->next = NULL;
+        last = first;
+    }
 
     for(int i = 1; i < n; i++){
         t = (struct node*)malloc(sizeof(struct node));
@@ -55,7 +58,8 @@ int sumOfElements(struct node *p)
 
 int getMax(struct node *p)
 {
-    if(p->next == NULL){
+    if(p == NULL) return 0;
+    else if(p->next == NULL){
         return p->data;
     }
     else{
@@ -121,11 +125,13 @@ void delete(int pos)
         printf("Deleted value : %d\n", p->data);
         free(p);
     }
+    return;
 }
 
 void display(struct node *p)
 {
     if(p == NULL){
+        printf("\n");
         return;
     }
     printf(" %d", p->data);
@@ -150,7 +156,7 @@ int main(void)
     createList(arr, 5);
     printf("The linked list :");
     display(first);
-    printf("\nThe reverse linked list :");
+    printf("The reversed linked list :");
     reverseDisplay(first);
 
     printf("\n\nNumber of nodes = %d\n", count(first));
@@ -167,16 +173,17 @@ int main(void)
         printf("%d is not found in the linked list\n", key);
     }
 
-    printf("\nEnter the position(1 to 6) and value to insert : ");
+    printf("\nEnter the position(1 to %d) and value to insert : ", count(first)+1);
     scanf("%d %d", &pos, &val);
     insert(pos, val);
     printf("The linked list :");
     display(first);
-    printf("\n\nEnter the position(1 to 6) to delete : ");
-    scanf("%d", &pos);
-    delete(pos);
-    printf("The linked list :");
-    display(first);
-    printf("\n");
+    if(count(first) > 0){
+        printf("\nEnter the position(1 to 6) to delete : ");
+        scanf("%d", &pos);
+        delete(pos);
+        printf("The linked list :");
+        display(first);
+    }
     return 0;
 }

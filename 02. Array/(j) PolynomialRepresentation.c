@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <math.h>
 #include <stdlib.h>
 
 struct term{
@@ -58,7 +59,8 @@ struct polynomial add(struct polynomial p1, struct polynomial p2)
         }
         else{
             sum.terms[k].expo = p1.terms[i].expo;
-            sum.terms[k++].coef = p1.terms[i++].coef + p2.terms[j++].coef;
+            sum.terms[k].coef = p1.terms[i++].coef + p2.terms[j++].coef;
+            if(sum.terms[k++].coef == 0) k--;
         }
     }
 
@@ -68,8 +70,19 @@ struct polynomial add(struct polynomial p1, struct polynomial p2)
     return sum;
 }
 
+void evaluate(struct polynomial p, int x)
+{
+    int i, sum = 0;
+    for(i = 0; i < p.numberOfTerms; i++){
+        sum += (p.terms[i].coef * pow(x, p.terms[i].expo));
+    }
+    printf("For x = %d, sum = %d\n", x, sum);
+    return;
+}
+
 int main(void)
 {
+    int x;
     struct polynomial p1, p2, sum;
     printf("For 1st polynomial, ");
     create(&p1);
@@ -82,5 +95,8 @@ int main(void)
     sum = add(p1, p2);
     printf("\n\nAdded polynomial = ");
     display(sum);
+    printf("\nEnter the value of x = ");
+    scanf("%d", &x);
+    evaluate(sum, x);
     return 0;
 }
