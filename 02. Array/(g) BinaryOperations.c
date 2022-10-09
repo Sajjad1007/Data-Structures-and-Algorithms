@@ -16,9 +16,7 @@ struct array merge(struct array arr1, struct array arr2)
         if(arr1.A[i] < arr2.A[j]){
             arr3.A[k++] = arr1.A[i++];
         }
-        else{
-            arr3.A[k++] = arr2.A[j++];
-        }
+        else arr3.A[k++] = arr2.A[j++];
     }
 
     while(i < arr1.length){
@@ -72,12 +70,8 @@ struct array getIntersection(struct array arr1, struct array arr2)
             arr3.A[k++] = arr1.A[i++];
             j++;
         }
-        else if(arr1.A[i] < arr2.A[j]){
-            i++;
-        }
-        else{
-            j++;
-        }
+        else if(arr1.A[i] < arr2.A[j]) i++;
+        else j++;
     }
 
     arr3.length = k;
@@ -93,13 +87,8 @@ struct array getDifference(struct array arr1, struct array arr2)
         if(arr1.A[i] < arr2.A[j]){
             arr3.A[k++] = arr1.A[i++];
         }
-        else if(arr1.A[i] > arr2.A[j]){
-            j++;
-        }
-        else{
-            i++;
-            j++;
-        }
+        else if(arr1.A[i] > arr2.A[j]) j++;
+        else{ i++; j++; }
     }
 
     while(i < arr1.length){

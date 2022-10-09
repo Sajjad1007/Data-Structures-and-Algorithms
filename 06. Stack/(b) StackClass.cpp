@@ -27,6 +27,7 @@ public:
             delete p;
             p = top;
         }
+        p = nullptr;
     }
 
     node *getTop()
@@ -85,13 +86,11 @@ public:
     int peek(int pos)
     {
         node *p = top;
-        for(int i = 1; i < pos; i++){
-            p = p->next;
-        }
+        for(int i = 1; i < pos; i++) p = p->next;
         return p->data;
     }
 
-    int stackTop()
+    int getTopElement()
     {
         return top->data;
     }
@@ -146,13 +145,14 @@ int main()
             case 2:
                 if(!st.isEmpty()){
                     cout << "\nDeleted element is " << st.pop() << endl;
-                    st.display();
+                    if(!st.isEmpty()) st.display();
+                    else cout << "The stack is empty\n";
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
             case 3:
                 if(!st.isEmpty()){
-                    cout << "\nThe topmost element is " << st.stackTop() << endl;
+                    cout << "\nThe topmost element is " << st.getTopElement() << endl;
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
@@ -161,9 +161,7 @@ int main()
                     cout << "Enter the position : ";
                     cin >> pos;
                     if(pos > st.Count() || pos < 1) cout << "\nInvalid position\n";
-                    else{
-                        cout << "\nThe element at position " << pos << " is " << st.peek(pos) << endl;
-                    }
+                    else cout << "\nThe element at position " << pos << " is " << st.peek(pos) << endl;
                 }
                 else cout << "\nThe stack is empty\n";
                 break;

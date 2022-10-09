@@ -10,9 +10,7 @@ struct array{
 bool isSorted(struct array arr)
 {
     for(int i = 0; i < arr.length-1; i++){
-        if(arr.A[i] > arr.A[i+1]){
-            return false;
-        }
+        if(arr.A[i] > arr.A[i+1]) return false;
     }
     return true;
 }
@@ -75,9 +73,7 @@ int main(void)
         printf("After insertion, ");
         display(arr);
     }
-    else{
-        printf("The array is not sorted.\n");
-    }
+    else printf("The array is not sorted.\n");
 
     printf("\nBefore rearranging, ");
     display(ara);

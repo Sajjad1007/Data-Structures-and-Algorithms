@@ -53,9 +53,7 @@ void insert(int pos, int val)
         tail->next = head;
     }
     else if(pos > 0){
-        for(int i = 1; i < pos-1 && p != NULL; i++){
-            p = p->next;
-        }
+        for(int i = 1; i < pos-1 && p != NULL; i++) p = p->next;
         t->next = p->next;
         p->next = t;
     }
@@ -104,9 +102,7 @@ void rdisplay(struct node *p)
         printf(" %d", p->data);
         display(p->next);
     }
-    else{
-        printf("\n");
-    }
+    else printf("\n");
     flag = false;
     return;
 }

@@ -30,6 +30,7 @@ public:
     ~Array()
     {
         delete[] A;
+        A = nullptr;
     }
 
     int getLength()
@@ -66,9 +67,7 @@ public:
     T getSum()
     {
         T sum = 0;
-        for(int i = 0; i < length; i++){
-            sum += A[i];
-        }
+        for(int i = 0; i < length; i++) sum += A[i];
         return sum;
     }
 
@@ -126,44 +125,48 @@ int main()
         cin >> choice;
 
         switch(choice){
-            case 1: if(size == arr.getLength()){
-                        cout << "\nThe array is full" << endl;
-                        break;
-                    }
-
-                    cout << "Enter the position : ";
-                    cin >> pos;
-                    if(pos < 0 || pos > (arr.getLength()+1)){
-                        cout << "\nPlease enter a valid position" << endl;
-                        break;
-                    }
-                    else{
-                        cout << "Enter the element : ";
-                        cin >> val;
-                        arr.insertElement(pos-1, val);
-                        arr.display();
-                        break;
-                    }
-
-            case 2: cout << "Enter the position : ";
-                    cin >> pos;
-                    if(pos < 0 || pos > (arr.getLength()+1)){
-                        cout << "\nPlease enter a valid position" << endl;
-                        break;
-                    }
-                    else{
-                        val = arr.deleteElement(pos-1);
-                        cout << "\nDeleted element : " << val;
-                        arr.display();
-                    }
+            case 1:
+                if(size == arr.getLength()){
+                    cout << "\nThe array is full" << endl;
                     break;
+                }
 
-            case 3: cout << "\nSum = " << arr.getSum() << endl;
-                    cout << "Average = " << arr.getAverage() << endl;
+                cout << "Enter the position : ";
+                cin >> pos;
+                if(pos < 0 || pos > (arr.getLength()+1)){
+                    cout << "\nPlease enter a valid position" << endl;
                     break;
+                }
+                else{
+                    cout << "Enter the element : ";
+                    cin >> val;
+                    arr.insertElement(pos-1, val);
+                    arr.display();
+                    break;
+                }
 
-            case 4: cout << "\nThank you!" << endl;
+            case 2:
+                cout << "Enter the position : ";
+                cin >> pos;
+                if(pos < 0 || pos > (arr.getLength()+1)){
+                    cout << "\nPlease enter a valid position" << endl;
                     break;
+                }
+                else{
+                    val = arr.deleteElement(pos-1);
+                    cout << "\nDeleted element : " << val;
+                    arr.display();
+                }
+                break;
+
+            case 3:
+                cout << "\nSum = " << arr.getSum() << endl;
+                cout << "Average = " << arr.getAverage() << endl;
+                break;
+
+            case 4:
+                cout << "\nThank you!" << endl;
+                break;
         }
     } while(choice < 4);
     return 0;

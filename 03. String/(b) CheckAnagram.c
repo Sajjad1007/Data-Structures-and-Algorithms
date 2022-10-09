@@ -13,9 +13,7 @@ void isAnagram(char str1[], char str2[])
         return;
     }
 
-    for(i = 0; str1[i] != '\0'; i++){
-        hash[str1[i]-'a']++;
-    }
+    for(i = 0; str1[i] != '\0'; i++) hash[str1[i]-'a']++;
     for(i = 0; str2[i] != '\0'; i++){
         hash[str2[i]-'a']--;
         if(hash[str2[i]-'a'] < 0){

@@ -23,9 +23,7 @@ int getMax(struct array arr)
 {
     int max = arr.A[0];
     for(int i = 1; i < arr.length; i++){
-        if(max < arr.A[i]){
-            max = arr.A[i];
-        }
+        if(max < arr.A[i]) max = arr.A[i];
     }
     return max;
 }
@@ -34,9 +32,7 @@ int getMin(struct array arr)
 {
     int min = arr.A[0];
     for(int i = 1; i < arr.length; i++){
-        if(min > arr.A[i]){
-            min = arr.A[i];
-        }
+        if(min > arr.A[i]) min = arr.A[i];
     }
     return min;
 }
@@ -44,9 +40,7 @@ int getMin(struct array arr)
 int getSum(struct array arr)
 {
     int sum = 0;
-    for(int i = 0; i < arr.length; i++){
-        sum += arr.A[i];
-    }
+    for(int i = 0; i < arr.length; i++) sum += arr.A[i];
     return sum;
 }
 
@@ -76,9 +70,7 @@ int main(void)
     if(pos > 0 && pos <= arr.length){
         printf("%d is at position %d\n", getElement(arr, pos-1), pos); //position = index+1
     }
-    else{
-        printf("Invalid position\n");
-    }
+    else printf("Invalid position\n");
 
     printf("\nEnter a position for setting an element : ");
     scanf("%d", &pos);
@@ -88,9 +80,7 @@ int main(void)
         scanf("%d", &val);
         setElement(&arr, pos-1, val);
     }
-    else{
-        printf("Invalid position");
-    }
+    else printf("Invalid position");
     display(arr);
 
     printf("\nMaximum element of the array = %d\n", getMax(arr));

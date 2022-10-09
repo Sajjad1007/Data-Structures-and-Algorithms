@@ -90,8 +90,7 @@ char *infixToPostfix(char *infix)
         }
         else if(isOperand(infix[i])) postfix[j++] = infix[i++];
         else{
-            if(isEmpty() || (precedence(infix[i]) > precedence(top->data)))
-                push(infix[i++]);
+            if(isEmpty() || (precedence(infix[i]) > precedence(top->data))) push(infix[i++]);
             else if(infix[i] == '^') push(infix[i++]);
             else postfix[j++] = pop();
         }
@@ -106,8 +105,7 @@ int postfixEvaluation(char *postfix)
 {
     int a, b, i;
     for(i = 0; postfix[i] != '\0'; i++){
-        if(isOperand(postfix[i]))
-            push(postfix[i]-'0');
+        if(isOperand(postfix[i])) push(postfix[i]-'0');
         else{
             b = pop();
             a = pop();

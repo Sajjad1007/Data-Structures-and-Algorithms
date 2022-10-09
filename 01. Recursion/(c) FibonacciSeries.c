@@ -12,12 +12,8 @@ int count2;
 int fibo(int n) //time complexity O(2^n)
 {
     ++count1;
-    if(n <= 1){
-        return n;
-    }
-    else{
-        return fibo(n-2) + fibo(n-1);
-    }
+    if(n <= 1) return n;
+    else return fibo(n-2) + fibo(n-1);
 }
 
 //This process is called "Memorization"
@@ -28,12 +24,8 @@ int mfibo(int n, int f[]) //time complexity O(n)
         f[n] = n;
         return f[n];
     }
-    if(f[n-2] == -1){
-        f[n-2] = mfibo(n-2, f);
-    }
-    if(f[n-1] == -1){
-        f[n-1] = mfibo(n-1, f);
-    }
+    if(f[n-2] == -1) f[n-2] = mfibo(n-2, f);
+    if(f[n-1] == -1) f[n-1] = mfibo(n-1, f);
     f[n] = f[n-2] + f[n-1];
     return f[n];
 }
@@ -45,9 +37,7 @@ int main(void)
     scanf("%d", &n);
 
     int f[n];
-    for(int i = 0; i < n; ++i){
-        f[i] = -1;
-    }
+    for(int i = 0; i < n; ++i) f[i] = -1;
 
     printf("\n%dth term of the fibonacci series = %d\n", n, fibo(n));
     printf("Total function call = %d\n", count1);

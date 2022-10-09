@@ -48,6 +48,7 @@ public:
             delete p;
             p = first;
         }
+        p = nullptr;
     }
 
     node *getFirst()

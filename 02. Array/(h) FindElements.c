@@ -9,12 +9,8 @@ void getMaxMin(struct array arr, int* max, int* min)
 {
     *max = *min = arr.A[0];
     for(int i = 1; i < arr.size; i++){
-        if(arr.A[i] < *min){
-            *min = arr.A[i];
-        }
-        else if(arr.A[i] > *max){
-            *max = arr.A[i];
-        }
+        if(arr.A[i] < *min) *min = arr.A[i];
+        else if(arr.A[i] > *max) *max = arr.A[i];
     }
     return;
 }
@@ -58,16 +54,10 @@ void findMissingElementUnsorted(struct array arr)
         return;
     }
 
+    for(i = min; i <= max; i++) hash[i] = 0;
+    for(i = 0; i < arr.size; i++) hash[arr.A[i]] = 1;
     for(i = min; i <= max; i++){
-        hash[i] = 0;
-    }
-    for(i = 0; i < arr.size; i++){
-        hash[arr.A[i]] = 1;
-    }
-    for(i = min; i <= max; i++){
-        if(hash[i] == 0){
-            printf(" %d", i);
-        }
+        if(hash[i] == 0) printf(" %d", i);
     }
     printf("\n\n");
     return;
@@ -96,12 +86,8 @@ void getDuplicatesUnsorted(struct array arr)
     int hash[max+1];
 
     printf("Duplicate element(s) :");
-    for(i = min; i <= max; i++){
-        hash[i] = 0;
-    }
-    for(i = 0; i < arr.size; i++){
-        hash[arr.A[i]]++;
-    }
+    for(i = min; i <= max; i++) hash[i] = 0;
+    for(i = 0; i < arr.size; i++) hash[arr.A[i]]++;
     for(i = min; i <= max; i++){
         if(hash[i] > 1){
             printf("  %d (%d times)", i, hash[i]);
@@ -120,8 +106,7 @@ void findPairSorted(struct array arr)
     while(i < j){
         if(arr.A[i]+arr.A[j] == sum){
             printf(" (%d, %d)", arr.A[i], arr.A[j], sum);
-            i++;
-            j--;
+            i++; j--;
         }
         else if(arr.A[i]+arr.A[j] < sum) i++;
         else j--;
@@ -137,9 +122,7 @@ void findPairUnsorted(struct array arr)
     int hash[max+1], sum = 10;
 
     printf("The pair(s) are :");
-    for(i = min; i <= max; i++){
-        hash[i] = 0;
-    }
+    for(i = min; i <= max; i++) hash[i] = 0;
     for(i = 0; i < arr.size; i++){
         if(hash[sum-arr.A[i]] == 1){
             int min = arr.A[i] < sum-arr.A[i] ? arr.A[i] : sum-arr.A[i];

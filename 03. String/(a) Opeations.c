@@ -27,9 +27,7 @@ void swap(char* a, char* b)
 void reverseOf(char str[])
 {
     int i, j = lengthOf(str)-1;
-    for(i = 0; i < j; i++, j--){
-        swap(&str[i], &str[j]);
-    }
+    for(i = 0; i < j; i++, j--) swap(&str[i], &str[j]);
     return;
 }
 
@@ -40,12 +38,8 @@ void isPalindrome(char str[])
         if(str[i] != str[j]) break;
     }
 
-    if(i >= j){
-        printf("So, this is a palindrome\n");
-    }
-    else{
-        printf("So, this is not a palindrome\n");
-    }
+    if(i >= j) printf("So, this is a palindrome\n");
+    else printf("So, this is not a palindrome\n");
     return;
 }
 
@@ -64,9 +58,7 @@ void getDuplicates(char str[])
         hash[toLower(str[i])-'a']++;
     }
     for(i = 0; i < 26; i++){
-        if(hash[i] > 1){
-            printf("  %c(%d times)", 'a'+i, hash[i]);
-        }
+        if(hash[i] > 1) printf("  %c(%d times)", 'a'+i, hash[i]);
     }
     printf("\n");
     return;

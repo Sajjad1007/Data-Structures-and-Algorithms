@@ -29,9 +29,7 @@ struct node *createList(int arr[], int n)
 
 void concatenate(struct node *p, struct node *q)
 {
-    while(p->next != NULL){
-        p = p->next;
-    }
+    while(p->next != NULL) p = p->next;
     p->next = q;
     return;
 }

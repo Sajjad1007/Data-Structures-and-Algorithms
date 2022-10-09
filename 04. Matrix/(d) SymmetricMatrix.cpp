@@ -25,6 +25,7 @@ public:
     ~Symmetric()
     {
         delete arr;
+        arr = nullptr;
     }
 
     int get(int i, int j)

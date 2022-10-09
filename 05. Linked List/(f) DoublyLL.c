@@ -122,9 +122,7 @@ void display(struct node *p)
 
 void reverseDisplay(struct node *p)
 {
-    if(p == NULL){
-        return;
-    }
+    if(p == NULL) return;
     printf(" %d", p->data);
     reverseDisplay(p->prev);
     return;

@@ -34,7 +34,6 @@ int main(void)
 
     reorder(n, x);
     printf("\nReordered list of strings:\n\n");
-    for(i = 0; i < n; ++i)
-        printf("string %d: %s\n", i+1, x[i]);
+    for(i = 0; i < n; ++i) printf("string %d: %s\n", i+1, x[i]);
     return 0;
 }

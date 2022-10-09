@@ -37,14 +37,13 @@ public:
         numberOfNodes = num;
         arr = new node*[num];
 
-        for(int i = 0; i < num; i++){
-            arr[i] = nullptr;
-        }
+        for(int i = 0; i < num; i++) arr[i] = nullptr;
     }
 
     ~Sparse()
     {
         delete arr;
+        arr = nullptr;
     }
 
     void create()
@@ -75,8 +74,7 @@ public:
                     cout << p->value << " ";
                     p = p->next;
                 }
-                else
-                    cout << 0 << " ";
+                else cout << 0 << " ";
             }
             cout << endl;
         }

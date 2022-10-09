@@ -44,7 +44,7 @@ int peek(int pos)
     return st.S[st.top-pos+1];
 }
 
-int stackTop()
+int topElement()
 {
     return st.S[st.top];
 }
@@ -52,9 +52,7 @@ int stackTop()
 void display()
 {
     printf("The stack :");
-    for(int i = st.top; i >= 0; --i){
-        printf(" %d", st.S[i]);
-    }
+    for(int i = st.top; i >= 0; --i) printf(" %d", st.S[i]);
     printf("\n");
     return;
 }
@@ -97,14 +95,13 @@ int main(void)
             case 2:
                 if(!isEmpty()){
                     printf("\nDeleted element is %d\n", pop());
-                    display();
+                    if(!isEmpty()) display();
+                    else printf("The stack is empty\n");
                 }
                 else printf("\nThe stack is empty\n");
                 break;
             case 3:
-                if(!isEmpty()){
-                    printf("\nThe topmost element is %d\n", stackTop());
-                }
+                if(!isEmpty()) printf("\nThe topmost element is %d\n", topElement());
                 else printf("\nThe stack is empty\n");
                 break;
             case 4:
@@ -112,9 +109,7 @@ int main(void)
                     printf("Enter the position : ");
                     scanf("%d", &pos);
                     if(st.top-pos+1 < 0 || pos <= 0) printf("\nInvalid position\n");
-                    else{
-                        printf("\nThe element at position %d is %d\n", pos, peek(pos));
-                    }
+                    else printf("\nThe element at position %d is %d\n", pos, peek(pos));
                 }
                 else printf("\nThe stack is empty\n");
                 break;

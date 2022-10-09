@@ -53,9 +53,7 @@ int main(void)
     if(pos > 0){
         printf("%d is at position %d\n", key, pos);
     }
-    else{
-        printf("%d not found\n", key);
-    }
+    else printf("%d not found\n", key);
 
     display(arr);
     return 0;

@@ -29,6 +29,7 @@ public:
     ~Sparse()
     {
         delete e;
+        e = nullptr;
     }
 
     void create()
@@ -49,8 +50,7 @@ public:
                 cout.setf(ios::adjustfield);
                 if(i == e[k].rowNo-1 && j == e[k].colNo-1)
                     cout << e[k++].value << " ";
-                else
-                    cout << 0 << " ";
+                else cout << 0 << " ";
             }
             cout << endl;
         }

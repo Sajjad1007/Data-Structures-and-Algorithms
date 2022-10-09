@@ -27,6 +27,7 @@ public:
     ~Toeplitz()
     {
         delete arr;
+        arr = nullptr;
     }
 
     int get(int i, int j)
@@ -43,14 +44,10 @@ public:
     void set(int i, int j, int val)
     {
         if(i <= j){
-            for(; i <= n; i++, j++){
-                arr[j-i] = val;
-            }
+            for(; i <= n; i++, j++) arr[j-i] = val;
         }
         else{
-            for(; i <= n; i++, j++){
-                arr[n+i-j-1] = val;
-            }
+            for(; i <= n; i++, j++) arr[n+i-j-1] = val;
         }
 
         return;

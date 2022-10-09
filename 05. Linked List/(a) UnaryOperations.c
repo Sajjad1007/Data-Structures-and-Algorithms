@@ -35,9 +35,7 @@ void createList(int arr[], int n)
 int count(struct node *p)
 {
     int cnt = 0;
-    if(p == 0){
-        return cnt;
-    }
+    if(p == 0) return cnt;
     else{
         cnt = count(p->next);
         return cnt + 1;
@@ -47,9 +45,7 @@ int count(struct node *p)
 int sumOfElements(struct node *p)
 {
     int data = 0;
-    if(p == 0){
-        return data;
-    }
+    if(p == 0) return data;
     else{
         data = p->data;
         return data + sumOfElements(p->next);
@@ -59,9 +55,7 @@ int sumOfElements(struct node *p)
 int getMax(struct node *p)
 {
     if(p == NULL) return 0;
-    else if(p->next == NULL){
-        return p->data;
-    }
+    else if(p->next == NULL) return p->data;
     else{
         int x = getMax(p->next);
         return x > p->data ? x : p->data;
@@ -72,12 +66,8 @@ int getMax(struct node *p)
 int linearSearch(struct node *p, int key)
 {
     static int pos = 1;
-    if(p == NULL){
-        return 0;
-    }
-    else if(key == p->data){
-        return pos;
-    }
+    if(p == NULL) return 0;
+    else if(key == p->data) return pos;
     else{
         pos++;
         linearSearch(p->next, key);
@@ -95,9 +85,7 @@ void insert(int pos, int val)
         first = t;
     }
     else if(pos > 0){
-        for(int i = 1; i < pos-1 && p != NULL; i++){
-            p = p->next;
-        }
+        for(int i = 1; i < pos-1 && p != NULL; i++) p = p->next;
         t->next = p->next;
         p->next = t;
     }
@@ -141,9 +129,7 @@ void display(struct node *p)
 
 void reverseDisplay(struct node *p)
 {
-    if(p == NULL){
-        return;
-    }
+    if(p == NULL) return;
     reverseDisplay(p->next);
     printf(" %d", p->data);
     return;
@@ -166,12 +152,9 @@ int main(void)
     printf("\nEnter an element to be searched : ");
     scanf("%d", &key);
     pos = linearSearch(first, key);
-    if(pos != 0){
-        printf("%d is found in position %d of the linked list\n", key, pos);
-    }
-    else{
-        printf("%d is not found in the linked list\n", key);
-    }
+
+    if(pos != 0) printf("%d is found in position %d of the linked list\n", key, pos);
+    else printf("%d is not found in the linked list\n", key);
 
     printf("\nEnter the position(1 to %d) and value to insert : ", count(first)+1);
     scanf("%d %d", &pos, &val);

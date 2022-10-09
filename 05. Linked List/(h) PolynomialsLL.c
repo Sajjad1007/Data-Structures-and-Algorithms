@@ -23,9 +23,7 @@ struct term *create()
         printf("Enter the coefficient and exponent for term %d : ", i);
         scanf("%d %d", &t->coef, &t->expo);
         t->next = NULL;
-        if(first == NULL){
-            first = last = t;
-        }
+        if(first == NULL) first = last = t;
         else{
             last->next = t;
             last = t;

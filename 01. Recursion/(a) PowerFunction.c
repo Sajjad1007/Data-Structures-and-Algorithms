@@ -6,20 +6,14 @@ int count2;
 int power1(int base, int pow)
 {
     ++count1;
-    if(pow == 0){
-        return 1;
-    }
-    else{
-        return base * power1(base, pow - 1);
-    }
+    if(pow == 0) return 1;
+    else return base * power1(base, pow - 1);
 }
 
 int power2(int base, int pow)
 {
     ++count2;
-    if(pow == 0){
-        return 1;
-    }
+    if(pow == 0) return 1;
     else if(pow % 2 == 0){
         return power2(base * base, pow / 2);
     }

@@ -79,9 +79,7 @@ void recursiveReverse(struct node *p, struct node *q)
         recursiveReverse(p->next, p);
         p->next = q;
     }
-    else{
-        first = q;
-    }
+    else first = q;
     return;
 }
 
@@ -110,9 +108,7 @@ int main(void)
         display(first);
         printf("\n");
     }
-    else{
-        printf("The linked list is not sorted\n");
-    }
+    else printf("The linked list is not sorted\n");
 
     reverse(first);
     printf("After reversing 1st time, linked list(using loop) :");

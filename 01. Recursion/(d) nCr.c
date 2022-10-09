@@ -5,9 +5,7 @@ int count;
 int C(int n, int r)
 {
     ++count;
-    if(r == 0 || n == r){
-        return 1;
-    }
+    if(r == 0 || n == r) return 1;
     else{ //(n+1)Cr = nCr + nC(r-1)
         return C(n-1, r) + C(n-1, r-1);
     }

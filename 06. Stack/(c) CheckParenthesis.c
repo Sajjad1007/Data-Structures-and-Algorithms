@@ -37,8 +37,7 @@ char pop()
 bool isBalanced(char *expr)
 {
     for(int i = 0; i < strlen(expr); i++){
-        if(expr[i] == '(' || expr[i] == '{' || expr[i] == '[')
-            push(expr[i]);
+        if(expr[i] == '(' || expr[i] == '{' || expr[i] == '[') push(expr[i]);
         else if(expr[i] == ')' || expr[i] == '}' || expr[i] == ']'){
             if(isEmpty()) return false;
             else{
@@ -58,11 +57,7 @@ int main(void)
     char expr[51];
     printf("Enter the algebraic expression (maximum 50 characters) : ");
     gets(expr);
-    if(isBalanced(expr)){
-        printf("\nBrackets are well balanced\n");
-    }
-    else{
-        printf("\nBrackets are not balanced\n");
-    }
+    if(isBalanced(expr)) printf("\nBrackets are well balanced\n");
+    else printf("\nBrackets are not balanced\n");
     return 0;
 }

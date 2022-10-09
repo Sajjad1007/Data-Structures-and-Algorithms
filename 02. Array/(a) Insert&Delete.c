@@ -62,9 +62,7 @@ int main(void)
         scanf("%d", &val);
         insert(&arr, pos-1, val); //position = index+1
     }
-    else{
-        printf("Invalid position");
-    }
+    else printf("Invalid position");
     display(arr);
 
     printf("\nEnter a position for deleting an element : ");
@@ -72,9 +70,7 @@ int main(void)
     if(pos > 0 && pos <= arr.length){
         delete(&arr, pos-1);
     }
-    else{
-        printf("Invalid position");
-    }
+    else printf("Invalid position");
     display(arr);
     return 0;
 }
