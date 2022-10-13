@@ -107,7 +107,8 @@ int main()
         return 0;
     }
 
-    arr = Array<float>(size);
+    arr = Array <float>(size);
+    cout << "\nThe array has been initialized\n" << endl;
     cout << "Enter " << length << " element(s) : ";
     for(int i = 0; i < length; i++){
         cin >> arr.A[i];
