@@ -111,13 +111,13 @@ int main()
                 cout << "Enter the element to be enqueued : ";
                 cin >> data;
                 s1.push(data);
-                cout << endl << data << " is enqueued successfully\n";
+                cout << '\n' << data << " is enqueued successfully\n";
                 printStack2(s2.getTop());
                 printStack1(s1.getTop());
-                cout << endl;
+                cout << '\n';
                 break;
             case 2:
-                if(!s2.isEmpty()) cout << "\nDeleted element is " << s2.pop() << endl;
+                if(!s2.isEmpty()) cout << "\nDeleted element is " << s2.pop() << '\n';
                 else if(!s1.isEmpty()){
                     while(!s1.isEmpty()) s2.push(s1.pop());
                     cout << "\nDeleted element is " << s2.pop();
@@ -127,16 +127,16 @@ int main()
                 else{
                     printStack2(s2.getTop());
                     printStack1(s1.getTop());
-                    cout << endl;
+                    cout << '\n';
                 }
                 break;
             case 3:
                 if(!s2.isEmpty()){
-                    cout << "\nThe front element is " << s2.getTopElement() << endl;
+                    cout << "\nThe front element is " << s2.getTopElement() << '\n';
                 }
                 else if(!s1.isEmpty()){
                     while(!s1.isEmpty()) s2.push(s1.pop());
-                    cout << "\nThe front element is " << s2.getTopElement() << endl;
+                    cout << "\nThe front element is " << s2.getTopElement() << '\n';
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
@@ -147,6 +147,6 @@ int main()
                 cout << "\nInvalid choice. Please try again.\n";
                 break;
         }
-        cout << endl;
+        cout << '\n';
     }
 }

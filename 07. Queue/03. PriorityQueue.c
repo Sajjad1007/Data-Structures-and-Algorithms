@@ -74,12 +74,12 @@ void printChoiceList()
 
 int main(void)
 {
-    int sz, choice, data, pos, prio;
+    int i, sz, choice, data, pos, prio;
     printf("Enter size of each queue = ");
     scanf("%d", &sz);
 
     q = (struct queue*)malloc(3*sizeof(struct queue));
-    for(int i = 0; i < 3; i++) create(&q[i], sz);
+    for(i = 0; i < 3; i++) create(&q[i], sz);
     printf("The queue has been initialized (with 1 to 3 priorities)\n\n");
 
     while(true){
@@ -118,4 +118,3 @@ int main(void)
         printf("\n");
     }
 }
-

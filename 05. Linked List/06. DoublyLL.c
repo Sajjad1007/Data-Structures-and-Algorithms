@@ -78,10 +78,10 @@ void delete(int pos)
         head->prev = NULL;
         printf("Deleted value : %d\n", p->data);
         free(p);
+        p = NULL;
     }
     else{
-        int i;
-        for(i = 1; i < pos; i++){
+        for(int i = 1; i < pos; i++){
             q = p;
             p = p->next;
         }
@@ -90,6 +90,7 @@ void delete(int pos)
         else tail = q;
         printf("Deleted value : %d\n", p->data);
         free(p);
+        p = NULL;
     }
     return;
 }

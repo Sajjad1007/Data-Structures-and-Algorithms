@@ -15,7 +15,7 @@ void getMaxMin(struct array arr, int* max, int* min)
     return;
 }
 
-//this function will find missing elements in a sorted array of n consecutive numbers
+//This function will find missing elements in a sorted array of n consecutive numbers
 void findMissingElementSorted(struct array arr)
 {
     int i, diff = arr.A[0];
@@ -39,7 +39,7 @@ void findMissingElementSorted(struct array arr)
     return;
 }
 
-//this function will find missing elements in both sorted and unsorted array
+//This function will find missing elements in both sorted and unsorted array
 void findMissingElementUnsorted(struct array arr)
 {
     int max, min, i;

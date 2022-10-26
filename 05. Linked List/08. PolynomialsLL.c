@@ -10,7 +10,7 @@ struct term{
 
 struct term *create()
 {
-    int n;
+    int n, i;
     struct term *t = NULL;
     struct term *first = NULL;
     struct term *last = NULL;
@@ -18,7 +18,7 @@ struct term *create()
     scanf("%d", &n);
     printf("\n");
 
-    for(int i = 1; i <= n; i++){
+    for(i = 1; i <= n; i++){
         t = (struct term*)malloc(sizeof(struct term));
         printf("Enter the coefficient and exponent for term %d : ", i);
         scanf("%d %d", &t->coef, &t->expo);

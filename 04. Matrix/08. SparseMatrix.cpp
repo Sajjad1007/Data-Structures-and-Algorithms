@@ -2,7 +2,7 @@
 
 using namespace std;
 
-struct Element
+struct element
 {
     int rowNo;
     int colNo;
@@ -16,14 +16,14 @@ public:
     int numberOfRows;
     int numberOfCols;
     int numberOfElements;
-    Element *e;
+    element *e;
 
     Sparse(int m, int n, int num)
     {
         numberOfRows = m;
         numberOfCols = n;
         numberOfElements = num;
-        e = new Element[num];
+        e = new element[num];
     }
 
     ~Sparse()
@@ -52,7 +52,7 @@ public:
                     cout << e[k++].value << " ";
                 else cout << 0 << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -64,7 +64,7 @@ Sparse addMatrices(Sparse s1, Sparse s2)
     Sparse sum(0, 0, 0);
     sum.numberOfRows = s1.numberOfRows;
     sum.numberOfCols = s1.numberOfCols;
-    sum.e = new Element[s1.numberOfElements+s2.numberOfElements];
+    sum.e = new element[s1.numberOfElements+s2.numberOfElements];
 
     int i = 0, j = 0, k = 0;
     while(i < s1.numberOfElements && j < s2.numberOfElements){

@@ -61,7 +61,7 @@ public:
                 cout.setf(ios::adjustfield);
                 cout << get(i, j) << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -70,19 +70,19 @@ public:
 
 int main()
 {
-    int dim, val;
+    int i, j, dim, val;
     cout << "Dimension of the toeplitz matrix : ";
     cin >> dim;
     Toeplitz t(dim);
 
     cout << "\nEnter the first row of the matrix :\n\n";
-    for(int j = 1; j <= dim; j++){
+    for(j = 1; j <= dim; j++){
         cin >> val;
         t.set(1, j, val);
     }
 
     cout << "\nEnter the first column of the matrix :\n\n";
-    for(int i = 1; i <= dim; i++){
+    for(i = 1; i <= dim; i++){
         cin >> val;
         t.set(i, 1, val);
     }

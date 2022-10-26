@@ -21,8 +21,8 @@ void setElement(struct array *ptr, int index, int val)
 
 int getMax(struct array arr)
 {
-    int max = arr.A[0];
-    for(int i = 1; i < arr.length; i++){
+    int i, max = arr.A[0];
+    for(i = 1; i < arr.length; i++){
         if(max < arr.A[i]) max = arr.A[i];
     }
     return max;
@@ -30,8 +30,8 @@ int getMax(struct array arr)
 
 int getMin(struct array arr)
 {
-    int min = arr.A[0];
-    for(int i = 1; i < arr.length; i++){
+    int i, min = arr.A[0];
+    for(i = 1; i < arr.length; i++){
         if(min > arr.A[i]) min = arr.A[i];
     }
     return min;
@@ -39,8 +39,8 @@ int getMin(struct array arr)
 
 int getSum(struct array arr)
 {
-    int sum = 0;
-    for(int i = 0; i < arr.length; i++) sum += arr.A[i];
+    int i, sum = 0;
+    for(i = 0; i < arr.length; i++) sum += arr.A[i];
     return sum;
 }
 

@@ -32,7 +32,7 @@ public:
     {
         if(i >= j) return arr[(i*(i-1)/2)+(j-1)]; //formula for storing in row major mapping
         /*
-        if we replace i with j in this formula we'll get the formula
+        If we replace i with j in this formula we'll get the formula
         for storing a upper triangular matrix in column major mapping
         */
         else return 0;
@@ -57,7 +57,7 @@ public:
                 cout.setf(ios::adjustfield);
                 cout << get(i, j) << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -66,14 +66,14 @@ public:
 
 int main()
 {
-    int dim, val;
+    int i, j, dim, val;
     cout << "Dimension of the lower triangular matrix : ";
     cin >> dim;
     LowerTriangular lt(dim);
 
     cout << "\nEnter the non-zero elements of the matrix :\n\n";
-    for(int i = 1; i <= dim; i++){
-        for(int j = 1; j <= i; j++){
+    for(i = 1; i <= dim; i++){
+        for(j = 1; j <= i; j++){
             cin >> val;
             lt.set(i, j, val);
         }

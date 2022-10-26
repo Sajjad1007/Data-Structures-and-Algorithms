@@ -103,7 +103,7 @@ public:
             cout  << " " << p->data;
             p = p->next;
         }
-        cout << endl;
+        cout << '\n';
         return;
     }
 
@@ -137,14 +137,14 @@ int main()
                     cout << "Enter the element to be pushed : ";
                     cin >> data;
                     st.push(data);
-                    cout << endl << data << " is pushed successfully\n";
+                    cout << '\n' << data << " is pushed successfully\n";
                     st.display();
                 }
                 else cout << "\nStack overflow\n";
                 break;
             case 2:
                 if(!st.isEmpty()){
-                    cout << "\nDeleted element is " << st.pop() << endl;
+                    cout << "\nDeleted element is " << st.pop() << '\n';
                     if(!st.isEmpty()) st.display();
                     else cout << "The stack is empty\n";
                 }
@@ -152,7 +152,7 @@ int main()
                 break;
             case 3:
                 if(!st.isEmpty()){
-                    cout << "\nThe topmost element is " << st.getTopElement() << endl;
+                    cout << "\nThe topmost element is " << st.getTopElement() << '\n';
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
@@ -161,7 +161,7 @@ int main()
                     cout << "Enter the position : ";
                     cin >> pos;
                     if(pos > st.Count() || pos < 1) cout << "\nInvalid position\n";
-                    else cout << "\nThe element at position " << pos << " is " << st.peek(pos) << endl;
+                    else cout << "\nThe element at position " << pos << " is " << st.peek(pos) << '\n';
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
@@ -172,6 +172,6 @@ int main()
                 cout << "\nInvalid choice. Please try again.\n";
                 break;
         }
-        cout << endl;
+        cout << '\n';
     }
 }

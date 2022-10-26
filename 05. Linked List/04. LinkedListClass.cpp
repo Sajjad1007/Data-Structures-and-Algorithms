@@ -110,7 +110,7 @@ public:
         else if(pos == 1){
             p = first;
             first = first->next;
-            cout << "Deleted value : " << p->data << endl;
+            cout << "Deleted value : " << p->data << '\n';
             delete p;
         }
         else{
@@ -119,7 +119,7 @@ public:
                 p = p->next;
             }
             q->next = p->next;
-            cout << "Deleted value : " << p->data << endl;
+            cout << "Deleted value : " << p->data << '\n';
             delete p;
         }
         return;
@@ -152,11 +152,11 @@ int main()
     LinkedList List(arr, 5);
     cout << "The linked list :";
     List.display();
-    if(List.isLoop()) cout << " (a loop)" << endl;
-    else cout << " (not a loop)" << endl;
+    if(List.isLoop()) cout << " (a loop)" << '\n';
+    else cout << " (not a loop)" << '\n';
     cout << "The reversed linked list :";
     List.reverseDisplay(List.getFirst());
-    cout << "\nNumber of nodes = " << List.Count() << endl;
+    cout << "\nNumber of nodes = " << List.Count() << '\n';
 
     cout << "\nEnter the position(1 to 6) and value to insert : ";
     cin >> pos >> val;
@@ -168,6 +168,6 @@ int main()
     List.Delete(pos);
     cout << "The linked list :";
     List.display();
-    cout << endl;
+    cout << '\n';
     return 0;
 }

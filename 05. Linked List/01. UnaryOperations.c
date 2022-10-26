@@ -62,7 +62,7 @@ int getMax(struct node *p)
     }
 }
 
-//we can improve this linear search by using 'Transposition' or 'Move-to-head' technique just like arrays
+//We can improve this linear search by using 'Transposition' or 'Move-to-head' technique just like arrays
 int linearSearch(struct node *p, int key)
 {
     static int pos = 1;

@@ -9,8 +9,8 @@ int lengthOf(char str[])
 
 int countWords(char str[])
 {
-    int cnt = 1;
-    for(int i = 0; str[i] != '\0'; i++){ //'\0' is sometimes called as 'string delimiter'
+    int i, cnt = 1;
+    for(i = 0; str[i] != '\0'; i++){ //'\0' is sometimes called as 'string delimiter'
         if(str[i] == ' ' && (str[i+1] != ' ' && str[i+1] != '\0')) cnt++;
     }
     return cnt;

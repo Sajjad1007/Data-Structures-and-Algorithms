@@ -48,7 +48,7 @@ public:
                 cout.setf(ios::adjustfield);
                 cout << get(i, j) << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -57,13 +57,13 @@ public:
 
 int main()
 {
-    int dim, val;
+    int i, dim, val;
     cout << "Dimension of the diagonal matrix : ";
     cin >> dim;
     Diagonal d(dim);
 
     cout << "\nEnter the diagonal elements of the matrix :\n\n";
-    for(int i = 1; i <= dim; i++){
+    for(i = 1; i <= dim; i++){
         cin >> val;
         d.set(i, i, val);
     }

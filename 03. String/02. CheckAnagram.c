@@ -1,7 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-//Anagram are two set of strings which are formed using same set of alphabets
+//Anagrams are two set of strings which are formed using same set of alphabets
 void isAnagram(char str1[], char str2[])
 {
     int i, sum = 0, hash[26] = {0};

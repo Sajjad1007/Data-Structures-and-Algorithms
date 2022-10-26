@@ -17,6 +17,32 @@ private:
     node *root;
     queue <node*> q;
 
+    int countNodes(node *p)
+    {
+        if(p) return countNodes(p->lchild) + countNodes(p->rchild) + 1;
+        else return 0;
+    }
+
+    int countExternalNodes(node *p)
+    {
+        if(p == nullptr) return 0;
+        if(p->lchild == nullptr && p->rchild == nullptr)
+            return countExternalNodes(p->lchild) + countExternalNodes(p->rchild) + 1;
+        else return countExternalNodes(p->lchild) + countExternalNodes(p->rchild);
+    }
+
+    int countHeight(node *p)
+    {
+        int l = 0, r = 0;
+        if(p == nullptr) return 0;
+        else{
+            l = countHeight(p->lchild);
+            r = countHeight(p->rchild);
+            if(l > r) return l+1;
+            else return r+1;
+        }
+    }
+
     void postorder(node *p)
     {
         if(p != NULL){
@@ -49,13 +75,12 @@ public:
         node *p = nullptr;
         node *t = nullptr;
 
-        cout << "The tree has been initialized\n" << endl;
+        cout << "The tree has been initialized\n\n";
         cout << "Enter root : " << flush;
         cin >> data;
         root = new node;
         root->data = data;
-        root->lchild = nullptr;
-        root->rchild = nullptr;
+        root->lchild = root->rchild = nullptr;
         q.push(root);
 
         while(!q.empty()){
@@ -85,36 +110,25 @@ public:
         return;
     }
 
-    int countNodes(node *p)
+    int countNodes()
     {
-        if(p) return countNodes(p->lchild) + countNodes(p->rchild) + 1;
-        else return 0;
+        return countNodes(root);
     }
 
-    int countExternalNodes(node *p)
+    int countExternalNodes()
     {
-        if(p == nullptr) return 0;
-        if(p->lchild == nullptr && p->rchild == nullptr)
-            return countExternalNodes(p->lchild) + countExternalNodes(p->rchild) + 1;
-        else return countExternalNodes(p->lchild) + countExternalNodes(p->rchild);
+        return countExternalNodes(root);
     }
 
-    int countHeight(node *p)
+    int countHeight()
     {
-        int l = 0, r = 0;
-        if(p == nullptr) return 0;
-        else{
-            l = countHeight(p->lchild);
-            r = countHeight(p->rchild);
-            if(l > r) return l+1;
-            else return r+1;
-        }
+        return countHeight(root);
     }
 
     /*
-    total number of iterative calls = n
-    time complexity of the traversals is O(n)
-    size of the stack of recursive calls in memory = h+1
+    Total number of iterative calls = n
+    Time complexity of the traversals is O(n)
+    Size of the stack of recursive calls in memory = h+1
     */
     void preorder()
     {
@@ -188,11 +202,10 @@ int main()
 {
     Tree t;
     t.createTree();
-    cout << "\n\nNumber of nodes = " << t.countNodes(t.getRoot()) << endl;
-    cout << "External nodes = " << t.countExternalNodes(t.getRoot()) << endl;
-    cout << "Internal nodes = " << t.countNodes(t.getRoot())
-            - t.countExternalNodes(t.getRoot()) << endl;
-    cout << "Height = " << t.countHeight(t.getRoot())-1 << endl;
+    cout << "\n\nNumber of nodes = " << t.countNodes() << '\n';
+    cout << "External nodes = " << t.countExternalNodes() << '\n';
+    cout << "Internal nodes = " << t.countNodes() - t.countExternalNodes() << '\n';
+    cout << "Height = " << t.countHeight()-1 << '\n';
 
     cout << "\nPre-order   traversal : ";
     t.preorder();
@@ -202,6 +215,6 @@ int main()
     t.postorder();
     cout << "\nLevel-order traversal : ";
     t.levelorder();
-    cout << endl;
+    cout << '\n';
     return 0;
 }

@@ -57,7 +57,7 @@ public:
                 cout.setf(ios::adjustfield);
                 cout << get(i, j) << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -66,27 +66,27 @@ public:
 
 int main()
 {
-    int dim, val;
+    int i, j, dim, val;
     cout << "Dimension of the tri-diagonal matrix : ";
     cin >> dim;
     TriDiagonal td(dim);
 
     cout << "\nEnter the lower diagonal elements of the matrix :\n\n";
-    for(int i = 2, j = 1; i <= dim; i++){
+    for(i = 2, j = 1; i <= dim; i++){
         cin >> val;
         td.set(i, j, val);
         j++;
     }
 
     cout << "\nEnter the diagonal elements of the matrix :\n\n";
-    for(int i = 1, j = 1; i <= dim; i++){
+    for(i = 1, j = 1; i <= dim; i++){
         cin >> val;
         td.set(i, j, val);
         j++;
     }
 
     cout << "\nEnter the upper diagonal elements of the matrix :\n\n";
-    for(int i = 1, j = 2; i < dim; i++){
+    for(i = 1, j = 2; i < dim; i++){
         cin >> val;
         td.set(i, j, val);
         j++;

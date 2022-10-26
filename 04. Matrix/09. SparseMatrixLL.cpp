@@ -48,9 +48,9 @@ public:
 
     void create()
     {
-        int row, col, val;
+        int i, row, col, val;
         cout << "\nEnter row no, column no and non-zero elements :\n\n";
-        for(int i = 0; i < numberOfNodes; i++){
+        for(i = 0; i < numberOfNodes; i++){
             cin >> row >> col >> val;
             node *p = arr[row-1];
             if(p == nullptr) arr[row-1] = new node(col, val);
@@ -76,7 +76,7 @@ public:
                 }
                 else cout << 0 << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }

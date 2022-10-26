@@ -36,8 +36,8 @@ int main(void)
     printf("Enter the value of n = ");
     scanf("%d", &n);
 
-    int f[n];
-    for(int i = 0; i < n; ++i) f[i] = -1;
+    int i, f[n];
+    for(i = 0; i < n; ++i) f[i] = -1;
 
     printf("\n%dth term of the fibonacci series = %d\n", n, fibo(n));
     printf("Total function call = %d\n", count1);

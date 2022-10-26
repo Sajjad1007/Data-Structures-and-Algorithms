@@ -112,7 +112,7 @@ public:
             cout  << " " << p->data;
             p = p->next;
         }
-        cout << endl;
+        cout << '\n';
         return;
     }
 
@@ -146,14 +146,14 @@ int main()
                     cout << "Enter the element to be enqueued : ";
                     cin >> data;
                     q.enqueue(data);
-                    cout << endl << data << " is enqueued successfully\n";
+                    cout << '\n' << data << " is enqueued successfully\n";
                     q.display();
                 }
                 else cout << "\nQueue overflow\n";
                 break;
             case 2:
                 if(!q.isEmpty()){
-                    cout << "\nDeleted element is " << q.dequeue() << endl;
+                    cout << "\nDeleted element is " << q.dequeue() << '\n';
                     if(!q.isEmpty()) q.display();
                     else cout << "The queue is empty\n";
                 }
@@ -161,7 +161,7 @@ int main()
                 break;
             case 3:
                 if(!q.isEmpty()){
-                    cout << "\nThe front element is " << q.getFrontElement() << endl;
+                    cout << "\nThe front element is " << q.getFrontElement() << '\n';
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
@@ -171,7 +171,7 @@ int main()
                     cin >> pos;
                     if(pos > q.Count() || pos < 1) cout << "\nInvalid position\n";
                     else{
-                        cout << "\nThe element at position " << pos << " is " << q.peek(pos) << endl;
+                        cout << "\nThe element at position " << pos << " is " << q.peek(pos) << '\n';
                     }
                 }
                 else cout << "\nThe queue is empty\n";
@@ -183,6 +183,6 @@ int main()
                 cout << "\nInvalid choice. Please try again.\n";
                 break;
         }
-        cout << endl;
+        cout << '\n';
     }
 }

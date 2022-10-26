@@ -7,7 +7,7 @@ bool flag[5]; //ith flag will track whether ith str stored in res or not
 char res[6]; //this will be used for printing permutations of strings
 
 /*
-here the backtracking approach is used for finding permutations of the string
+Here the backtracking approach is used for finding permutations of the string
 after doing some operations, going back and taking another possible root is called backtracking
 */
 void printPermutations(char str[], int k)

@@ -54,11 +54,11 @@ int main(void)
     arr.A = (int*)malloc(arr.size*sizeof(int));
     arr.length = 0;
 
-    int n;
+    int i, n;
     printf("Number of elements = ");
     scanf("%d", &n);
     printf("Enter the element(s) : ");
-    for(int i = 0; i < n; i++){
+    for(i = 0; i < n; i++){
         scanf("%d", &arr.A[i]);
         arr.length++;
     }

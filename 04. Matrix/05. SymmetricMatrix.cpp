@@ -62,7 +62,7 @@ public:
                 cout.setf(ios::adjustfield);
                 cout << get(i, j) << " ";
             }
-            cout << endl;
+            cout << '\n';
         }
         return;
     }
@@ -71,14 +71,14 @@ public:
 
 int main()
 {
-    int dim, val;
+    int i, j, dim, val;
     cout << "Dimension of the symmetric matrix : ";
     cin >> dim;
     Symmetric s(dim);
 
     cout << "\nEnter the lower diagonal elements of the matrix :\n\n";
-    for(int i = 1; i <= dim; i++){
-        for(int j = 1; j <= i; j++){
+    for(i = 1; i <= dim; i++){
+        for(j = 1; j <= i; j++){
             cin >> val;
             s.set(i, j, val);
         }
