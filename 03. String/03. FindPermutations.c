@@ -18,7 +18,8 @@ void printPermutations(char str[], int k)
         printf("%d. %s\n", ++count, res);
     }
     else{
-        for(i = 0; i < strlen(str); i++){
+        int len = strlen(str);
+        for(i = 0; i < len; i++){
             if(flag[i] == false){
                 res[k] = str[i];
                 flag[i] = true;

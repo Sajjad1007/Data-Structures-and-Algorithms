@@ -26,10 +26,9 @@ void createTree()
     root->lchild = root->rchild = NULL;
     enqueue(&q, root);
 
-    while(!isEmpty(q)){
+    while(!isEmpty(&q)){
         p = dequeue(&q);
-        printf("\nCount = %d\n", countElement(&q)); //Count = number of elements in the queue
-
+        printf("\nNumber of elements in the queue = %d\n", countElement(&q));
 
         printf("Enter left  child (non-zero value) of %d : ", p->data);
         scanf("%d", &data);
@@ -41,7 +40,7 @@ void createTree()
             enqueue(&q, t);
         }
 
-        if(!isFull(q)){
+        if(!isFull(&q)){
             printf("Enter right child (non-zero value) of %d : ", p->data);
             scanf("%d", &data);
             if(data != 0){
@@ -125,7 +124,7 @@ void levelorder()
     printf(" %d", root->data);
     enqueue(&lq, root);
 
-    while(!isEmpty(lq)){
+    while(!isEmpty(&lq)){
         root = dequeue(&lq);
 
         if(root->lchild != NULL){

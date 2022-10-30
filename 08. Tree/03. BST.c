@@ -72,7 +72,7 @@ struct node *delete(struct node *p, int key)
     else if(key < p->data) p->lchild = delete(p->lchild, key);
     else if(key > p->data) p->rchild = delete(p->rchild, key);
     else{
-        if(heightOf(p->lchild) > heightOf(p->rchild)){
+        if(heightOf(p->lchild) >= heightOf(p->rchild)){
             struct node *q = inorderPredecessor(p->lchild);
             p->data = q->data;
             p->lchild = delete(p->lchild, q->data);

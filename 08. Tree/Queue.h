@@ -8,7 +8,7 @@ struct queue{
     int size;
     int front;
     int rear;
-    struct node **Q; //pointer to an array of pointers
+    struct node **Q; //pointer to an array of node pointers
 };
 
 void createQueue(struct queue *q, int sz)
@@ -19,15 +19,15 @@ void createQueue(struct queue *q, int sz)
     return;
 }
 
-bool isEmpty(struct queue q)
+bool isEmpty(struct queue *q)
 {
-    if(q.front == -1) return true;
+    if(q->front == -1) return true;
     else return false;
 }
 
-bool isFull(struct queue q)
+bool isFull(struct queue *q)
 {
-    if((q.front == 0 && q.rear == q.size-1) || (q.front == q.rear+1)) return true;
+    if((q->front == 0 && q->rear == q->size-1) || (q->front == q->rear+1)) return true;
     else return false;
 }
 

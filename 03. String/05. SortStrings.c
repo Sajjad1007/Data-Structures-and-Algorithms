@@ -30,7 +30,7 @@ int main(void)
     do{
         printf("string %d: ", i+1);
         scanf("%s", x[i++]);
-    }while(i < n);
+    } while(i < n);
 
     reorder(n, x);
     printf("\nReordered list of strings:\n\n");

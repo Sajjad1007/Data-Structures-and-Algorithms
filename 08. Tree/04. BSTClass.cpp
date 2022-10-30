@@ -61,7 +61,7 @@ private:
         else if(key < p->data) p->lchild = Delete(p->lchild, key);
         else if(key > p->data) p->rchild = Delete(p->rchild, key);
         else{
-            if(height(p->lchild) > height(p->rchild)){
+            if(height(p->lchild) >= height(p->rchild)){
                 node *q = inorderPredecessor(p->lchild);
                 p->data = q->data;
                 p->lchild = Delete(p->lchild, q->data);

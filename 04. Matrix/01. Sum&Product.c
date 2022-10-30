@@ -38,7 +38,6 @@ void readInput(int a[][dim])
     printf("\n");
     for(int row = 0; row < dim; ++row){
         printf("Enter data for row %d : ", row+1);
-
         for(int col = 0; col < dim; ++col){
             scanf("%d", &a[row][col]);
         }
