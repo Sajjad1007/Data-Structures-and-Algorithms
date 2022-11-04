@@ -1,4 +1,12 @@
-//Time Complexity of Heap sort = O(nlogn)
+/*
+1. Comparison based sorting technique
+2. Not adaptive(takes greater amount of time over already sorted list)
+3. Not stable(changes the relative order of duplicate elements after sorting)
+4. Extra memory not required
+5. Maximum number of comparisons = O(nlogn)
+6. Maximum number of swaps = O(nlogn)
+7. Best case time O(nlogn)
+*/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -19,7 +27,7 @@ void insert(int i)
 {
     int temp = p[i];
     while (i > 1 && temp > p[i/2]){ //for min heap, we have to place '<' in this line
-        p[i] = p[i/2]; //we are assuming that index starts from 1
+        p[i] = p[i/2]; //elements are stored from index 1
         i = i/2;
     }
     p[i] = temp;
@@ -31,7 +39,7 @@ void heapify(int n)
 {
     int i, j;
     for(i = n/2; i >= 1; i--){
-        j = 2*i; //left child p[i]
+        j = 2*i; //left child q[i]
         while(j <= n-1){
             if(q[j] < q[j+1]) j++; //compare left and right children of q[i]
             if(q[i] < q[j]){ //compare parent and largest child

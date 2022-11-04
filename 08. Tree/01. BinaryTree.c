@@ -84,7 +84,7 @@ int countHeight(struct node *p)
 
 /*
 Total number of recursive calls = (2n+1)
-Time complexity of the traversals is O(n)
+Time complexity of the traversals = O(n)
 Size of the stack of recursive calls in memory = h+2
 */
 void preorder(struct node *p)

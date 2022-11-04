@@ -7,7 +7,7 @@ e ^ x = 1 + x / 1(1 + x / 2(1 + x / 3( ... n terms)))
 
 #include <stdio.h>
 
-//General rule, time complexity O(n)
+//General rule, time complexity = O(n)
 int count1 = 0;
 
 double e(int x, int n)
@@ -25,7 +25,7 @@ double e(int x, int n)
     }
 }
 
-//Horner's rule, time complexity O(n)
+//Horner's rule, time complexity = O(n)
 int count2 = 0;
 
 double e_Horner(int x, int n)

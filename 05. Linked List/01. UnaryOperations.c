@@ -1,6 +1,6 @@
 /*
 Here recursive version of each functions are demonstrated
-Space complexity of traversing a linked list with recursion in O(n)
+Space complexity of traversing a linked list with recursion is O(n)
 */
 
 #include <stdio.h>

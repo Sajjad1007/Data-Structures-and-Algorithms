@@ -3,7 +3,7 @@
 int count;
 int steps;
 
-//Time complexity O(2^n)
+//Time complexity = O(2^n)
 void towerOfHanoi(int n, char a, char b, char c)
 {
     ++count;

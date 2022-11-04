@@ -63,10 +63,10 @@ void insert(int key)
 
 struct node *delete(struct node *p, int key)
 {
-    if(p == NULL); //tree has no nodes
+    if(p == NULL);
     else if(key == p->data && p->lchild == NULL && p->rchild == NULL){
         if(p == root) root = NULL;
-        free(p); //node has been deleted
+        free(p);
         p = NULL;
     }
     else if(key < p->data) p->lchild = delete(p->lchild, key);

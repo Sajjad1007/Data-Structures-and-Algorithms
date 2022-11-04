@@ -9,7 +9,7 @@ Fibonacci Series
 int count1;
 int count2;
 
-int fibo(int n) //time complexity O(2^n)
+int fibo(int n) //time complexity = O(2^n)
 {
     ++count1;
     if(n <= 1) return n;
@@ -17,7 +17,7 @@ int fibo(int n) //time complexity O(2^n)
 }
 
 //This process is called "Memorization"
-int mfibo(int n, int f[]) //time complexity O(n)
+int mfibo(int n, int f[]) //time complexity = O(n)
 {
     ++count2;
     if(n <= 1){

@@ -1,4 +1,4 @@
-//For binary search in a linked list, time complexity is O(nlogn)
+//For binary search in a linked list, time complexity = O(nlogn)
 
 #include <stdio.h>
 #include <stdlib.h>

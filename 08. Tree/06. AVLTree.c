@@ -118,10 +118,10 @@ struct node *insert(struct node *p, int key)
 
 struct node *delete(struct node *p, int key)
 {
-    if(p == NULL) return p; //tree has no nodes
+    if(p == NULL) return p;
     else if(key == p->data && p->lchild == NULL && p->rchild == NULL){
         if(p == root) root = NULL;
-        free(p); //node has been deleted
+        free(p);
         p = NULL;
         return p;
     }
@@ -183,17 +183,17 @@ int main(void)
         root = insert(root, key);
     }
 
-    printf("\nPre-order traversal of BST :");
+    printf("\nPre-order traversal of AVL tree :");
     preorder(root);
-    printf("\nIn-order traversal of BST  :");
+    printf("\nIn-order traversal of AVL tree  :");
     inorder(root);
 
     printf("\n\nEnter a value to delete : ");
     scanf("%d", &key);
     root = delete(root, key);
-    printf("\nPre-order traversal of BST :");
+    printf("\nPre-order traversal of AVL tree :");
     preorder(root);
-    printf("\nIn-order traversal of BST  :");
+    printf("\nIn-order traversal of AVL tree  :");
     inorder(root);
     printf("\n");
     return 0;

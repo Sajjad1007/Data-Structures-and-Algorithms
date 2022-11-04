@@ -52,10 +52,10 @@ private:
 
     node *Delete(node *p, int key)
     {
-        if(p == nullptr); //tree has no nodes
+        if(p == nullptr);
         else if(key == p->data && p->lchild == nullptr && p->rchild == nullptr){
             if(p == root) root = nullptr;
-            delete p; //node has been deleted
+            delete p;
             p = nullptr;
         }
         else if(key < p->data) p->lchild = Delete(p->lchild, key);

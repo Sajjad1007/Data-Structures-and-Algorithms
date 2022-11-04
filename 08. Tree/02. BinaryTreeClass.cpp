@@ -127,7 +127,7 @@ public:
 
     /*
     Total number of iterative calls = n
-    Time complexity of the traversals is O(n)
+    Time complexity of the traversals = O(n)
     Size of the stack of recursive calls in memory = h+1
     */
     void preorder()

@@ -8,7 +8,7 @@ struct node *root = NULL;
 void createBST(int *nodes, int n)
 {
     int i = 0;
-    root = (struct node*)malloc(sizeof(struct node)); //root node created
+    root = (struct node*)malloc(sizeof(struct node));
     root->data = nodes[i++];
     root->lchild = root->rchild = NULL;
 

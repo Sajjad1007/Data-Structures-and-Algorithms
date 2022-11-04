@@ -22,9 +22,9 @@ int linearSearch(struct array *ptr, int key)
         if(key == ptr->A[i]){
             /** 2 time shortening technique for further searching
             (a) Transposition
-                swap(&ptr->A[i], &ptr->A[i-1];
+                swap(&ptr->A[i], &ptr->A[i-1]);
             (b) Move-to-head
-                swap(&ptr->A[i], &ptr->A[0];
+                swap(&ptr->A[i], &ptr->A[0]);
             **/
             return i;
         }
