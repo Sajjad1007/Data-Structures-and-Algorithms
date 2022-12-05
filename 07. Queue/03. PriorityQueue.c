@@ -99,6 +99,7 @@ int main(void)
                 else printf("\nPriority-%d queue overflow\n", prio);
                 display();
                 break;
+
             case 2:
                 for(int i = 0; i < 3; i++){
                     if(!isEmpty(q[i])){
@@ -108,9 +109,11 @@ int main(void)
                 }
                 display();
                 break;
+
             case 3:
                 printf("\nFee Amanillah\n");
                 return 0;
+
             default:
                 printf("\nInvalid choice. Please try again.\n");
                 break;

@@ -151,6 +151,7 @@ int main()
                 }
                 else cout << "\nQueue overflow\n";
                 break;
+
             case 2:
                 if(!q.isEmpty()){
                     cout << "\nDeleted element is " << q.dequeue() << '\n';
@@ -159,12 +160,14 @@ int main()
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
+
             case 3:
                 if(!q.isEmpty()){
                     cout << "\nThe front element is " << q.getFrontElement() << '\n';
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
+
             case 4:
                 if(!q.isEmpty()){
                     cout << "Enter the position : ";
@@ -176,9 +179,11 @@ int main()
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
+
             case 5:
                 cout << "\nFee Amanillah\n";
                 return 0;
+
             default:
                 cout << "\nInvalid choice. Please try again.\n";
                 break;

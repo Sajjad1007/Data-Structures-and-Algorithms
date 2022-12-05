@@ -103,6 +103,7 @@ int main(void)
                 }
                 else printf("\nQueue overflow\n");
                 break;
+
             case 2:
                 if(!isEmpty()){
                     printf("\nDeleted element is %d\n", dequeue());
@@ -111,10 +112,12 @@ int main(void)
                 }
                 else printf("\nThe queue is empty\n");
                 break;
+
             case 3:
                 if(!isEmpty()) printf("\nThe front element is %d\n", queueFront());
                 else printf("\nThe queue is empty\n");
                 break;
+
             case 4:
                 if(!isEmpty()){
                     printf("Enter the position : ");
@@ -124,9 +127,11 @@ int main(void)
                 }
                 else printf("\nThe queue is empty\n");
                 break;
+
             case 5:
                 printf("\nFee Amanillah\n");
                 return 0;
+
             default:
                 printf("\nInvalid choice. Please try again.\n");
                 break;

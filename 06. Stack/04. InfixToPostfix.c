@@ -114,15 +114,19 @@ int postfixEvaluation(char *postfix)
             case '+':
                 push(a+b);
                 break;
+
             case '-':
                 push(a-b);
                 break;
+
             case '*':
                 push(a*b);
                 break;
+
             case '/':
                 push(a/b);
                 break;
+
             case '^':
                 push(pow(a,b));
                 break;

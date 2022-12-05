@@ -92,6 +92,7 @@ int main(void)
                 }
                 else printf("\nStack overflow\n");
                 break;
+
             case 2:
                 if(!isEmpty()){
                     printf("\nDeleted element is %d\n", pop());
@@ -100,10 +101,12 @@ int main(void)
                 }
                 else printf("\nThe stack is empty\n");
                 break;
+
             case 3:
                 if(!isEmpty()) printf("\nThe topmost element is %d\n", topElement());
                 else printf("\nThe stack is empty\n");
                 break;
+
             case 4:
                 if(!isEmpty()){
                     printf("Enter the position : ");
@@ -113,9 +116,11 @@ int main(void)
                 }
                 else printf("\nThe stack is empty\n");
                 break;
+
             case 5:
                 printf("\nFee Amanillah\n");
                 return 0;
+
             default:
                 printf("\nInvalid choice. Please try again.\n");
                 break;

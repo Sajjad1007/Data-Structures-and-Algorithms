@@ -142,6 +142,7 @@ int main()
                 }
                 else cout << "\nStack overflow\n";
                 break;
+
             case 2:
                 if(!st.isEmpty()){
                     cout << "\nDeleted element is " << st.pop() << '\n';
@@ -150,12 +151,14 @@ int main()
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
+
             case 3:
                 if(!st.isEmpty()){
                     cout << "\nThe topmost element is " << st.getTopElement() << '\n';
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
+
             case 4:
                 if(!st.isEmpty()){
                     cout << "Enter the position : ";
@@ -165,9 +168,11 @@ int main()
                 }
                 else cout << "\nThe stack is empty\n";
                 break;
+
             case 5:
                 cout << "\nFee Amanillah\n";
                 return 0;
+
             default:
                 cout << "\nInvalid choice. Please try again.\n";
                 break;

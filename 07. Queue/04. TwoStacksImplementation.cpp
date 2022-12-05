@@ -116,6 +116,7 @@ int main()
                 printStack1(s1.getTop());
                 cout << '\n';
                 break;
+
             case 2:
                 if(!s2.isEmpty()) cout << "\nDeleted element is " << s2.pop() << '\n';
                 else if(!s1.isEmpty()){
@@ -130,6 +131,7 @@ int main()
                     cout << '\n';
                 }
                 break;
+
             case 3:
                 if(!s2.isEmpty()){
                     cout << "\nThe front element is " << s2.getTopElement() << '\n';
@@ -140,9 +142,11 @@ int main()
                 }
                 else cout << "\nThe queue is empty\n";
                 break;
+
             case 4:
                 cout << "\nFee Amanillah\n";
                 return 0;
+
             default:
                 cout << "\nInvalid choice. Please try again.\n";
                 break;
