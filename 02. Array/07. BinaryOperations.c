@@ -137,8 +137,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 Set A : {1, 3, 5, 7, 9}
 Set B : {1, 2, 3, 4, 5}
 

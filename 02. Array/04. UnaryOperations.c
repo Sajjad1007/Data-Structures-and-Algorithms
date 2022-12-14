@@ -95,8 +95,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 The array : 2 3 4 5 6
 
 Enter a position for getting the element : 4

@@ -44,7 +44,7 @@ double e_Horner(int x, int n)
 int main(void)
 {
     int x, n;
-    printf("Enter power = ");
+    printf("Enter power of e = ");
     scanf("%d", &x);
     printf("How many terms ? ");
     scanf("%d", &n);
@@ -57,3 +57,14 @@ int main(void)
     printf("Total multiplications = %d\n", count2);
     return 0;
 }
+
+/*
+Enter power of e = 8
+How many terms ? 30
+
+General rule : e ^ 8 = 2980.96
+Total multiplications = 60
+
+Horner's rule : e ^ 8 = 2980.96
+Total multiplications = 30
+*/

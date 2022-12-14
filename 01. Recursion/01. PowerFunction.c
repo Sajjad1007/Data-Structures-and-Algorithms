@@ -41,3 +41,20 @@ int main(void)
     printf("Count = %d\n", count2);
     return 0;
 }
+
+/*
+Enter base  = 3
+Enter power = 15
+
+
+First  power function called...
+
+3 ^ 15 = 14348907
+Count = 16
+
+
+Second power function called...
+
+3 ^ 15 = 14348907
+Count = 5
+*/

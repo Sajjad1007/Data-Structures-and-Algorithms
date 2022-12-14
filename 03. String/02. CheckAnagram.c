@@ -35,3 +35,10 @@ int main(void)
     isAnagram(str1, str2);
     return 0;
 }
+
+/*
+Enter 1st string (in lowercase) : a gentleman
+Enter 2nd string (in lowercase) : elegant man
+
+The strings are anagram
+*/

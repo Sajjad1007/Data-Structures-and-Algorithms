@@ -27,3 +27,18 @@ int main(void)
     printf("\nTotal steps = %d\n", steps);
     return 0;
 }
+
+/*
+How many disks ? 3
+
+Move from A to C
+Move from A to B
+Move from C to B
+Move from A to C
+Move from B to A
+Move from B to C
+Move from A to C
+
+Total function call = 15
+Total steps = 7
+*/

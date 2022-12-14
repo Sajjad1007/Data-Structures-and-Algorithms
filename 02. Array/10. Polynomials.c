@@ -102,8 +102,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 For 1st polynomial, enter the number of terms = 3
 
 Enter the coefficient and exponent for term 1 : 1 2

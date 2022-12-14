@@ -76,8 +76,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 Size of the array = 10
 Number of elements = 5
 Enter the element(s) : 1 2 3 4 5

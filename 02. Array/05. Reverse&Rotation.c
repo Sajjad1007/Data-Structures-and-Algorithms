@@ -67,8 +67,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 Before reversing, the array : 2 3 4 5 6
 After reversing,  the array : 6 5 4 3 2
 

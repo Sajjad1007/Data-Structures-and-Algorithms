@@ -85,8 +85,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 Before insertion, array 1 : 2 3 6 10 15 19 22 24 27
 This array is sorted.
 

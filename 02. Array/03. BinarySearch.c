@@ -69,8 +69,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 The array : 2 3 4 5 6
 
 Enter an element for searching : 4

@@ -25,3 +25,10 @@ int main(void)
     printf("Total function call = %d\n", count);
     return 0;
 }
+
+/*
+Enter the value of n and r : 10 5
+
+10C5 = 252
+Total function call = 503
+*/

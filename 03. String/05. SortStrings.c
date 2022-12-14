@@ -37,3 +37,19 @@ int main(void)
     for(i = 0; i < n; ++i) printf("string %d: %s\n", i+1, x[i]);
     return 0;
 }
+
+/*
+How many strings? 3
+
+Enter each string on a separate line below
+
+string 1: cse
+string 2: swe
+string 3: eee
+
+Reordered list of strings:
+
+string 1: cse
+string 2: eee
+string 3: swe
+*/

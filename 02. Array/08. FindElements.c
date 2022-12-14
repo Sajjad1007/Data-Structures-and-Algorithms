@@ -71,7 +71,7 @@ void getDuplicatesSorted(struct array arr)
         if(arr.A[i] == arr.A[i+1]){
             j = i+1;
             while(arr.A[i] == arr.A[j]) j++; //j will be increased until we get a new element
-            printf("  %d (%d times)", arr.A[i], j-i);
+            printf(" %d (%d times) ", arr.A[i], j-i);
             i = j-1;
         }
     }
@@ -90,7 +90,7 @@ void getDuplicatesUnsorted(struct array arr)
     for(i = 0; i < arr.size; i++) hash[arr.A[i]]++;
     for(i = min; i <= max; i++){
         if(hash[i] > 1){
-            printf("  %d (%d times)", i, hash[i]);
+            printf(" %d (%d times) ", i, hash[i]);
         }
     }
     printf("\n\n");
@@ -180,8 +180,6 @@ int main(void)
 }
 
 /*
-interactive console window:
-
 The sorted array   : 6 7 8 9 10 11 13 14 15 16
 Missing element(s) : 12
 
@@ -189,10 +187,10 @@ The unsorted array : 3 7 4 9 12 6 1 11 2 10
 Missing element(s) : 5 8
 
 The sorted array     : 3 6 8 8 10 12 15 15 15 20
-Duplicate element(s) :  8 (2 times)  15 (3 times)
+Duplicate element(s) : 8 (2 times)  15 (3 times)
 
 The unsorted array   : 8 3 6 4 6 5 6 8 2 7
-Duplicate element(s) :  6 (3 times)  8 (2 times)
+Duplicate element(s) : 6 (3 times)  8 (2 times)
 
 
 In each pair, sum of the elements is equal to 10

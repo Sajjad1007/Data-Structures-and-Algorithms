@@ -15,7 +15,7 @@ void printPermutations(char str[], int k)
     int i;
     if(str[k] == '\0'){
         res[k] = '\0';
-        printf("%d. %s\n", ++count, res);
+        printf("%03d  %s\n", ++count, res);
     }
     else{
         int len = strlen(str);
@@ -41,3 +41,32 @@ int main(void)
     printPermutations(str, 0);
     return 0;
 }
+
+/*
+All possible permutations of the given string :
+
+001  abcd
+002  abdc
+003  acbd
+004  acdb
+005  adbc
+006  adcb
+007  bacd
+008  badc
+009  bcad
+010  bcda
+011  bdac
+012  bdca
+013  cabd
+014  cadb
+015  cbad
+016  cbda
+017  cdab
+018  cdba
+019  dabc
+020  dacb
+021  dbac
+022  dbca
+023  dcab
+024  dcba
+*/

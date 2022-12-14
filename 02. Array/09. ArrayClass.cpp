@@ -173,5 +173,5 @@ int main()
 }
 
 /*
-Menu program
+Menu driven program
 */

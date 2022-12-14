@@ -50,3 +50,19 @@ int main(void)
     printf("Total function call = %d\n", count2);
     return 0;
 }
+
+/*
+Enter the value of n = 20
+
+
+General recursive function called...
+
+20th term of the fibonacci series = 6765
+Total function call = 21891
+
+
+Memoization recursive function called...
+
+20th term of the fibonacci series = 6765
+Total function call = 21
+*/

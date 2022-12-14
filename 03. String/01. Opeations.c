@@ -38,8 +38,8 @@ void isPalindrome(char str[])
         if(str[i] != str[j]) break;
     }
 
-    if(i >= j) printf("So, this is a palindrome\n");
-    else printf("So, this is not a palindrome\n");
+    if(i >= j) printf("So \'%s\' is a palindrome\n", str);
+    else printf("So \'%s\' is not a palindrome\n", str);
     return;
 }
 
@@ -53,12 +53,14 @@ void getDuplicates(char str[])
 {
     int hash[26] = {0}, i;
 
-    printf("Duplicate element(s) :");
+    printf("\nDuplicate element(s) :");
     for(i = 0; str[i] != '\0'; i++){
         hash[toLower(str[i])-'a']++;
     }
     for(i = 0; i < 26; i++){
-        if(hash[i] > 1) printf("  %c(%d times)", 'a'+i, hash[i]);
+        if(hash[i] > 1){
+            printf(" %c (%d times) ", 'a' + i, hash[i]);
+        }
     }
     printf("\n");
     return;
@@ -68,19 +70,29 @@ void getDuplicates(char str[])
 //Merging helps to set a particular bit ON (by OR operation)
 void compare(char str1[], char str2[])
 {
-    int i;
-    for(i = 0; str1[i] != '\0' && str2[i] != '\0'; i++){
-        if(toLower(str1[i]) < toLower(str2[i])){
-            printf("\n\'%s\' is smaller than \'%s\'\n", str1, str2);
-            return;
-        }
-        else if(toLower(str1[i]) > toLower(str2[i])){
-            printf("\n\'%s\' is greater than \'%s\'\n", str1, str2);
-            return;
-        }
+    if(lengthOf(str1) < lengthOf(str2)){
+        printf("\n\'%s\' is smaller than \'%s\'\n", str1, str2);
+        return;
     }
-    printf("\n\'%s\' is equal to \'%s\'\n", str1, str2);
-    return;
+    else if(lengthOf(str1) > lengthOf(str2)){
+        printf("\n\'%s\' is greater than \'%s\'\n", str1, str2);
+        return;
+    }
+    else{
+        int i = 0;
+        while(str1[i] != '\0'){
+            if(toLower(str1[i]) < toLower(str2[i])){
+                printf("\n\'%s\' is smaller than \'%s\'\n", str1, str2);
+                return;
+            }
+            else if(toLower(str1[i]) > toLower(str2[i])){
+                printf("\n\'%s\' is greater than \'%s\'\n", str1, str2);
+                return;
+            }
+        }
+        printf("\n\'%s\' is equal to \'%s\'\n", str1, str2);
+        return;
+    }
 }
 
 int main(void)
@@ -93,7 +105,7 @@ int main(void)
     printf("The string has %d word(s)\n", countWords(str));
     getDuplicates(str);
     reverseOf(str);
-    printf("Reverse of the string : %s\n", str);
+    printf("\nReverse of the string : %s\n", str);
     isPalindrome(str);
 
     printf("\nEnter another string (lowercase preferable) : ");
@@ -102,3 +114,19 @@ int main(void)
     compare(str, str2);
     return 0;
 }
+
+/*
+Enter a string (lowercase preferable) : computer science and engineering
+
+Length of the string = 32
+The string has 4 word(s)
+
+Duplicate element(s) : c (3 times)  e (6 times)  g (2 times)  i (3 times)  n (5 times)  r (2 times)
+
+Reverse of the string : gnireenigne dna ecneics retupmoc
+So 'gnireenigne dna ecneics retupmoc' is not a palindrome
+
+Enter another string (lowercase preferable) : electrical and electronic engineering
+
+'computer science and engineering' is smaller than 'electrical and electronic engineering'
+*/
