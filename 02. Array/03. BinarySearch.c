@@ -1,4 +1,4 @@
-//Prerequisite : The array must be in sorted order. Time complexity = O(log(n+1))
+//Prerequisite : The array must be in sorted order. Time complexity is O(log(n+1))
 
 #include <stdio.h>
 
@@ -36,23 +36,45 @@ int rbinarySearch(int ara[], int key, int low, int high)
     }
 }
 
+void display(struct array arr)
+{
+    printf("The array : ");
+    for(int i = 0; i < arr.length; i++){
+        printf("%d ", arr.A[i]);
+    }
+    printf("\n\n");
+    return;
+}
+
 int main(void)
 {
     struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
     int pos, key;
+    display(arr);
     printf("Enter an element for searching : ");
     scanf("%d", &key);
 
     pos = binarySearch(arr.A, key, 0, arr.length-1) + 1;
-    printf("\nIterative binary search => ");
+    printf("\nIterative => ");
 
     if(pos > 0) printf("%d is at position %d\n", key, pos);
     else printf("%d not found\n", key);
 
     pos = rbinarySearch(arr.A, key, 0, arr.length-1) + 1;
-    printf("Recursive binary search => ");
+    printf("Recursive => ");
 
     if(pos > 0) printf("%d is at position %d\n", key, pos);
     else printf("%d not found\n", key);
     return 0;
 }
+
+/*
+interactive console window:
+
+The array : 2 3 4 5 6
+
+Enter an element for searching : 4
+
+Iterative => 4 is at position 3
+Recursive => 4 is at position 3
+*/

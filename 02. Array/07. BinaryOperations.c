@@ -102,7 +102,8 @@ struct array getDifference(struct array arr1, struct array arr2)
 void display(struct array arr)
 {
     for(int i = 0; i < arr.length; i++){
-        printf("%d ", arr.A[i]);
+        if(i == arr.length - 1) printf("%d}", arr.A[i]);
+        else printf("%d, ", arr.A[i]);
     }
     printf("\n");
     return;
@@ -110,34 +111,41 @@ void display(struct array arr)
 
 int main(void)
 {
-    struct array arr1, arr2, arr3;
-    printf("**Insert arrays in sorted order**");
+    struct array arr1 = {{1, 3, 5, 7, 9}, 5};
+    struct array arr2 = {{1, 2, 3, 4, 5}, 5};
+    struct array arr3;
 
-    printf("\n\nFor 1st array, number of elements (maximum 10 elements) = ");
-    scanf("%d", &arr1.length);
-    printf("Enter the element(s) : ");
-    for(int i = 0; i < arr1.length; i++){
-        scanf("%d", &arr1.A[i]);
-    }
+    printf("Set A : {");
+    display(arr1);
+    printf("Set B : {");
+    display(arr2);
+    printf("\n**The sets are in sorted order**\n");
 
-    printf("\nFor 2nd array, number of elements (maximum 10 elements) = ");
-    scanf("%d", &arr2.length);
-    printf("Enter the element(s) : ");
-    for(int i = 0; i < arr2.length; i++){
-        scanf("%d", &arr2.A[i]);
-    }
-
-    printf("\nThe merged array : ");
+    printf("\nA merge B      : {");
     arr3 = merge(arr1, arr2);
     display(arr3);
-    printf("The union of the arrays : ");
+    printf("A union B      : {");
     arr3 = getUnion(arr1, arr2);
     display(arr3);
-    printf("The intersection of the arrays : ");
+    printf("A intersect B  : {");
     arr3 = getIntersection(arr1, arr2);
     display(arr3);
-    printf("The difference of the arrays : ");
+    printf("A minus B      : {");
     arr3 = getDifference(arr1, arr2);
     display(arr3);
     return 0;
 }
+
+/*
+interactive console window:
+
+Set A : {1, 3, 5, 7, 9}
+Set B : {1, 2, 3, 4, 5}
+
+**The sets are in sorted order**
+
+A merge B      : {1, 1, 2, 3, 3, 4, 5, 5, 7, 9}
+A union B      : {1, 2, 3, 4, 5, 7, 9}
+A intersect B  : {1, 3, 5}
+A minus B      : {7, 9}
+*/

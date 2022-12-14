@@ -136,7 +136,6 @@ void findPairUnsorted(struct array arr)
 
 void display(struct array arr)
 {
-    printf("The given array : ");
     for(int i = 0; i < arr.size; i++){
         printf("%d ", arr.A[i]);
     }
@@ -153,17 +152,55 @@ int main(void)
     struct array arrPairSorted = {{1, 3, 4, 5, 6, 8, 9, 10, 12, 14}, 10};
     struct array arrPairUnsorted = {{6, 3, 8, 10, 16, 7, 5, 2, 9, 14}, 10};
 
+    printf("The sorted array   : ");
     display(arrMissingSorted);
     findMissingElementSorted(arrMissingSorted);
+
+    printf("The unsorted array : ");
     display(arrMissingUnsorted);
     findMissingElementUnsorted(arrMissingUnsorted);
+
+    printf("The sorted array     : ");
     display(arrDuplicateSorted);
     getDuplicatesSorted(arrDuplicateSorted);
+
+    printf("The unsorted array   : ");
     display(arrDuplicateUnsorted);
     getDuplicatesUnsorted(arrDuplicateUnsorted);
+
+    printf("\nIn each pair, sum of the elements is equal to 10\n\n\n");
+    printf("The sorted array : ");
     display(arrPairSorted);
     findPairSorted(arrPairSorted);
+
+    printf("The unsorted array : ");
     display(arrPairUnsorted);
     findPairUnsorted(arrPairUnsorted);
     return 0;
 }
+
+/*
+interactive console window:
+
+The sorted array   : 6 7 8 9 10 11 13 14 15 16
+Missing element(s) : 12
+
+The unsorted array : 3 7 4 9 12 6 1 11 2 10
+Missing element(s) : 5 8
+
+The sorted array     : 3 6 8 8 10 12 15 15 15 20
+Duplicate element(s) :  8 (2 times)  15 (3 times)
+
+The unsorted array   : 8 3 6 4 6 5 6 8 2 7
+Duplicate element(s) :  6 (3 times)  8 (2 times)
+
+
+In each pair, sum of the elements is equal to 10
+
+
+The sorted array : 1 3 4 5 6 8 9 10 12 14
+The pair(s) are : (1, 9) (4, 6)
+
+The unsorted array : 6 3 8 10 16 7 5 2 9 14
+The pair(s) are : (3, 7) (2, 8)
+*/

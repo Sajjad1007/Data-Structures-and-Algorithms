@@ -2,29 +2,28 @@
 
 using namespace std;
 
-template <typename T>
 class Array
 {
 
 private:
-    int size;
+    int Size;
     int length;
 
 public:
-    T *A; //the array will be created dynamically
+    int *A; //the array will be created dynamically
 
     Array()
     {
-        this->size = 5;
+        this->Size = 5;
         length = 0;
-        A = new T[5];
+        A = new int[5];
     }
 
-    Array(int size)
+    Array(int Size)
     {
-        this->size = size;
+        this->Size = Size;
         length = 0;
-        A = new T[size];
+        A = new int[Size];
     }
 
     ~Array()
@@ -44,7 +43,7 @@ public:
         return;
     }
 
-    void insertElement(int pos, T val)
+    void insertElement(int pos, int val)
     {
         int i, index = pos-1;
         for(i = length; i > index; i--){
@@ -55,10 +54,10 @@ public:
         return;
     }
 
-    T deleteElement(int pos)
+    int deleteElement(int pos)
     {
         int i, index = pos-1;
-        T val = A[index];
+        int val = A[index];
         for(i = index; i < length-1; i++){
             A[i] = A[i+1];
         }
@@ -66,9 +65,9 @@ public:
         return val;
     }
 
-    T getSum()
+    int getSum()
     {
-        T sum = 0;
+        int sum = 0;
         for(int i = 0; i < length; i++) sum += A[i];
         return sum;
     }
@@ -83,8 +82,7 @@ public:
 
 };
 
-template <typename T>
-void Array<T> :: display()
+void Array :: display()
 {
     cout << "\nThe array : ";
     for(int i = 0; i < length; i++){
@@ -96,20 +94,19 @@ void Array<T> :: display()
 
 int main()
 {
-    Array <float> arr; //object variable has been created
-    float val;
-    int size, length, choice, pos;
+    Array arr; //object variable has been created
+    int Size, length, choice, pos, val;
 
     cout << "Size of the array = ";
-    cin >> size;
+    cin >> Size;
     cout << "Length of the array = ";
     cin >> length;
-    if(length > size){
+    if(length > Size){
         cout << "\nLength cannot be greater than size\nTry again\n";
         return 0;
     }
 
-    arr = Array <float>(size); //object has been created and assigned to the variable
+    arr = Array(Size); //object has been created and assigned to the variable
     cout << "\nThe array has been initialized\n\n";
     cout << "Enter " << length << " element(s) : ";
     for(int i = 0; i < length; i++){
@@ -129,7 +126,7 @@ int main()
 
         switch(choice){
             case 1:
-                if(size == arr.getLength()){
+                if(Size == arr.getLength()){
                     cout << "\nThe array is full\n";
                     break;
                 }
@@ -174,3 +171,7 @@ int main()
     } while(choice < 4);
     return 0;
 }
+
+/*
+Menu program
+*/

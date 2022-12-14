@@ -74,3 +74,22 @@ int main(void)
     display(arr);
     return 0;
 }
+
+/*
+interactive console window:
+
+Size of the array = 10
+Number of elements = 5
+Enter the element(s) : 1 2 3 4 5
+
+The array : 1 2 3 4 5
+
+Enter a position for inserting an element : 1
+Enter an element at position 1 : 6
+
+The array : 6 1 2 3 4 5
+
+Enter a position for deleting an element : 3
+
+The array : 6 1 3 4 5
+*/

@@ -1,4 +1,4 @@
-//Time complexity = O(n)
+//Time complexity is O(n)
 
 #include <stdio.h>
 
@@ -34,11 +34,11 @@ int linearSearch(struct array *ptr, int key)
 
 void display(struct array arr)
 {
-    printf("\nThe array : ");
+    printf("The array : ");
     for(int i = 0; i < arr.length; i++){
         printf("%d ", arr.A[i]);
     }
-    printf("\n");
+    printf("\n\n");
     return;
 }
 
@@ -46,15 +46,24 @@ int main(void)
 {
     struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
     int pos, key;
+    display(arr);
     printf("Enter an element for searching : ");
     scanf("%d", &key);
     pos = linearSearch(&arr, key)+1;
 
     if(pos > 0){
-        printf("%d is at position %d\n", key, pos);
+        printf("\n%d is at position %d\n", key, pos);
     }
-    else printf("%d not found\n", key);
-
-    display(arr);
+    else printf("\n%d not found\n", key);
     return 0;
 }
+
+/*
+interactive console window:
+
+The array : 2 3 4 5 6
+
+Enter an element for searching : 5
+
+5 is at position 4
+*/

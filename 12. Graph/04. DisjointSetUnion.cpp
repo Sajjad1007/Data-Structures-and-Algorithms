@@ -1,3 +1,5 @@
+//Disjoint Set is used to know whether or not two elements belong to same set.
+
 #include <iostream>
 #include <cmath>
 

@@ -27,6 +27,7 @@ void insertSorted(struct array *ptr, int val)
     return;
 }
 
+//This functions rearranges all the negatives to the left and all the positives to the right
 void rearrange(struct array *ptr)
 {
     int i = 0;
@@ -44,9 +45,9 @@ void rearrange(struct array *ptr)
     return;
 }
 
-void display(struct array arr)
+void display(struct array arr, int n)
 {
-    printf("the array : ");
+    printf("array %d : ", n);
     for(int i = 0; i < arr.length; i++){
         printf("%d ", arr.A[i]);
     }
@@ -56,29 +57,43 @@ void display(struct array arr)
 
 int main(void)
 {
-    struct array arr = {{2, 3, 6, 10, 15, 19, 22, 24, 27}, 10, 9};
-    struct array ara = {{2, -13, 25, 10, -4, 7, -5, -18}, 10, 8};
+    struct array arr1 = {{2, 3, 6, 10, 15, 19, 22, 24, 27}, 10, 9};
+    struct array arr2 = {{2, -13, 25, 10, -4, 7, -5, -18}, 10, 8};
     int val;
     printf("Before insertion, ");
-    display(arr);
+    display(arr1, 1);
 
-    if(arr.length == arr.size){
+    if(arr1.length == arr1.size){
         printf("The array is full.\n");
     }
-    else if(isSorted(arr)){
-        printf("The array is sorted.");
+    else if(isSorted(arr1)){
+        printf("This array is sorted.");
         printf("\n\nEnter an element to be inserted : ");
         scanf("%d", &val);
-        insertSorted(&arr, val);
-        printf("After insertion, ");
-        display(arr);
+        insertSorted(&arr1, val);
+        printf("\nAfter insertion, ");
+        display(arr1, 1);
     }
     else printf("The array is not sorted.\n");
 
     printf("\nBefore rearranging, ");
-    display(ara);
-    rearrange(&ara);
-    printf("After rearranging, ");
-    display(ara);
+    display(arr2, 2);
+    rearrange(&arr2);
+    printf("After rearranging,  ");
+    display(arr2, 2);
     return 0;
 }
+
+/*
+interactive console window:
+
+Before insertion, array 1 : 2 3 6 10 15 19 22 24 27
+This array is sorted.
+
+Enter an element to be inserted : 9
+
+After insertion, array 1 : 2 3 6 9 10 15 19 22 24 27
+
+Before rearranging, array 2 : 2 -13 25 10 -4 7 -5 -18
+After rearranging,  array 2 : -18 -13 -5 -4 10 7 25 2
+*/

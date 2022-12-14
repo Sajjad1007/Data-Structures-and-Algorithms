@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 struct array{
-    int *A;
+    int A[10];
     int size;
     int length;
 };
@@ -47,26 +47,13 @@ void display(struct array arr)
 
 int main(void)
 {
-    struct array arr;
-    printf("Size of the array = ");
-    scanf("%d", &arr.size);
+    int n;
+    struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
 
-    arr.A = (int*)malloc(arr.size*sizeof(int));
-    arr.length = 0;
-
-    int i, n;
-    printf("Number of elements = ");
-    scanf("%d", &n);
-    printf("Enter the element(s) : ");
-    for(i = 0; i < n; i++){
-        scanf("%d", &arr.A[i]);
-        arr.length++;
-    }
-
-    printf("\nBefore reversing, ");
+    printf("Before reversing, ");
     display(arr);
     reverse(&arr);
-    printf("After reversing, ");
+    printf("After reversing,  ");
     display(arr);
 
     printf("\nHow many elements you want to rotate? ");
@@ -74,7 +61,19 @@ int main(void)
     printf("\nBefore rotation, ");
     display(arr);
     leftRotation(&arr, n);
-    printf("After rotation, ");
+    printf("After rotation,  ");
     display(arr);
     return 0;
 }
+
+/*
+interactive console window:
+
+Before reversing, the array : 2 3 4 5 6
+After reversing,  the array : 6 5 4 3 2
+
+How many elements you want to rotate? 2
+
+Before rotation, the array : 6 5 4 3 2
+After rotation,  the array : 4 3 2 6 5
+*/

@@ -14,11 +14,8 @@ int C(int n, int r)
 int main(void)
 {
     int n, r;
-    printf("Enter the value of n and r\n");
-    printf("n = ");
-    scanf("%d", &n);
-    printf("r = ");
-    scanf("%d", &r);
+    printf("Enter the value of n and r : ");
+    scanf("%d %d", &n, &r);
 
     if(n < r){
         printf("\nn cannot be less than r\n");

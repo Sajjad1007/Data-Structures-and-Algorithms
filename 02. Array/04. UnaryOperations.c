@@ -52,7 +52,7 @@ float getAverage(struct array arr)
 
 void display(struct array arr)
 {
-    printf("\nThe array : ");
+    printf("The array : ");
     for(int i = 0; i < arr.length; i++){
         printf("%d ", arr.A[i]);
     }
@@ -65,7 +65,8 @@ int main(void)
     struct array arr = {{2, 3, 4, 5, 6}, 10, 5};
     int pos;
 
-    printf("Enter a position for getting the element : ");
+    display(arr);
+    printf("\nEnter a position for getting the element : ");
     scanf("%d", &pos);
     if(pos > 0 && pos <= arr.length){
         printf("%d is at position %d\n", getElement(arr, pos-1), pos); //position = index+1
@@ -74,6 +75,7 @@ int main(void)
 
     printf("\nEnter a position for setting an element : ");
     scanf("%d", &pos);
+
     if(pos > 0 && pos <= arr.length){
         int val;
         printf("Enter an element at position %d : ", pos);
@@ -81,6 +83,8 @@ int main(void)
         setElement(&arr, pos-1, val);
     }
     else printf("Invalid position");
+
+    printf("\n");
     display(arr);
 
     printf("\nMaximum element of the array = %d\n", getMax(arr));
@@ -89,3 +93,23 @@ int main(void)
     printf("Average of the elements = %g\n", getAverage(arr));
     return 0;
 }
+
+/*
+interactive console window:
+
+The array : 2 3 4 5 6
+
+Enter a position for getting the element : 4
+5 is at position 4
+
+Enter a position for setting an element : 2
+Enter an element at position 2 : 8
+
+The array : 2 8 4 5 6
+
+Maximum element of the array = 8
+Minimum element of the array = 2
+
+Sum of all the elements = 25
+Average of the elements = 5
+*/

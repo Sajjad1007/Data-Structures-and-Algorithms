@@ -95,8 +95,35 @@ int main(void)
     sum = add(p1, p2);
     printf("\n\nAdded polynomial = ");
     display(sum);
-    printf("\nEnter the value of x = ");
+    printf("\nEnter x = ");
     scanf("%d", &x);
     evaluate(sum, x);
     return 0;
 }
+
+/*
+interactive console window:
+
+For 1st polynomial, enter the number of terms = 3
+
+Enter the coefficient and exponent for term 1 : 1 2
+Enter the coefficient and exponent for term 2 : -3 1
+Enter the coefficient and exponent for term 3 : 4 0
+
+1st polynomial = (1x^2) + (-3x^1) + (4)
+
+
+For 2nd polynomial, enter the number of terms = 3
+
+Enter the coefficient and exponent for term 1 : 3 2
+Enter the coefficient and exponent for term 2 : -2 1
+Enter the coefficient and exponent for term 3 : -5 0
+
+2nd polynomial = (3x^2) + (-2x^1) + (-5)
+
+
+Added polynomial = (4x^2) + (-5x^1) + (-1)
+
+Enter x = 2
+For x = 2, sum = 5
+*/
