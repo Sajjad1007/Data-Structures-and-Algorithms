@@ -1,0 +1,116 @@
+//Time complexity is O(V * E).
+
+#include <iostream>
+#include <vector>
+
+#define MAX 101
+#define INF 1e9
+
+using namespace std;
+
+int n, e;
+int dis[MAX];
+int parent[MAX];
+vector <pair<int, pair<int, int>>> edges;
+
+void input_graph()
+{
+    int i, u, v, wt;
+    cout << "Number of nodes and edges : ";
+    cin >> n >> e;
+
+    cout << "\nEnter the weighted graph\n";
+    for(i = 1; i <= e; i++){
+        cin >> u >> v >> wt;
+        edges.push_back({wt, {u, v}});
+        edges.push_back({wt, {v, u}});
+    }
+    cout << "\n";
+    return;
+}
+
+void init()
+{
+    for(int i = 1; i <= n; i++){
+        dis[i] = INF;
+    }
+    return;
+}
+
+void bellman_ford(int src)
+{
+    init();
+    dis[src] = 0;
+    parent[src] = src;
+
+    for(int step = 1; step <= n - 1; step++){
+        for(auto x : edges){
+            int wt = x.first;
+            int u = x.second.first;
+            int v = x.second.second;
+
+            if(dis[u] + wt < dis[v]){
+                dis[v] = dis[u] + wt;        //dis[v] = distance of v from source
+                parent[v] = u;
+            }
+        }
+    }
+
+    for(auto x : edges){
+        int wt = x.first;
+        int u = x.second.first;
+        int v = x.second.second;
+
+        if(dis[u] + wt < dis[v]){
+            cout << "\nNegative cycle detected\n";
+            exit(1);
+        }
+    }
+    return;
+}
+
+void print_path(int u)
+{
+    if(parent[u] == u){
+        cout << u;
+    }
+    else{
+        print_path(parent[u]);
+        cout << " -- " << u;
+    }
+    return;
+}
+
+int main()
+{
+    int src, des;
+    input_graph();
+    cout << "Enter source and destination : ";
+    cin >> src >> des;
+
+    bellman_ford(src);
+    printf("\nShortest distance from %d to %d = %d\n", src, des, dis[des]);
+    printf("Shortest path : ", src, des);
+    print_path(des);
+    cout << "\n";
+    return 0;
+}
+
+/*
+Number of nodes and edges : 6 8
+
+Enter the weighted graph
+1 2 2
+1 6 4
+2 3 3
+2 4 1
+2 5 6
+2 6 4
+3 5 2
+4 5 3
+
+Enter source and destination : 1 5
+
+Shortest distance from 1 to 5 = 6
+Shortest path : 1 -- 2 -- 4 -- 5
+*/
