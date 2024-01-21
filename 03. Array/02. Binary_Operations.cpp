@@ -1,4 +1,4 @@
-//Some other binary operations of arrays are append(), compare(), copy() etc.
+// Some other binary operations of arrays are append(), compare(), copy() etc.
 
 #include <iostream>
 
@@ -14,7 +14,8 @@ struct Set
         cout << "\nNumber of elements : ";
         scanf("%d", &sz);
         cout << "Enter the elements in sorted order : ";
-        for(int i = 0; i < sz; i++){
+        for(int i = 0; i < sz; i++)
+        {
             cin >> arr[i];
         }
         return;
@@ -22,26 +23,30 @@ struct Set
 
     void Insert()
     {
-        int i = sz - 1, val;
+        int i = sz-1, val;
         cout << "Enter the element : ";
         cin >> val;
 
-        while(i >= 0 && val < arr[i]){
-            arr[i + 1] = arr[i];
+        while(i >= 0 && val < arr[i])
+        {
+            arr[i+1] = arr[i];
             i--;
         }
-        arr[i + 1] = val;
+        arr[i+1] = val;
         sz++;
         return;
     }
 
     void display()
     {
-        for(int i = 0; i < sz; i++){
-            if(i == sz - 1){
+        for(int i = 0; i < sz; i++)
+        {
+            if(i == sz-1)
+            {
                 printf("%d}", arr[i]);
-        }
-            else{
+            }
+            else
+            {
                 printf("%d, ", arr[i]);
             }
         }
@@ -58,19 +63,24 @@ void Merge()
     int i = 0, j = 0, k = 0;
     Set C;
 
-    while(i < A.sz && j < B.sz){
-        if(A.arr[i] < B.arr[j]){
+    while(i < A.sz && j < B.sz)
+    {
+        if(A.arr[i] < B.arr[j])
+        {
             C.arr[k++] = A.arr[i++];
         }
-        else{
+        else
+        {
             C.arr[k++] = B.arr[j++];
         }
     }
 
-    while(i < A.sz){
+    while(i < A.sz)
+    {
         C.arr[k++] = A.arr[i++];
     }
-    while(j < B.sz){
+    while(j < B.sz)
+    {
         C.arr[k++] = B.arr[j++];
     }
 
@@ -85,10 +95,12 @@ void concat()
     int i = 0, j = 0, k = 0;
     Set C;
 
-    while(i < A.sz){
+    while(i < A.sz)
+    {
         C.arr[k++] = A.arr[i++];
     }
-    while(j < B.sz){
+    while(j < B.sz)
+    {
         C.arr[k++] = B.arr[j++];
     }
 
@@ -98,29 +110,35 @@ void concat()
     return;
 }
 
-//Union(), Intersection() and Difference() functions will work when the sets are in sorted order.
+// Union(), Intersection() and Difference() functions will work when the sets are in sorted order.
 void Union()
 {
     int i = 0, j = 0, k = 0;
     Set C;
 
-    while(i < A.sz && j < B.sz){
-        if(A.arr[i] < B.arr[j]){
+    while(i < A.sz && j < B.sz)
+    {
+        if(A.arr[i] < B.arr[j])
+        {
             C.arr[k++] = A.arr[i++];
         }
-        else if(B.arr[j] < A.arr[i]){
+        else if(B.arr[j] < A.arr[i])
+        {
             C.arr[k++] = B.arr[j++];
         }
-        else{
+        else
+        {
             C.arr[k++] = A.arr[i++];
             j++;
         }
     }
 
-    while(i < A.sz){
+    while(i < A.sz)
+    {
         C.arr[k++] = A.arr[i++];
     }
-    while(j < B.sz){
+    while(j < B.sz)
+    {
         C.arr[k++] = B.arr[j++];
     }
 
@@ -135,15 +153,19 @@ void intersect()
     int i = 0, j = 0, k = 0;
     Set C;
 
-    while(i < A.sz && j < B.sz){
-        if(A.arr[i] == B.arr[j]){
+    while(i < A.sz && j < B.sz)
+    {
+        if(A.arr[i] == B.arr[j])
+        {
             C.arr[k++] = A.arr[i++];
             j++;
         }
-        else if(A.arr[i] < B.arr[j]){
+        else if(A.arr[i] < B.arr[j])
+        {
             i++;
         }
-        else{
+        else
+        {
             j++;
         }
     }
@@ -159,20 +181,25 @@ void difference()
     int i = 0, j = 0, k = 0;
     Set C;
 
-    while(i < A.sz && j < B.sz){
-        if(A.arr[i] < B.arr[j]){
+    while(i < A.sz && j < B.sz)
+    {
+        if(A.arr[i] < B.arr[j])
+        {
             C.arr[k++] = A.arr[i++];
         }
-        else if(A.arr[i] > B.arr[j]){
+        else if(A.arr[i] > B.arr[j])
+        {
             j++;
         }
-        else{
+        else
+        {
             i++;
             j++;
         }
     }
 
-    while(i < A.sz){
+    while(i < A.sz)
+    {
         C.arr[k++] = A.arr[i++];
     }
 
@@ -207,18 +234,21 @@ int main(void)
     B.display();
     cout << "\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         printf("\nEnter your choice : ");
         cin >> ch;
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 cout << "Enter set name : ";
                 cin >> c;
                 c = toupper(c);
 
-                switch(c){
+                switch(c)
+                {
                     case 'A':
                         A.input();
                         break;
@@ -238,7 +268,8 @@ int main(void)
                 cin >> c;
                 c = toupper(c);
 
-                switch(c){
+                switch(c)
+                {
                     case 'A':
                         A.Insert();
                         cout << "\nSet A : {";

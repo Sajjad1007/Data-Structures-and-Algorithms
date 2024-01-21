@@ -36,7 +36,8 @@ public:
         nodes = n;
         arr = new node*[n];
 
-        for(int i = 0; i < n; i++){
+        for(int i = 0; i < n; i++)
+        {
             arr[i] = nullptr;
         }
     }
@@ -51,15 +52,19 @@ public:
     {
         int i, row, col, val;
         cout << "\nEnter row no, column no and non-zero elements\n\n";
-        for(i = 0; i < nodes; i++){
+        for(i = 0; i < nodes; i++)
+        {
             cin >> row >> col >> val;
-            node *p = arr[row - 1];
+            node *p = arr[row-1];
 
-            if(p == nullptr){
-                arr[row - 1] = new node(col, val);
+            if(p == nullptr)
+            {
+                arr[row-1] = new node(col, val);
             }
-            else{
-                while(p->next){
+            else
+            {
+                while(p->next)
+                {
                     p = p->next;
                 }
                 p->next = new node(col, val);
@@ -71,14 +76,18 @@ public:
     void display()
     {
         int i, j;
-        for(i = 0; i < rows; i++){
+        for(i = 0; i < rows; i++)
+        {
             node *p = arr[i];
-            for(j = 1; j <= cols; j++){
-                if(p != nullptr && j == p->col){
+            for(j = 1; j <= cols; j++)
+            {
+                if(p != nullptr && j == p->col)
+                {
                     printf("%2d ", p->val);
                     p = p->next;
                 }
-                else{
+                else
+                {
                     printf(" 0 ");
                 }
             }
@@ -97,7 +106,8 @@ int main()
     cin >> n;
     Sparse s(r, c, n);
 
-    if(n > 0){
+    if(n > 0)
+    {
         s.create();
     }
     cout << "\nThe sparse matrix\n\n";

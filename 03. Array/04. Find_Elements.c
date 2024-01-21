@@ -15,7 +15,8 @@ void input()
     printf("Number of elements : ");
     scanf("%d", &arr.size);
     printf("Enter the elements : ");
-    for(i = 0; i < arr.size; i++){
+    for(i = 0; i < arr.size; i++)
+    {
         scanf("%d", &arr.p[i]);
     }
     return;
@@ -24,11 +25,14 @@ void input()
 void max_min()
 {
     max = min = arr.p[0];
-    for(i = 1; i < arr.size; i++){
-        if(arr.p[i] > max){
+    for(i = 1; i < arr.size; i++)
+    {
+        if(arr.p[i] > max)
+        {
             max = arr.p[i];
         }
-        else if(arr.p[i] < min){
+        else if(arr.p[i] < min)
+        {
             min = arr.p[i];
         }
     }
@@ -38,24 +42,30 @@ void max_min()
 void missing_elements()
 {
     max_min();
-    int hash[max + 1];
+    int hash[max+1];
 
-    if(min != max - (arr.size - 1)){
+    if(min != max-(arr.size-1))
+    {
         printf("\nMissing elements from %d to %d :", min, max);
     }
-    else{
+    else
+    {
         printf("\nNo elements are missing from %d to %d\n", min, max);
         return;
     }
 
-    for(i = min; i <= max; i++){
+    for(i = min; i <= max; i++)
+    {
         hash[i] = 0;
     }
-    for(i = 0; i < arr.size; i++){
+    for(i = 0; i < arr.size; i++)
+    {
         hash[arr.p[i]] = 1;
     }
-    for(i = min; i <= max; i++){
-        if(hash[i] == 0){
+    for(i = min; i <= max; i++)
+    {
+        if(hash[i] == 0)
+        {
             printf(" %d", i);
         }
     }
@@ -67,25 +77,31 @@ void duplicate_elements()
 {
     max_min();
     bool printed = false;
-    int hash[max + 1];
+    int hash[max+1];
 
-    for(i = min; i <= max; i++){
+    for(i = min; i <= max; i++)
+    {
         hash[i] = 0;
     }
-    for(i = 0; i < arr.size; i++){
+    for(i = 0; i < arr.size; i++)
+    {
         hash[arr.p[i]]++;
     }
-    for(i = min; i <= max; i++){
-        if(hash[i] > 1 && !printed){
+    for(i = min; i <= max; i++)
+    {
+        if(hash[i] > 1 && !printed)
+        {
             printed = true;
             printf("\nDuplicate elements :");
             printf(" %d (%d times) ", i, hash[i]);
         }
-        else if(hash[i] > 1){
+        else if(hash[i] > 1)
+        {
             printf(" %d (%d times) ", i, hash[i]);
         }
     }
-    if(!printed){
+    if(!printed)
+    {
         printf("\nNo duplicate elements found");
     }
     printf("\n");
@@ -96,28 +112,33 @@ void find_pairs()
 {
     bool printed = false;
     max_min();
-    int sum, hash[max + 1];
+    int sum, hash[max+1];
     printf("Enter sum = ");
     scanf("%d", &sum);
 
-    for(i = min; i <= max; i++){
+    for(i = min; i <= max; i++)
+    {
         hash[i] = 0;
     }
-    for(i = 0; i < arr.size; i++){
-        if(hash[sum - arr.p[i]] == 1 && !printed){
+    for(i = 0; i < arr.size; i++)
+    {
+        if(hash[sum-arr.p[i]] == 1 && !printed)
+        {
             printed = true;
             printf("\nThe pairs are :");
-            int min = (arr.p[i] < sum - arr.p[i]) ? arr.p[i] : sum - arr.p[i];
-            printf(" (%d, %d)", min, sum - min);       //Print the smaller element first
+            int min = (arr.p[i] < sum-arr.p[i]) ? arr.p[i] : sum-arr.p[i];
+            printf(" (%d, %d)", min, sum-min);         // Print the smaller element first
         }
-        else if(hash[sum - arr.p[i]] == 1){
-            int min = (arr.p[i] < sum - arr.p[i]) ? arr.p[i] : sum - arr.p[i];
-            printf(" (%d, %d)", min, sum - min);
+        else if(hash[sum-arr.p[i]] == 1)
+        {
+            int min = (arr.p[i] < sum-arr.p[i]) ? arr.p[i] : sum-arr.p[i];
+            printf(" (%d, %d)", min, sum-min);
         }
         hash[arr.p[i]] = 1;
     }
 
-    if(!printed){
+    if(!printed)
+    {
         printf("\nNo pairs found");
     }
     printf("\n");
@@ -138,7 +159,8 @@ void choice_list()
 void display()
 {
     printf("\nThe array :");
-    for(i = 0; i < arr.size; i++){
+    for(i = 0; i < arr.size; i++)
+    {
         printf(" %d", arr.p[i]);
     }
     printf("\n");
@@ -149,12 +171,14 @@ int main(void)
 {
     int ch;
 
-    while(true){
+    while(true)
+    {
         choice_list();
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 input();
                 display();

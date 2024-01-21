@@ -18,7 +18,7 @@ int nCr(int n, int r)
     {
         C[n-1][r] = nCr(n-1, r);
         C[n-1][r-1] = nCr(n-1, r-1);
-        C[n][r] =  C[n-1][r]+C[n-1][r-1];       //(n+1)Cr = nCr + nC(r-1)
+        C[n][r] =  C[n-1][r]+C[n-1][r-1];       // (n+1)Cr = nCr + nC(r-1)
     }
     return C[n][r];
 }

@@ -29,26 +29,31 @@ public:
 
     int get(int i, int j)
     {
-        if(i == j){
-            return arr[i - 1];
+        if(i == j)
+        {
+            return arr[i-1];
         }
-        else{
+        else
+        {
             return 0;
         }
     }
 
     void Set(int i, int j, int val)
     {
-        if(i == j){
-            arr[i - 1] = val;
+        if(i == j)
+        {
+            arr[i-1] = val;
         }
         return;
     }
 
     void display()
     {
-        for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
                 printf("%2d ", get(i, j));
             }
             cout << "\n";
@@ -65,7 +70,8 @@ int main()
     Diagonal d(dim);
 
     cout << "\nEnter the diagonal elements of the matrix\n\n";
-    for(i = 1; i <= dim; i++){
+    for(i = 1; i <= dim; i++)
+    {
         cin >> val;
         d.Set(i, i, val);
     }

@@ -12,13 +12,13 @@ public:
     TriDiagonal()
     {
         n = 2;
-        arr = new int[(3 * n) - 2];
+        arr = new int[(3*n)-2];
     }
 
     TriDiagonal(int dim)
     {
         n = dim;
-        arr = new int[(3 * n) - 2];
+        arr = new int[(3*n)-2];
     }
 
     ~TriDiagonal()
@@ -29,16 +29,19 @@ public:
 
     int get(int i, int j)
     {
-        if(i == j + 1){
-            return arr[i - 2];
+        if(i == j+1){
+            return arr[i-2];
         }
-        else if(i == j){
-            return arr[n + i - 2];
+        else if(i == j)
+        {
+            return arr[n+i-2];
         }
-        else if(i == j - 1){
-            return arr[(2 * n) + i - 2];
+        else if(i == j-1)
+        {
+            return arr[(2*n)+i-2];
         }
-        else{
+        else
+        {
             return 0;
         }
     }
@@ -50,22 +53,27 @@ public:
 
     void Set(int i, int j, int val)
     {
-        if(i == j + 1){
-            arr[i - 2] = val;
+        if(i == j+1)
+        {
+            arr[i-2] = val;
         }
-        else if(i == j){
-            arr[n + i - 2] = val;
+        else if(i == j)
+        {
+            arr[n+i-2] = val;
         }
-        else if(i == j - 1){
-            arr[(2 * n) + i - 2] = val;
+        else if(i == j-1)
+        {
+            arr[(2*n)+i-2] = val;
         }
         return;
     }
 
     void display()
     {
-        for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
                 printf("%2d ", get(i, j));
             }
             cout << "\n";
@@ -82,21 +90,24 @@ int main()
     TriDiagonal td(dim);
 
     cout << "\nEnter the lower diagonal elements of the matrix\n\n";
-    for(i = 2, j = 1; i <= dim; i++){
+    for(i = 2, j = 1; i <= dim; i++)
+    {
         cin >> val;
         td.Set(i, j, val);
         j++;
     }
 
     cout << "\nEnter the diagonal elements of the matrix\n\n";
-    for(i = 1, j = 1; i <= dim; i++){
+    for(i = 1, j = 1; i <= dim; i++)
+    {
         cin >> val;
         td.Set(i, j, val);
         j++;
     }
 
     cout << "\nEnter the upper diagonal elements of the matrix\n\n";
-    for(i = 1, j = 2; i < dim; i++){
+    for(i = 1, j = 2; i < dim; i++)
+    {
         cin >> val;
         td.Set(i, j, val);
         j++;

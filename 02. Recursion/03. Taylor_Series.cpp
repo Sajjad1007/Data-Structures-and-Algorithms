@@ -9,7 +9,7 @@ e ^ x = 1 + (x / 1){1 + (x / 2){1 + (x / 3){... n terms}}}
 
 using namespace std;
 
-//For general rule, time complexity is O(n).
+// For general rule, time complexity is O(n).
 int cnt1 = 0;
 
 double e(int x, int n)
@@ -25,14 +25,14 @@ double e(int x, int n)
     {
         sum = e(x, n-1);
         ++cnt1;
-        pow *= x;             //x to the power pow
+        pow *= x;             // x to the power pow
         ++cnt1;
-        fact *= n;            //n factorial
+        fact *= n;            // n factorial
         return (pow/fact)+sum;
     }
 }
 
-//For Horner's rule, time complexity is O(n).
+// For Horner's rule, time complexity is O(n).
 int cnt2 = 0;
 
 double e_horner(int x, int n)

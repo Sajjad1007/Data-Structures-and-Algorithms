@@ -16,13 +16,14 @@ void input()
     int n, i;
     printf("Array capacity : ");
     scanf("%d", &arr.capacity);
-    arr.p = (int *)malloc(arr.capacity * sizeof(int));
+    arr.p = (int *)malloc(arr.capacity*sizeof(int));
     arr.size = 0;
 
     printf("Number of elements : ");
     scanf("%d", &n);
     printf("Enter the elements : ");
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         scanf("%d", &arr.p[i]);
         arr.size++;
     }
@@ -35,13 +36,15 @@ void Insert()
     printf("Enter the position : ");
     scanf("%d", &pos);
 
-    if(pos >= 1 && pos <= arr.size + 1){
+    if(pos >= 1 && pos <= arr.size+1)
+    {
         printf("Enter an element : ");
         scanf("%d", &val);
 
-        int indx = pos - 1;             //position = index + 1
-        for(i = arr.size; i > indx; i--){
-            arr.p[i] = arr.p[i - 1];
+        int indx = pos-1;               // position = index + 1
+        for(i = arr.size; i > indx; i--)
+        {
+            arr.p[i] = arr.p[i-1];
         }
         arr.p[indx] = val;
         arr.size++;
@@ -55,10 +58,12 @@ void Delete()
     printf("Enter the position : ");
     scanf("%d", &pos);
 
-    if(pos >= 1 && pos <= arr.size){
-        int indx = pos - 1;
-        for(i = indx; i < arr.size - 1; i++){
-            arr.p[i] = arr.p[i + 1];
+    if(pos >= 1 && pos <= arr.size)
+    {
+        int indx = pos-1;
+        for(i = indx; i < arr.size-1; i++)
+        {
+            arr.p[i] = arr.p[i+1];
         }
         arr.size--;
     }
@@ -71,10 +76,11 @@ void update()
     printf("Enter the position : ");
     scanf("%d", &pos);
 
-    if(pos >= 1 && pos <= arr.size){
+    if(pos >= 1 && pos <= arr.size)
+    {
         printf("Enter an element : ");
         scanf("%d", &val);
-        arr.p[pos - 1] = val;
+        arr.p[pos-1] = val;
     }
     return;
 }
@@ -82,7 +88,8 @@ void update()
 void reverse()
 {
     int i, j, temp;
-    for(i = 0, j = arr.size - 1; i < j; i++, j--){
+    for(i = 0, j = arr.size-1; i < j; i++, j--)
+    {
         temp = arr.p[i];
         arr.p[i] = arr.p[j];
         arr.p[j] = temp;
@@ -90,21 +97,25 @@ void reverse()
     return;
 }
 
-//This functions rearranges all the negatives to the left and all the positives to the right.
+// This functions rearranges all the negatives to the left and all the positives to the right.
 void rearrange()
 {
     int i = 0;
-    int j = arr.size - 1;
+    int j = arr.size-1;
 
-    while(i < j){
-        while(arr.p[i] < 0){
+    while(i < j)
+    {
+        while(arr.p[i] < 0)
+        {
             i++;
         }
-        while(arr.p[j] > 0){
+        while(arr.p[j] > 0)
+        {
             j--;
         }
 
-        if(i < j){
+        if(i < j)
+        {
             int temp = arr.p[i];
             arr.p[i] = arr.p[j];
             arr.p[j] = temp;
@@ -116,20 +127,24 @@ void rearrange()
 void left_rotation()
 {
     int i, j, n;
-    int *r = (int *)malloc(n * sizeof(int));      //Create dynamic array to store rotating elements.
+    int *r = (int *)malloc(n*sizeof(int));        // Create dynamic array to store rotating elements.
     printf("Number of elements to rotate : ");
     scanf("%d", &n);
     n %= arr.size;
 
-    if(n >= 1 && n <= arr.size){
-        for(i = 0; i < n; i++){
-            r[i] = arr.p[i];                      //Store rotating elements in that dynamic array.
+    if(n >= 1 && n <= arr.size)
+    {
+        for(i = 0; i < n; i++)
+        {
+            r[i] = arr.p[i];                      // Store rotating elements in that dynamic array.
         }
-        for(i = 0; i < arr.size - n; i++){
-            arr.p[i] = arr.p[i + n];              //Shift the elements towards left.
+        for(i = 0; i < arr.size-n; i++)
+        {
+            arr.p[i] = arr.p[i+n];                // Shift the elements towards left.
         }
-        for(i = arr.size - n, j = 0; i < arr.size; i++, j++){
-            arr.p[i] = r[j];                      //Append the rotating elements in the array.
+        for(i = arr.size-n, j = 0; i < arr.size; i++, j++)
+        {
+            arr.p[i] = r[j];                      // Append the rotating elements in the array.
         }
     }
     return;
@@ -139,15 +154,19 @@ void max_min()
 {
     int i, max, min;
     max = arr.p[0];
-    for(i = 1; i < arr.size; i++){
-        if(max < arr.p[i]){
+    for(i = 1; i < arr.size; i++)
+    {
+        if(max < arr.p[i])
+        {
             max = arr.p[i];
         }
     }
 
     min = arr.p[0];
-    for(i = 1; i < arr.size; i++){
-        if(min > arr.p[i]){
+    for(i = 1; i < arr.size; i++)
+    {
+        if(min > arr.p[i])
+        {
             min = arr.p[i];
         }
     }
@@ -161,11 +180,12 @@ void sum_average()
     int i, sum = 0;
     float avg;
 
-    for(i = 0; i < arr.size; i++){
+    for(i = 0; i < arr.size; i++)
+    {
         sum += arr.p[i];
     }
 
-    avg = (float)sum / arr.size;
+    avg = (float)sum/arr.size;
     printf("\nSum = %d\n", sum);
     printf("Average = %g\n", avg);
     return;
@@ -174,7 +194,8 @@ void sum_average()
 void display()
 {
     printf("\nThe array :");
-    for(int i = 0; i < arr.size; i++){
+    for(int i = 0; i < arr.size; i++)
+    {
         printf(" %d", arr.p[i]);
     }
     printf("\n");
@@ -202,12 +223,14 @@ int main(void)
     input();
     printf("\nThe array has been initialized\n\n");
 
-    while(true){
+    while(true)
+    {
         choice_list();
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 Insert();
                 display();

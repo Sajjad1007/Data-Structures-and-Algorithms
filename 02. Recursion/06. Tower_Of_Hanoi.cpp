@@ -5,7 +5,7 @@ using namespace std;
 int cnt;
 int steps;
 
-//Time complexity is O(2^n).
+// Time complexity is O(2^n).
 void tower_of_hanoi(int n, char a, char b, char c)
 {
     ++cnt;

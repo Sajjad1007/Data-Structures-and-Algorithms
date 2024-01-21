@@ -3,8 +3,8 @@
 #include <stdbool.h>
 
 int count;
-bool flag[5];       //ith value of flag will track whether ith character of str stored in res or not.
-char res[6];        //This array will be used for printing permutations of the string.
+bool flag[5];       // ith value of flag will track whether ith character of str stored in res or not.
+char res[6];        // This array will be used for printing permutations of the string.
 
 /*
 Here the backtracking approach is used for finding permutations of the string.
@@ -13,17 +13,21 @@ After doing some operations, going back and taking another possible root is call
 void print_permutations(char str[], int k)
 {
     int i;
-    if(str[k] == '\0'){
+    if(str[k] == '\0')
+    {
         res[k] = '\0';
         printf("%03d  %s\n", ++count, res);
     }
-    else{
+    else
+    {
         int len = strlen(str);
-        for(i = 0; i < len; i++){
-            if(flag[i] == false){
+        for(i = 0; i < len; i++)
+        {
+            if(flag[i] == false)
+            {
                 res[k] = str[i];
                 flag[i] = true;
-                print_permutations(str, k + 1);
+                print_permutations(str, k+1);
                 flag[i] = false;
             }
         }
@@ -37,7 +41,7 @@ int main(void)
     printf("Enter a word (maximum 5 letters) : ");
     scanf("%s", str);
 
-    int l = 0, h = strlen(str) - 1;
+    int l = 0, h = strlen(str)-1;
     printf("\nAll possible permutations of \'%s\'\n\n", str);
     print_permutations(str, 0);
     return 0;

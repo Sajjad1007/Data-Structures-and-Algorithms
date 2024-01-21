@@ -12,13 +12,13 @@ public:
     LowerTriangular()
     {
         n = 2;
-        arr = new int[(n * (n + 1)) / 2];
+        arr = new int[(n*(n+1))/2];
     }
 
     LowerTriangular(int dim)
     {
         n = dim;
-        arr = new int[(n * (n + 1)) / 2];
+        arr = new int[(n*(n+1))/2];
     }
 
     ~LowerTriangular()
@@ -29,11 +29,13 @@ public:
 
     int get(int i, int j)
     {
-        if(i >= j){
-            return arr[(i * (i - 1) / 2) + (j - 1)];             //Formula for storing in row major mapping
+        if(i >= j)
+        {
+            return arr[(i*(i-1)/2)+(j-1)];             //Formula for storing in row major mapping
         }
         //If we replace i with j in this formula we'll get the formula for storing a upper triangular matrix in column major mapping.
-        else{
+        else
+        {
             return 0;
         }
     }
@@ -45,16 +47,19 @@ public:
 
     void Set(int i, int j, int val)
     {
-        if(i >= j){
-            arr[(i * (i - 1) / 2) + (j - 1)] = val;
+        if(i >= j)
+        {
+            arr[(i*(i-1)/2)+(j-1)] = val;
         }
         return;
     }
 
     void display()
     {
-        for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
                 printf("%2d ", get(i, j));
             }
             cout << "\n";
@@ -71,8 +76,10 @@ int main()
     LowerTriangular lt(dim);
 
     cout << "\nEnter the non-zero elements of the matrix\n\n";
-    for(i = 1; i <= dim; i++){
-        for(j = 1; j <= i; j++){
+    for(i = 1; i <= dim; i++)
+    {
+        for(j = 1; j <= i; j++)
+        {
             cin >> val;
             lt.Set(i, j, val);
         }

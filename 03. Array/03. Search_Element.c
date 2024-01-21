@@ -6,8 +6,10 @@ int arr[] = {1, 2, 4, 5, 6};
 
 int ilinear_search()
 {
-    for(int i = 0; i < n; i++){
-        if(key == arr[i]){
+    for(int i = 0; i < n; i++)
+    {
+        if(key == arr[i])
+        {
             return i;
         }
     }
@@ -24,22 +26,27 @@ Two time shortening technique for further searching
 
 int rlinear_search(int i)
 {
-    if(key == arr[i]){
+    if(key == arr[i])
+    {
         return i;
     }
-    else if(i == n){
+    else if(i == n)
+    {
         return -1;
     }
-    else{
-        i = rlinear_search(i + 1);
+    else
+    {
+        i = rlinear_search(i+1);
         return i;
     }
 }
 
 bool sorted()
 {
-    for(int i = 0; i < n - 1; i++){
-        if(arr[i] > arr[i + 1]){
+    for(int i = 0; i < n-1; i++)
+    {
+        if(arr[i] > arr[i+1])
+        {
             return false;
         }
     }
@@ -48,46 +55,55 @@ bool sorted()
 
 int ibinary_search(int low, int high)
 {
-    while(low <= high){
-        int mid = (low + high) / 2;
+    while(low <= high)
+    {
+        int mid = (low+high)/2;
 
-        if(key == arr[mid]){
+        if(key == arr[mid])
+        {
             return mid;
         }
-        else if(key < arr[mid]){
-            high = mid - 1;
+        else if(key < arr[mid])
+        {
+            high = mid-1;
         }
-        else{
-            low = mid + 1;
+        else
+        {
+            low = mid+1;
         }
     }
     return -1;
 }
 
-//Tail recursion and loops are similar.
+// Tail recursion and loops are similar.
 int rbinary_search(int low, int high)
 {
-    if(low > high){
+    if(low > high)
+    {
         return -1;
     }
 
-    int mid = (low + high) / 2;
+    int mid = (low+high)/2;
 
-    if(key == arr[mid]){
+    if(key == arr[mid])
+    {
         return mid;
     }
-    else if(key < arr[mid]){
-        return(rbinary_search(low, mid - 1));
+    else if(key < arr[mid])
+    {
+        return(rbinary_search(low, mid-1));
     }
-    else{
-        return(rbinary_search(mid + 1, high));
+    else
+    {
+        return(rbinary_search(mid+1, high));
     }
 }
 
 void display()
 {
     printf("The array :");
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         printf(" %d", arr[i]);
     }
     printf("\n\n");
@@ -101,45 +117,59 @@ int main(void)
     scanf("%d", &key);
 
     printf("\nLinear search\n");
-    pos = ilinear_search() + 1;
+    pos = ilinear_search()+1;
     printf("\nIterative : ");
-    if(pos >= 1){
+
+    if(pos >= 1)
+    {
         printf("%d is at position %d\n", key, pos);
     }
-    else{
+    else
+    {
         printf("%d is not found\n", key);
     }
 
-    pos = rlinear_search(0) + 1;
+    pos = rlinear_search(0)+1;
     printf("Recursive : ");
-    if(pos >= 1){
+
+    if(pos >= 1)
+    {
         printf("%d is at position %d\n", key, pos);
     }
-    else{
+    else
+    {
         printf("%d is not found\n", key);
     }
 
-    if(sorted()){
+    if(sorted())
+    {
         printf("\nBinary search\n");
-        pos = ibinary_search(0, n - 1) + 1;
+        pos = ibinary_search(0, n-1)+1;
         printf("\nIterative : ");
-        if(pos >= 1){
+
+        if(pos >= 1)
+        {
             printf("%d is at position %d\n", key, pos);
         }
-        else{
+        else
+        {
             printf("%d is not found\n", key);
         }
 
-        pos = rbinary_search(0, n - 1) + 1;
+        pos = rbinary_search(0, n-1)+1;
         printf("Recursive : ");
-        if(pos >= 1){
+
+        if(pos >= 1)
+        {
             printf("%d is at position %d\n", key, pos);
         }
-        else{
+        else
+        {
             printf("%d is not found\n", key);
         }
     }
-    else{
+    else
+    {
         printf("\nBinary search can not be done in an unsorted array\n");
     }
     return 0;

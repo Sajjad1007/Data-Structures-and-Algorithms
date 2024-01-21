@@ -4,15 +4,17 @@
 char *to_lower(char str[])
 {
     int i, len = strlen(str);
-    for(i = 0; i < len; i++){
-        if(str[i] >= 65 && str[i] <= 90){
+    for(i = 0; i < len; i++)
+    {
+        if(str[i] >= 65 && str[i] <= 90)
+        {
             str[i] += 32;
         }
     }
     return str;
 }
 
-//Anagrams are two set of strings which are formed using same set of alphabets
+// Anagrams are two set of strings which are formed using same set of alphabets.
 void anagram(char str1[], char str2[])
 {
     int i, sum = 0, hash[26] = {0};
@@ -21,18 +23,22 @@ void anagram(char str1[], char str2[])
     str1 = to_lower(str1);
     str2 = to_lower(str2);
 
-    if(len1 != len2){
+    if(len1 != len2)
+    {
         printf("\nThe strings are not anagram\n");
         return;
     }
 
-    for(i = 0; str1[i] != '\0'; i++){
-        hash[str1[i] - 'a']++;
+    for(i = 0; str1[i] != '\0'; i++)
+    {
+        hash[str1[i]-'a']++;
     }
 
-    for(i = 0; str2[i] != '\0'; i++){
-        hash[str2[i] - 'a']--;
-        if(hash[str2[i] - 'a'] < 0){
+    for(i = 0; str2[i] != '\0'; i++)
+    {
+        hash[str2[i]-'a']--;
+        if(hash[str2[i]-'a'] < 0)
+        {
             printf("\nThe strings are not anagram\n");
             return;
         }

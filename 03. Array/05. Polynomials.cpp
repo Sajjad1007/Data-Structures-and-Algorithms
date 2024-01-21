@@ -21,8 +21,9 @@ struct polynomial
         terms = new term[terms_cnt];
         cout << "\n";
 
-        for(int i = 0; i < terms_cnt; i++){
-            cout << "Coefficient and exponent for term " << (i + 1) << " : ";
+        for(int i = 0; i < terms_cnt; i++)
+        {
+            cout << "Coefficient and exponent for term " << (i+1) << " : ";
             cin >> terms[i].coef >> terms[i].expo;
         }
         return;
@@ -30,21 +31,27 @@ struct polynomial
 
     void display()
     {
-        for(int i = 0; i < terms_cnt; i++){
-            if(terms[i].coef != 0 && terms[i].expo != 0){
+        for(int i = 0; i < terms_cnt; i++)
+        {
+            if(terms[i].coef != 0 && terms[i].expo != 0)
+            {
                 printf("(%dx^%d)", terms[i].coef, terms[i].expo);
             }
-            else if(terms[i].coef != 0 && terms[i].expo == 0){
+            else if(terms[i].coef != 0 && terms[i].expo == 0)
+            {
                 printf("(%d)", terms[i].coef);
             }
-            else{
+            else
+            {
                 continue;
             }
 
-            if(i != terms_cnt - 1){
+            if(i != terms_cnt-1)
+            {
                 printf(" + ");
             }
-            else{
+            else
+            {
                 printf("\n");
             }
         }
@@ -56,29 +63,36 @@ polynomial add(polynomial p1, polynomial p2)
 {
     int i = 0, j = 0, k = 0;
     polynomial sum;
-    sum.terms_cnt = p1.terms_cnt + p2.terms_cnt;
+    sum.terms_cnt = p1.terms_cnt+p2.terms_cnt;
     sum.terms = new term[sum.terms_cnt];
 
-    while(i < p1.terms_cnt && j < p2.terms_cnt){
-        if(p1.terms[i].expo > p2.terms[j].expo){
+    while(i < p1.terms_cnt && j < p2.terms_cnt)
+    {
+        if(p1.terms[i].expo > p2.terms[j].expo)
+        {
             sum.terms[k++] = p1.terms[i++];
         }
-        else if(p1.terms[i].expo < p2.terms[j].expo){
+        else if(p1.terms[i].expo < p2.terms[j].expo)
+        {
             sum.terms[k++] = p2.terms[j++];
         }
-        else{
+        else
+        {
             sum.terms[k].expo = p1.terms[i].expo;
-            sum.terms[k].coef = p1.terms[i++].coef + p2.terms[j++].coef;
-            if(sum.terms[k++].coef == 0){
+            sum.terms[k].coef = p1.terms[i++].coef+p2.terms[j++].coef;
+            if(sum.terms[k++].coef == 0)
+            {
                 k--;
             }
         }
     }
 
-    while(i < p1.terms_cnt){
+    while(i < p1.terms_cnt)
+    {
         sum.terms[k++] = p1.terms[i++];
     }
-    while(j < p2.terms_cnt){
+    while(j < p2.terms_cnt)
+    {
         sum.terms[k++] = p2.terms[j++];
     }
     sum.terms_cnt = k;
@@ -88,8 +102,9 @@ polynomial add(polynomial p1, polynomial p2)
 void evaluate(polynomial p, int x)
 {
     int i, sum = 0;
-    for(i = 0; i < p.terms_cnt; i++){
-        sum += (p.terms[i].coef * pow(x, p.terms[i].expo));
+    for(i = 0; i < p.terms_cnt; i++)
+    {
+        sum += (p.terms[i].coef*pow(x, p.terms[i].expo));
     }
     printf("For x = %d, Sum = %d\n", x, sum);
     return;

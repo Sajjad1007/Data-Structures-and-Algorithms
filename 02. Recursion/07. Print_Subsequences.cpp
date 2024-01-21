@@ -16,8 +16,8 @@ void print()
     return;
 }
 
-//Time complexity is O(2^n).
-//Space complexity is O(n).
+// Time complexity is O(2^n).
+// Space complexity is O(n).
 void print_subsequence(int i, int *arr)
 {
     cnt++;
@@ -27,9 +27,9 @@ void print_subsequence(int i, int *arr)
     }
     else
     {
-        print_subsequence(i+1, arr);         //Not taking ith element in the subsequence
+        print_subsequence(i+1, arr);         // not taking ith element in the subsequence
         v.push_back(arr[i]);
-        print_subsequence(i+1, arr);         //Taking ith element in the subsequence
+        print_subsequence(i+1, arr);         // taking ith element in the subsequence
         v.pop_back();
     }
     return;

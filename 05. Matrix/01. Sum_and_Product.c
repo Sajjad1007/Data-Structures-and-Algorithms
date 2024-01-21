@@ -36,9 +36,11 @@ int main(void)
 void input(int a[][dim])
 {
     printf("\n");
-    for(int row = 0; row < dim; ++row){
-        printf("row %d : ", row + 1);
-        for(int col = 0; col < dim; ++col){
+    for(int row = 0; row < dim; ++row)
+    {
+        printf("row %d : ", row+1);
+        for(int col = 0; col < dim; ++col)
+        {
             scanf("%d", &a[row][col]);
         }
     }
@@ -47,8 +49,10 @@ void input(int a[][dim])
 
 void output(int c[][dim])
 {
-    for(int row = 0; row < dim; ++row){
-        for(int col = 0; col < dim; ++col){
+    for(int row = 0; row < dim; ++row)
+    {
+        for(int col = 0; col < dim; ++col)
+        {
             printf("%2d ", c[row][col]);
         }
         printf("\n");
@@ -58,9 +62,11 @@ void output(int c[][dim])
 
 void sum(int a[][dim], int b[][dim], int c[][dim])
 {
-    for(int row = 0; row < dim; ++row){
-        for(int col = 0; col < dim; ++col){
-            c[row][col] = a[row][col] + b[row][col];
+    for(int row = 0; row < dim; ++row)
+    {
+        for(int col = 0; col < dim; ++col)
+        {
+            c[row][col] = a[row][col]+b[row][col];
         }
     }
     return;
@@ -68,11 +74,14 @@ void sum(int a[][dim], int b[][dim], int c[][dim])
 
 void product(int a[][dim], int b[][dim], int c[][dim])
 {
-    for(int row = 0; row < dim; ++row){
-        for(int col = 0; col < dim; ++col){
+    for(int row = 0; row < dim; ++row)
+    {
+        for(int col = 0; col < dim; ++col)
+        {
             c[row][col] = 0;
-            for(int k = 0; k < dim; k++){
-                c[row][col] += a[row][k] * b[k][col];
+            for(int k = 0; k < dim; k++)
+            {
+                c[row][col] += a[row][k]*b[k][col];
             }
         }
     }

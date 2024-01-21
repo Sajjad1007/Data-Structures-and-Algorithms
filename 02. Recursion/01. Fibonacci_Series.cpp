@@ -12,7 +12,7 @@ using namespace std;
 
 int cnt;
 
-int fibo(int n)          //Time complexity is O(2^n).
+int fibo(int n)          // Time complexity is O(2^n).
 {
     ++cnt;
     if(n <= 2)
