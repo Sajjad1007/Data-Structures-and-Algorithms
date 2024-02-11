@@ -26,7 +26,8 @@ void input()
     cin >> val;
     head = tail = new node(val);
 
-    for(i = 2; i <= list_size; i++){
+    for(i = 2; i <= list_size; i++)
+    {
         cin >> val;
         node *t = new node(val);
         tail->next = t;
@@ -41,18 +42,22 @@ void Insert()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size + 1){
+    if(pos >= 1 && pos <= list_size+1)
+    {
         cout << "Enter an element : ";
         cin >> val;
         node *p = head;
         node *t = new node(val);
 
-        if(pos == 1){
+        if(pos == 1)
+        {
             t->next = head;
             head = t;
         }
-        else{
-            for(i = 1; i < pos - 1; i++){
+        else
+        {
+            for(i = 1; i < pos-1; i++)
+            {
                 p = p->next;
             }
             t->next = p->next;
@@ -69,16 +74,20 @@ void Delete()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size){
-        if(pos == 1){
+    if(pos >= 1 && pos <= list_size)
+    {
+        if(pos == 1)
+        {
             node *p = head;
             head = head->next;
             delete p;
             p = nullptr;
         }
-        else{
+        else
+        {
             node *p = head, *q;
-            for(i = 1; i < pos; i++){
+            for(i = 1; i < pos; i++)
+            {
                 q = p;
                 p = p->next;
             }
@@ -97,11 +106,13 @@ void update()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size){
+    if(pos >= 1 && pos <= list_size)
+    {
         cout << "Enter an element : ";
         cin >> val;
         node *p = head;
-        for(i = 2; i <= pos; i++){
+        for(i = 2; i <= pos; i++)
+        {
             p = p->next;
         }
         p->val = val;
@@ -114,7 +125,8 @@ void Reverse()
     node *p = head, *r;
     node *q = nullptr;
 
-    while(p != nullptr){
+    while(p != nullptr)
+    {
         r = q;
         q = p;
         p = p->next;
@@ -127,10 +139,12 @@ void Reverse()
 /**
 void Reverse(node *p, node *q)
 {
-    if(q == nullptr){
+    if(q == nullptr)
+    {
         head = p;
     }
-    else{
+    else
+    {
         Reverse(q, q->next);
         q->next = p;
     }
@@ -146,16 +160,20 @@ void left_rotation()
     cin >> n;
     n %= list_size;
 
-    if(n == 0){
+    if(n == 0)
+    {
         return;
     }
 
-    for(i = 1; i < list_size; i++){
-        if(i == n){
+    for(i = 1; i < list_size; i++)
+    {
+        if(i == n)
+        {
             q = p;
             p = p->next;
         }
-        else{
+        else
+        {
             p = p->next;
         }
     }
@@ -170,8 +188,11 @@ void max_min()
 {
     int Max = head->val;
     node *p = head->next;
-    while(p != nullptr){
-        if(Max < p->val){
+
+    while(p != nullptr)
+    {
+        if(Max < p->val)
+        {
             Max = p->val;
         }
         p = p->next;
@@ -179,8 +200,11 @@ void max_min()
 
     int Min = head->val;
     p = head->next;
-    while(p != nullptr){
-        if(Min > p->val){
+
+    while(p != nullptr)
+    {
+        if(Min > p->val)
+        {
             Min = p->val;
         }
         p = p->next;
@@ -197,12 +221,13 @@ void sum_average()
     float avg;
     node *p = head;
 
-    while(p != nullptr){
+    while(p != nullptr)
+    {
         sum += p->val;
         p = p->next;
     }
 
-    avg = (float)sum / list_size;
+    avg = (float)sum/list_size;
     cout << "\nSum = " << sum << "\n";
     cout << "Average = " << avg << "\n";
     return;
@@ -212,7 +237,8 @@ void display()
 {
     node *p = head;
     cout << "\nThe linked list :";
-    while(p != nullptr){
+    while(p != nullptr)
+    {
         cout  << " " << p->val;
         p = p->next;
     }
@@ -240,12 +266,14 @@ int main()
     input();
     cout << "\nThe singly linked list has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 Insert();
                 display();

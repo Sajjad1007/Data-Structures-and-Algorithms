@@ -27,7 +27,8 @@ public:
     ~Queue()
     {
         node *p = frnt;
-        while(frnt){
+        while(frnt)
+        {
             frnt = frnt->next;
             delete p;
             p = frnt;
@@ -37,10 +38,12 @@ public:
 
     bool Empty()
     {
-        if(frnt == nullptr){
+        if(frnt == nullptr)
+        {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
@@ -48,7 +51,9 @@ public:
     void push_Front(int val)
     {
         node *t = new node(val);
-        if(frnt == nullptr){
+
+        if(frnt == nullptr)
+        {
             rear = t;
         }
         else{
@@ -61,10 +66,13 @@ public:
     void push_Back(int val)
     {
         node *t = new node(val);
-        if(frnt == nullptr){
+
+        if(frnt == nullptr)
+        {
             frnt = t;
         }
-        else{
+        else
+        {
             rear->next = t;
         }
         rear = t;
@@ -73,7 +81,8 @@ public:
 
     void pop_Front()
     {
-        if(Empty()){
+        if(Empty())
+        {
             cout << "\nQueue underflow\n";
             exit(1);
         }
@@ -87,12 +96,14 @@ public:
 
     void pop_Back()
     {
-        if(Empty()){
+        if(Empty())
+        {
             cout << "\nQueue underflow\n";
             exit(1);
         }
 
-        else if(!frnt->next){           //One element is left there in the queue.
+        else if(!frnt->next)
+        {                // One element is left there in the queue.
             pop_Front();
             rear = nullptr;
             return;
@@ -100,7 +111,9 @@ public:
 
         rear = frnt;
         node *t = frnt->next;
-        while(t->next){
+
+        while(t->next)
+        {
             rear = t;
             t = t->next;
         }
@@ -121,14 +134,17 @@ public:
 
     void display()
     {
-        if(Empty()){
+        if(Empty())
+        {
             cout << "\nThe queue is empty\n";
             return;
         }
 
         node *p = frnt;
         cout << "\nThe queue :";
-        while(p){
+
+        while(p)
+        {
             cout  << " " << p->val;
             p = p->next;
         }
@@ -156,7 +172,8 @@ int main()
     Queue q;
     cout << "The queue has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
@@ -188,19 +205,23 @@ int main()
                 break;
 
             case 5:
-                if(q.Empty()){
+                if(q.Empty())
+                {
                     cout << "\nThe queue is empty\n";
                 }
-                else{
+                else
+                {
                     cout << "\nThe front element is " << q.Front() << "\n";
                 }
                 break;
 
             case 6:
-                if(q.Empty()){
+                if(q.Empty())
+                {
                     cout << "\nThe queue is empty\n";
                 }
-                else{
+                else
+                {
                     cout << "\nThe rear element is " << q.Rear() << "\n";
                 }
                 break;

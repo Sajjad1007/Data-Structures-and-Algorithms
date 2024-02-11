@@ -15,17 +15,20 @@ private:
 public:
     bool Empty()
     {
-        if(top1 == -1 && top2 == -1){
+        if(top1 == -1 && top2 == -1)
+        {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
 
     void push(int val)
     {
-        if((top1 + top2) == MAX - 2){
+        if((top1+top2) == MAX-2)
+        {
             cout << "Queue overflow\n";
             exit(1);
         }
@@ -36,12 +39,16 @@ public:
 
     void pop()
     {
-        if(top2 == -1){
-            if(top1 == -1){
+        if(top2 == -1)
+        {
+            if(top1 == -1)
+            {
                 cout << "\nQueue underflow\n";
                 exit(1);
             }
-            while(top1 != -1){
+
+            while(top1 != -1)
+            {
                 stack_arr2[++top2] = stack_arr1[top1--];
             }
         }
@@ -51,32 +58,39 @@ public:
 
     int Front()
     {
-        if(top2 == -1){
-            if(top1 == -1){
+        if(top2 == -1)
+        {
+            if(top1 == -1)
+            {
                 cout << "\nQueue underflow\n";
                 exit(1);
             }
-            else{
+            else
+            {
                 return stack_arr1[0];
             }
         }
-        else{
+        else
+        {
             return stack_arr2[top2];
         }
     }
 
     void display()
     {
-        if(top1 == -1 && top2 == -1){
+        if(top1 == -1 && top2 == -1)
+        {
             cout << "\nThe queue is empty\n";
             return;
         }
 
         cout << "\nThe queue :";
-        for(int i = top2; i >= 0; --i){
+        for(int i = top2; i >= 0; --i)
+        {
             cout << " " << stack_arr2[i];
         }
-        for(int i = 0; i <= top1; ++i){
+        for(int i = 0; i <= top1; ++i)
+        {
             cout << " " << stack_arr1[i];
         }
         cout << "\n";
@@ -100,7 +114,8 @@ int main()
     Queue q;
     cout << "The queue has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
@@ -120,10 +135,12 @@ int main()
                 break;
 
             case 3:
-                if(q.Empty()){
+                if(q.Empty())
+                {
                     cout << "\nThe queue is empty\n";
                 }
-                else{
+                else
+                {
                     cout << "\nThe front element is " << q.Front() << "\n";
                 }
                 break;

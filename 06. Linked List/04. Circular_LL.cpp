@@ -27,7 +27,8 @@ void input()
     head = tail = new node(val);
     tail->next = head;
 
-    for(i = 2; i <= list_size; i++){
+    for(i = 2; i <= list_size; i++)
+    {
         cin >> val;
         node *t = new node(val);
         tail->next = t;
@@ -43,19 +44,23 @@ void Insert()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size + 1){
+    if(pos >= 1 && pos <= list_size+1)
+    {
         cout << "Enter an element : ";
         cin >> val;
         node *p = head;
         node *t = new node(val);
 
-        if(pos == 1){
+        if(pos == 1)
+        {
             t->next = head;
             head = t;
             tail->next = head;
         }
-        else{
-            for(i = 1; i < pos - 1; i++){
+        else
+        {
+            for(i = 1; i < pos-1; i++)
+            {
                 p = p->next;
             }
             t->next = p->next;
@@ -72,17 +77,21 @@ void Delete()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size){
-        if(pos == 1){
+    if(pos >= 1 && pos <= list_size)
+    {
+        if(pos == 1)
+        {
             node *p = head;
             head = head->next;
             tail->next = head;
             delete p;
             p = nullptr;
         }
-        else{
+        else
+        {
             node *p = head, *q;
-            for(i = 1; i < pos; i++){
+            for(i = 1; i < pos; i++)
+            {
                 q = p;
                 p = p->next;
             }
@@ -90,7 +99,8 @@ void Delete()
             delete p;
             p = nullptr;
 
-            if(q->next == head){
+            if(q->next == head)
+            {
                 tail = q;
             }
         }
@@ -104,7 +114,8 @@ void Reverse()
     node *p = head, *r;
     node *q = tail;
 
-    do{
+    do
+    {
         r = q;
         q = p;
         p = p->next;
@@ -120,7 +131,8 @@ void display()
 {
     node *p = head;
     cout << "\nThe linked list :";
-    do{
+    do
+    {
         cout << " " << p->val;
         p = p->next;
     } while(p != head);
@@ -144,12 +156,14 @@ int main()
     input();
     cout << "\nThe circular linked list has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 Insert();
                 display();

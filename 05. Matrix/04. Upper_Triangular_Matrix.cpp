@@ -31,9 +31,9 @@ public:
     {
         if(i <= j)
         {
-            return arr[n*(i-1)-((i-1)*(i-2)/2)+(j-i)];      //Formula for storing in row major mapping
+            return arr[n*(i-1)-((i-1)*(i-2)/2)+(j-i)];      // Formula for storing in row major mapping
         }
-        //If we replace i with j in this formula we'll get the formula for storing a lower triangular matrix in column major mapping.
+        // If we replace i with j in this formula we'll get the formula for storing a lower triangular matrix in column major mapping.
         else
         {
             return 0;

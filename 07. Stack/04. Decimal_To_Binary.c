@@ -8,10 +8,12 @@ int top = -1;
 
 bool empty()
 {
-    if(top == -1){
+    if(top == -1)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -29,17 +31,20 @@ int pop()
 
 void decimal_to_binary(int num)
 {
-    if(num == 0){
+    if(num == 0)
+    {
         printf("0\n");
         return;
     }
 
-    while(num != 0){
-        push(num % 2);
+    while(num != 0)
+    {
+        push(num%2);
         num /= 2;
     }
 
-    while(!empty()){
+    while(!empty())
+    {
         printf("%d", pop());
     }
     printf("\n");
@@ -52,7 +57,8 @@ int main(void)
     printf("Enter a decimal number : ");
     scanf("%d", &num);
 
-    if(num < 0){
+    if(num < 0)
+    {
         printf("\nError 404 not found\n");
         return 0;
     }

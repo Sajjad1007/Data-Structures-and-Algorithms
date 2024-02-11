@@ -12,15 +12,18 @@ queue <int> q;
 void reverse_stack()
 {
     int data;
-    //First pop elements from stack, then enqueue them onto queue.
-    while(!s.empty()){
+
+    // First pop elements from stack, then enqueue them onto queue.
+    while(!s.empty())
+    {
         data = s.top();
         s.pop();
         q.push(data);
     }
 
-    //First dequeue elements from queue, then push them onto stack.
-    while(!q.empty()){
+    // First dequeue elements from queue, then push them onto stack.
+    while(!q.empty())
+    {
         data = q.front();
         q.pop();
         s.push(data);
@@ -31,7 +34,9 @@ void reverse_stack()
 void display()
 {
     stack <int> st = s;
-    while(!st.empty()){
+
+    while(!st.empty())
+    {
         cout << " " << st.top();
         st.pop();
     }
@@ -44,7 +49,8 @@ int main()
     int i, data;
     cout << "The stack has been initialized\n\n";
     cout << "Enter " << MAX << " elements in the stack : ";
-    for(i = 1; i <= MAX; i++){
+    for(i = 1; i <= MAX; i++)
+    {
         cin >> data;
         s.push(data);
     }

@@ -52,16 +52,18 @@ This is the result obtained after evaluating the postfix expression.
 
 using namespace std;
 
-stack <int> s;                //First the operators, then the operands will be pushed onto the stack.
+stack <int> s;                // First the operators, then the operands will be pushed onto the stack.
 char infix[MAX];
 char postfix[MAX];
 
 bool space(char c)
 {
-    if(c == ' ' || c == '\t'){
+    if(c == ' ' || c == '\t')
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -92,12 +94,14 @@ void infix_to_postfix()
     int len = strlen(infix);
     char symbol, next;
 
-    while(i < len){
+    while(i < len)
+    {
         symbol = infix[i++];
-        if(!space(symbol)){
+        if(!space(symbol))
+        {
             switch(symbol)
             {
-            default:          //When symbol is an operand
+            default:          // When symbol is an operand
                 postfix[j++] = symbol;
                 break;
 
@@ -106,8 +110,10 @@ void infix_to_postfix()
             case '*':
             case '/':
             case '^':
-                while(!s.empty() && (precedence(s.top()) >= precedence(symbol))){
-                    if(symbol == '^'){
+                while(!s.empty() && (precedence(s.top()) >= precedence(symbol)))
+                {
+                    if(symbol == '^')
+                    {
                         break;
                     }
                     postfix[j++] = s.top();
@@ -123,7 +129,8 @@ void infix_to_postfix()
             case ')':
                 next = s.top();
                 s.pop();
-                while(next != '('){
+                while(next != '(')
+                {
                     postfix[j++] = next;
                     next = s.top();
                     s.pop();
@@ -133,8 +140,9 @@ void infix_to_postfix()
         }
     }
 
-    while(!s.empty()){
-        postfix[j++] = s.top();         //The stack becomes empty.
+    while(!s.empty())
+    {
+        postfix[j++] = s.top();         // The stack becomes empty.
         s.pop();
     }
     postfix[j] = '\0';
@@ -144,11 +152,15 @@ void infix_to_postfix()
 int postfix_evaluation()
 {
     int i = 0, a, b;
-    while(postfix[i] != '\0'){
-        if(postfix[i] >= '0' && postfix[i] <= '9'){
-            s.push(postfix[i++] - '0');
+
+    while(postfix[i] != '\0')
+    {
+        if(postfix[i] >= '0' && postfix[i] <= '9')
+        {
+            s.push(postfix[i++]-'0');
         }
-        else{
+        else
+        {
             b = s.top();
             s.pop();
             a = s.top();
@@ -157,22 +169,22 @@ int postfix_evaluation()
             switch(postfix[i++])
             {
             case '+':
-                s.push(a + b);
+                s.push(a+b);
                 break;
 
             case '-':
-                s.push(a - b);
+                s.push(a-b);
                 break;
 
             case '*':
-                s.push(a * b);
+                s.push(a*b);
                 break;
 
             case '/':
-                s.push(a / b);
+                s.push(a/b);
                 break;
 
-            case '^':         //The associativity of this operator is right to left.
+            case '^':         // The associativity of this operator is right to left.
                 s.push(pow(a, b));
                 break;
             }

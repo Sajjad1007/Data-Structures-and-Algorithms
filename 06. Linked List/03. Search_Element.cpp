@@ -26,7 +26,8 @@ void input()
     cin >> val;
     head = tail = new node(val);
 
-    for(i = 2; i <= list_size; i++){
+    for(i = 2; i <= list_size; i++)
+    {
         cin >> val;
         node *t = new node(val);
         tail->next = t;
@@ -36,15 +37,17 @@ void input()
     return;
 }
 
-//We can improve this linear search by using 'Transposition' or 'Move-to-head' technique just like arrays.
+// We can improve this linear search by using 'Transposition' or 'Move-to-head' technique just like arrays.
 int linear_search(int key)
 {
     int pos = 0;
     node *p = head;
 
-    do{
+    do
+    {
         pos++;
-        if(key == p->val){
+        if(key == p->val)
+        {
             return pos;
         }
         p = p->next;
@@ -57,7 +60,8 @@ bool loop()
     node *p = head;
     node *q = p;
 
-    do{
+    do
+    {
         p = p->next;
         q = q->next;
         q = q ? q->next : nullptr;
@@ -71,11 +75,14 @@ bool sorted()
     node *p = head;
     int val = p->val;
 
-    while(p){
-        if(val > p->val){
+    while(p)
+    {
+        if(val > p->val)
+        {
             return false;
         }
-        else{
+        else
+        {
             val = p->val;
             p = p->next;
         }
@@ -91,7 +98,8 @@ void insert_sorted()
     cin >> val;
     node *t = new node(val);
 
-    while(p->next && (p->next->val < val)){
+    while(p->next && (p->next->val < val))
+    {
         p = p->next;
     }
     t->next = p->next;
@@ -104,12 +112,15 @@ void middle_element()
     node *p = head;
     node *q = head;
 
-    while(q){
+    while(q)
+    {
         q = q->next;
-        if(q){
+        if(q)
+        {
             q = q->next;
         }
-        if(q){
+        if(q)
+        {
             p = p->next;
         }
     }
@@ -123,12 +134,15 @@ void remove_duplicates()
     node *p = head;
     node *q = head->next;
 
-    while(q){
-        if(q->val != p->val){
+    while(q)
+    {
+        if(q->val != p->val)
+        {
             p = q;
             q = q->next;
         }
-        else{
+        else
+        {
             p->next = q->next;
             delete q;
             q = p->next;
@@ -141,7 +155,8 @@ void display()
 {
     node *p = head;
     cout << "\nThe linked list :";
-    while(p){
+    while(p)
+    {
         cout  << " " << p->val;
         p = p->next;
     }
@@ -166,39 +181,48 @@ int main()
     int ch, pos, key;
     input();
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 cout << "Enter an element for searching : ";
                 cin >> key;
                 pos = linear_search(key);
-                if(pos >= 1){
+
+                if(pos >= 1)
+                {
                     printf("\n%d is at position %d\n", key, pos);
                 }
-                else{
+                else
+                {
                     printf("\n%d is not found\n", key);
                 }
                 break;
 
             case 2:
-                if(loop()){
+                if(loop())
+                {
                     cout << "\nThe linked list has a loop\n";
                 }
-                else{
+                else
+                {
                     cout << "\nThe linked list does not have a loop\n";
                 }
                 break;
 
             case 3:
-                if(sorted()){
+                if(sorted())
+                {
                     insert_sorted();
                     display();
                 }
-                else{
+                else
+                {
                     cout << "\nThe linked list is not sorted\n";
                 }
                 break;
@@ -208,11 +232,13 @@ int main()
                 break;
 
             case 5:
-                if(sorted()){
+                if(sorted())
+                {
                     remove_duplicates();
                     display();
                 }
-                else{
+                else
+                {
                     cout << "\nThe linked list is not sorted\n";
                 }
                 break;

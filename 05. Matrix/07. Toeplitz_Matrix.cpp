@@ -1,4 +1,4 @@
-//Toeplitz matrix : An square matrix where elements in each diagonal are same.
+// Toeplitz matrix : An square matrix where elements in each diagonal are same.
 
 #include <iostream>
 

@@ -8,10 +8,12 @@ int top = -1;
 
 bool empty()
 {
-    if(top == -1){
+    if(top == -1)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -34,23 +36,28 @@ int Top()
 
 void prime_fact(int num)
 {
-    while(num % 2 == 0){
+    while(num%2 == 0)
+    {
         push(2);
         num /= 2;
     }
 
     int i = 3, copy;
-    while(num != 1){
-        while(num % i == 0){
+    while(num != 1)
+    {
+        while(num%i == 0)
+        {
             push(i);
             num /= i;
         }
         i += 2;
     }
 
-    while(!empty()){
+    while(!empty())
+    {
         copy = pop();
-        if(copy != Top()){
+        if(copy != Top())
+        {
             printf(" %d", copy);
         }
     }
@@ -64,7 +71,8 @@ int main(void)
     printf("Enter a positive number : ");
     scanf("%u", &num);
 
-    if(num <= 1){
+    if(num <= 1)
+    {
         printf("\nError 404 not found\n");
         return 0;
     }

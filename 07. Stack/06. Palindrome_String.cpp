@@ -9,25 +9,31 @@ bool palindrome(char *str)
     int i = 0, len = strlen(str);
     stack <char> s;
 
-    while(i < len / 2){
-        s.push(str[i++]);          //Push half of the string onto stack.
+    while(i < len/2)
+    {
+        s.push(str[i++]);          // Push half of the string onto stack.
     }
 
-    if(len % 2 != 0){
+    if(len%2 != 0)
+    {
         ++i;
     }
 
-    while(str[i]){
-        if(s.empty() || str[i++] != s.top()){
+    while(str[i])
+    {
+        if(s.empty() || str[i++] != s.top())
+        {
             return false;
         }
         s.pop();
     }
 
-    if(s.empty()){
+    if(s.empty())
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -37,10 +43,13 @@ int main()
     char str[100];
     cout << "Enter a string : ";
     cin >> str;
-    if(palindrome(str)){
+
+    if(palindrome(str))
+    {
         cout << "\n\"" << str << "\" is a palindrome\n";
     }
-    else{
+    else
+    {
         cout << "\n\"" << str << "\" is not a palindrome\n";
     }
     return 0;

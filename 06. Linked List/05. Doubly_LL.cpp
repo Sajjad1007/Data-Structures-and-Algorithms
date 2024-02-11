@@ -1,4 +1,4 @@
-//Java provides built-in class for circular doubly linked list only.
+// Java provides built-in class for circular doubly linked list only.
 
 #include <iostream>
 
@@ -30,7 +30,8 @@ void input()
     cin >> val;
     head = tail = new node(val);
 
-    for(i = 2; i <= list_size; i++){
+    for(i = 2; i <= list_size; i++)
+    {
         cin >> val;
         node *t = new node(val);
         t->prev = tail;
@@ -46,19 +47,23 @@ void Insert()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size + 1){
+    if(pos >= 1 && pos <= list_size+1)
+    {
         cout << "Enter an element : ";
         cin >> val;
         node *p = head;
         node *t = new node(val);
 
-        if(pos == 1){
+        if(pos == 1)
+        {
             t->next = head;
             head->prev = t;
             head = t;
         }
-        else{
-            for(i = 1; i < pos - 1; i++){
+        else
+        {
+            for(i = 1; i < pos-1; i++)
+            {
                 p = p->next;
             }
             p->next->prev = t;
@@ -77,27 +82,33 @@ void Delete()
     cout << "Enter the position : ";
     cin >> pos;
 
-    if(pos >= 1 && pos <= list_size){
-        if(pos == 1){
+    if(pos >= 1 && pos <= list_size)
+    {
+        if(pos == 1)
+        {
             node *p = head;
             head = head->next;
             head->prev = nullptr;
             delete p;
             p = nullptr;
         }
-        else{
+        else
+        {
             node *p = head, *q;
-            for(i = 1; i < pos; i++){
+            for(i = 1; i < pos; i++)
+            {
                 q = p;
                 p = p->next;
             }
             q->next = p->next;
 
-            if(p->next == nullptr){
+            if(p->next == nullptr)
+            {
                 tail = q;
                 head->prev = tail;
             }
-            else{
+            else
+            {
                 p->next->prev = q;
             }
             delete p;
@@ -111,7 +122,8 @@ void Delete()
 void Reverse()
 {
     node *t, *p = head;
-    do{
+    do
+    {
         t = p->next;
         p->next = p->prev;
         p->prev = t;
@@ -128,7 +140,8 @@ void display()
 {
     node *p = head;
     cout << "\nThe linked list :";
-    while(p){
+    while(p)
+    {
         cout << " " << p->val;
         p = p->next;
     }
@@ -152,12 +165,14 @@ int main()
     input();
     cout << "\nThe doubly linked list has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
 
-        switch(ch){
+        switch(ch)
+        {
             case 1:
                 Insert();
                 display();

@@ -26,7 +26,8 @@ public:
     ~Stack()
     {
         node *p = top;
-        while(top){
+        while(top)
+        {
             top = top->next;
             delete p;
             p = top;
@@ -36,10 +37,12 @@ public:
 
     bool Empty()
     {
-        if(top == nullptr){
+        if(top == nullptr)
+        {
             return true;
         }
-        else{
+        else
+        {
             return false;
         }
     }
@@ -54,7 +57,8 @@ public:
 
     void pop()
     {
-        if(Empty()){
+        if(Empty())
+        {
             cout << "\nStack underflow\n";
             exit(1);
         }
@@ -73,14 +77,16 @@ public:
 
     void display()
     {
-        if(Empty()){
+        if(Empty())
+        {
             cout << "\nThe stack is empty\n";
             return;
         }
 
         node *p = top;
         cout << "\nThe stack :";
-        while(p){
+        while(p)
+        {
             cout  << " " << p->val;
             p = p->next;
         }
@@ -105,7 +111,8 @@ int main()
     Stack s;
     cout << "The stack has been initialized\n\n";
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
@@ -125,10 +132,12 @@ int main()
                 break;
 
             case 3:
-                if(s.Empty()){
+                if(s.Empty())
+                {
                     cout << "\nThe stack is empty\n";
                 }
-                else{
+                else
+                {
                     cout << "\nThe top element is " << s.Top() << "\n";
                 }
                 break;

@@ -8,14 +8,16 @@ typedef struct node
     struct node *next;
 } node;
 
-node *frnt = NULL;            //rear pointer will not be needed in case of priority queue.
+node *frnt = NULL;            // 'rear' pointer will not be needed in case of priority queue.
 
 bool empty()
 {
-    if(frnt == NULL){
+    if(frnt == NULL)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -26,13 +28,16 @@ void push(int val)
     t->val = val;
     t->next = NULL;
 
-    if(empty() || (val > frnt->val)){
+    if(empty() || (val > frnt->val))
+    {
         t->next = frnt;
         frnt = t;
     }
-    else{
+    else
+    {
         node *p = frnt;
-        while((p->next != NULL) && (p->next->val >= val)){
+        while((p->next != NULL) && (p->next->val >= val))
+        {
             p = p->next;
         }
         t->next = p->next;
@@ -43,7 +48,8 @@ void push(int val)
 
 void pop()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nQueue underflow\n");
         exit(1);
     }
@@ -62,14 +68,17 @@ int Front()
 
 void display()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nThe queue is empty\n");
         return;
     }
 
     node *p = frnt;
     printf("\nThe queue :");
-    while(p){
+
+    while(p)
+    {
         printf(" %d", p->val);
         p = p->next;
     }
@@ -82,7 +91,8 @@ int main(void)
     int ch, val;
     printf("The queue has been initialized\n\n");
 
-    while(true){
+    while(true)
+    {
         printf("Menu\n");
         printf("1. Push\n");
         printf("2. Pop\n");
@@ -106,10 +116,12 @@ int main(void)
                 break;
 
             case 3:
-                if(empty()){
+                if(empty())
+                {
                     printf("\nThe queue is empty\n");
                 }
-                else{
+                else
+                {
                     printf("\nThe front element is %d\n", Front());
                 }
                 break;

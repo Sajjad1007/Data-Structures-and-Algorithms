@@ -1,4 +1,4 @@
-//Double Ended Queue is an extension of circular queue.
+// Double Ended Queue is an extension of circular queue.
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -12,38 +12,46 @@ int rear = -1;
 
 bool empty()
 {
-    if(frnt == -1){
+    if(frnt == -1)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
 bool full()
 {
-    if((frnt == 0 && rear == MAX - 1) || (frnt == rear + 1)){
+    if((frnt == 0 && rear == MAX-1) || (frnt == rear+1))
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
 void push_front(int val)
 {
-    if(full()){
+    if(full())
+    {
         printf("\nQueue overflow\n");
         exit(1);
     }
 
-    if(empty()){
+    if(empty())
+    {
         frnt = rear = 0;
     }
-    else if(frnt == 0){
-        frnt = MAX - 1;
+    else if(frnt == 0)
+    {
+        frnt = MAX-1;
     }
-    else{
+    else
+    {
         --frnt;
     }
     deque[frnt] = val;
@@ -52,18 +60,22 @@ void push_front(int val)
 
 void push_back(int val)
 {
-    if(full()){
+    if(full())
+    {
         printf("\nQueue overflow\n");
         exit(1);
     }
 
-    if(empty()){
+    if(empty())
+    {
         frnt = rear = 0;
     }
-    else if(rear == MAX - 1){
+    else if(rear == MAX-1)
+    {
         rear = 0;
     }
-    else{
+    else
+    {
         ++rear;
     }
     deque[rear] = val;
@@ -72,18 +84,22 @@ void push_back(int val)
 
 void pop_front()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nQueue underflow\n");
         exit(1);
     }
 
-    if(frnt == rear){
-        frnt = rear = -1;               //The last element has been popped from the queue.
+    if(frnt == rear)
+    {
+        frnt = rear = -1;               // The last element has been popped from the queue.
     }
-    else if(frnt == MAX - 1){
+    else if(frnt == MAX-1)
+    {
         frnt = 0;
     }
-    else{
+    else
+    {
         ++frnt;
     }
     return;
@@ -91,18 +107,22 @@ void pop_front()
 
 void pop_back()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nQueue underflow\n");
         exit(1);
     }
 
-    if(frnt == rear){
+    if(frnt == rear)
+    {
         frnt = rear = -1;
     }
-    else if(rear == 0){
-        rear = MAX - 1;
+    else if(rear == 0)
+    {
+        rear = MAX-1;
     }
-    else{
+    else
+    {
         --rear;
     }
     return;
@@ -120,19 +140,24 @@ int Rear()
 
 void display()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nThe queue is empty\n");
         return;
     }
 
     printf("\nThe queue :");
     int i = frnt;
-    while(i != rear){
+
+    while(i != rear)
+    {
         printf(" %d", deque[i]);
-        if(i == MAX - 1){
+        if(i == MAX-1)
+        {
             i = 0;
         }
-        else{
+        else
+        {
             ++i;
         }
     }
@@ -158,7 +183,8 @@ int main(void)
     int ch, val;
     printf("The queue has been initialized\n\n");
 
-    while(true){
+    while(true)
+    {
         choice_list();
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
@@ -190,19 +216,23 @@ int main(void)
                 break;
 
             case 5:
-                if(empty()){
+                if(empty())
+                {
                     printf("\nThe queue is empty\n");
                 }
-                else{
+                else
+                {
                     printf("\nThe front element is %d\n", Front());
                 }
                 break;
 
             case 6:
-                if(empty()){
+                if(empty())
+                {
                     printf("\nThe queue is empty\n");
                 }
-                else{
+                else
+                {
                     printf("\nThe rear element is %d\n", Rear());
                 }
                 break;

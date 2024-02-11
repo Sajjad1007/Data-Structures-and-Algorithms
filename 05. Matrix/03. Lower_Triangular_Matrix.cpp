@@ -31,9 +31,9 @@ public:
     {
         if(i >= j)
         {
-            return arr[(i*(i-1)/2)+(j-1)];             //Formula for storing in row major mapping
+            return arr[(i*(i-1)/2)+(j-1)];             // Formula for storing in row major mapping
         }
-        //If we replace i with j in this formula we'll get the formula for storing a upper triangular matrix in column major mapping.
+        // If we replace i with j in this formula we'll get the formula for storing a upper triangular matrix in column major mapping.
         else
         {
             return 0;

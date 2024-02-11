@@ -3,7 +3,7 @@
 #include <stdbool.h>
 
 int count;
-bool flag[5];       // ith value of flag will track whether ith character of str stored in res or not.
+bool flag[5];       // i-th value of flag will track whether i-th character of str stored in res or not.
 char res[6];        // This array will be used for printing permutations of the string.
 
 /*

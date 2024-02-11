@@ -8,14 +8,18 @@ queue <int> q;
 int josephous(int n, int k)
 {
     int i = 1, temp;
-    while(i <= n){
+
+    while(i <= n)
+    {
         q.push(i);
         i++;
     }
 
     cout << "\nExecuted people :";
-    while(q.size() != 1){
-        for(i = 1; i <= k; i++){
+    while(q.size() != 1)
+    {
+        for(i = 1; i <= k; i++)
+        {
             temp = q.front();
             q.push(temp);
             q.pop();

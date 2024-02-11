@@ -1,37 +1,42 @@
 #include <stdio.h>
-#include <stdlib.h>           //For exit(1) function
+#include <stdlib.h>           // For exit(1) function
 #include <stdbool.h>
 
 #define MAX 5
 
 int stack[MAX];
-int top = -1;                 //Currently the stack is empty.
+int top = -1;                 // Currently the stack is empty.
 
 bool empty()
 {
-    if(top == -1){
+    if(top == -1)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
 bool full()
 {
-    if(top == MAX - 1){
+    if(top == MAX-1)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
 
 void push(int val)
 {
-    if(full()){
+    if(full())
+    {
         printf("\nStack overflow\n");
-        exit(1);              //exit(1) means abnormal termination of the program.
+        exit(1);              // exit(1) means abnormal termination of the program.
     }
 
     stack[++top] = val;
@@ -40,7 +45,8 @@ void push(int val)
 
 void pop()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nStack underflow\n");
         exit(1);
     }
@@ -56,13 +62,15 @@ int Top()
 
 void display()
 {
-    if(empty()){
+    if(empty())
+    {
         printf("\nThe stack is empty\n");
         return;
     }
 
     printf("\nThe stack :");
-    for(int i = top; i >= 0; --i){
+    for(int i = top; i >= 0; --i)
+    {
         printf(" %d", stack[i]);
     }
     printf("\n");
@@ -84,7 +92,8 @@ int main(void)
     int ch, val;
     printf("The stack has been initialized\n\n");
 
-    while(true){
+    while(true)
+    {
         choice_list();
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
@@ -104,10 +113,12 @@ int main(void)
                 break;
 
             case 3:
-                if(empty()){
+                if(empty())
+                {
                     printf("\nThe stack is empty\n");
                 }
-                else{
+                else
+                {
                     printf("\nThe top element is %d\n", Top());
                 }
                 break;

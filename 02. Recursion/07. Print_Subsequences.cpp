@@ -27,9 +27,9 @@ void print_subsequence(int i, int *arr)
     }
     else
     {
-        print_subsequence(i+1, arr);         // not taking ith element in the subsequence
+        print_subsequence(i+1, arr);         // Not taking i-th element in the subsequence
         v.push_back(arr[i]);
-        print_subsequence(i+1, arr);         // taking ith element in the subsequence
+        print_subsequence(i+1, arr);         // Taking i-th element in the subsequence
         v.pop_back();
     }
     return;

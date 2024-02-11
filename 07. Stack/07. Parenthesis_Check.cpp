@@ -8,10 +8,12 @@ using namespace std;
 
 bool space(char c)
 {
-    if(c == ' ' || c == '\t'){
+    if(c == ' ' || c == '\t')
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -46,16 +48,20 @@ bool right_parenthesis(char c)
 
 bool matched(char a, char b)
 {
-    if(a == '[' && b == ']'){
+    if(a == '[' && b == ']')
+    {
         return true;
     }
-    else if(a == '{' && b == '}'){
+    else if(a == '{' && b == '}')
+    {
         return true;
     }
-    else if(a == '(' && b == ')'){
+    else if(a == '(' && b == ')')
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -65,31 +71,40 @@ bool balanced(char *str)
     int len = strlen(str);
     stack <char> s;
 
-    for(int i = 0; i < len; i++){
-        if(!space(str[i])){
-            if(left_parenthesis(str[i])){
+    for(int i = 0; i < len; i++)
+    {
+        if(!space(str[i]))
+        {
+            if(left_parenthesis(str[i]))
+            {
                 s.push(str[i]);
             }
-            else if(right_parenthesis(str[i])){
-                if(s.empty()){
+            else if(right_parenthesis(str[i]))
+            {
+                if(s.empty())
+                {
                     cout << "Right brackets are more than left brackets\n";
                     return false;
                 }
-                else if(!matched(s.top(), str[i])){
+                else if(!matched(s.top(), str[i]))
+                {
                     cout << "Mismatched brackets\n";
                     return false;
                 }
-                else{
+                else
+                {
                     s.pop();
                 }
             }
         }
     }
 
-    if(s.empty()){
+    if(s.empty())
+    {
         return true;
     }
-    else{
+    else
+    {
         cout << "Left brackets are more than right brackets\n";
         return false;
     }
@@ -101,7 +116,9 @@ int main()
     cout << "Enter the algebraic expression : ";
     scanf(" %[^\n]", expr);
     cout << "\n";
-    if(balanced(expr)){
+
+    if(balanced(expr))
+    {
         cout << "Brackets are well balanced\n";
     }
     return 0;

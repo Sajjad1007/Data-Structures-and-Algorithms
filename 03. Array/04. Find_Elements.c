@@ -127,7 +127,7 @@ void find_pairs()
             printed = true;
             printf("\nThe pairs are :");
             int min = (arr.p[i] < sum-arr.p[i]) ? arr.p[i] : sum-arr.p[i];
-            printf(" (%d, %d)", min, sum-min);         // Print the smaller element first
+            printf(" (%d, %d)", min, sum-min);         // Print the smaller element first.
         }
         else if(hash[sum-arr.p[i]] == 1)
         {

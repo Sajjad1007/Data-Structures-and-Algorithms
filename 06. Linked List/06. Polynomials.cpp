@@ -21,24 +21,30 @@ struct polynomial
     int terms_cnt;
     term *head = nullptr;
 
-    //Insert() function inserts a term in descending order based on its exponent.
+    // Insert() function inserts a term in descending order based on its exponent.
     void Insert(int coef, int expo)
     {
         term *p = head;
         term *t = new term(coef, expo);
 
-        if((head == nullptr) || (expo > head->expo)){
+        if((head == nullptr) || (expo > head->expo))
+        {
             t->next = head;
             head = t;
         }
-        else{
-            while((p->next != nullptr) && (p->next->expo >= expo)){
+        else
+        {
+            while((p->next != nullptr) && (p->next->expo >= expo))
+            {
                 p = p->next;
             }
-            if(p->expo == expo){
-                p->coef = p->coef + coef;
+
+            if(p->expo == expo)
+            {
+                p->coef = p->coef+coef;
             }
-            else{
+            else
+            {
                 t->next = p->next;
                 p->next = t;
             }
@@ -52,9 +58,11 @@ struct polynomial
         cout << "number of terms = ";
         cin >> terms_cnt;
 
-        if(terms_cnt > 0){
+        if(terms_cnt > 0)
+        {
             cout << "\n";
-            for(i = 1; i <= terms_cnt; ++i){
+            for(i = 1; i <= terms_cnt; ++i)
+            {
                 cout << "Coefficient and exponent for term " << i << " : ";
                 cin >> coef >> expo;
                 Insert(coef, expo);
@@ -68,8 +76,9 @@ struct polynomial
         double ans = 0;
         term *p = head;
 
-        while(p){
-            ans += (p->coef * pow(x, p->expo));
+        while(p)
+        {
+            ans += (p->coef*pow(x, p->expo));
             p = p->next;
         }
         return ans;
@@ -79,42 +88,56 @@ struct polynomial
     {
         term *p = head;
 
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             printf("0\n");
         }
-        else{
-            while(true){
-                if(p->coef == 0){
+        else
+        {
+            while(true)
+            {
+                if(p->coef == 0)
+                {
                     printf("0");
                 }
-                else if(p->coef != 0 && p->expo == 0){
+                else if(p->coef != 0 && p->expo == 0)
+                {
                     printf("%d", abs(p->coef));
                 }
-                else if(p->coef == 1){
+                else if(p->coef == 1)
+                {
                     printf("x^%d", p->expo);
                 }
-                else if(p->expo == 1){
+                else if(p->expo == 1)
+                {
                     printf("%dx", abs(p->coef));
                 }
-                else if(p->expo > 1){
-                    if(p == head){
+                else if(p->expo > 1)
+                {
+                    if(p == head)
+                    {
                         printf("%dx^%d", p->coef, p->expo);
                     }
-                    else{
+                    else
+                    {
                         printf("%dx^%d", abs(p->coef), p->expo);
                     }
                 }
 
                 p = p->next;
-                if(p){
-                    if(p->coef < 0){
+                if(p)
+                {
+                    if(p->coef < 0)
+                    {
                         printf(" - ");
                     }
-                    else{
+                    else
+                    {
                         printf(" + ");
                     }
                 }
-                else{
+                else
+                {
                     printf("\n");
                     break;
                 }
@@ -131,28 +154,34 @@ polynomial add(polynomial poly1, polynomial poly2)
     term *p1 = poly1.head;
     term *p2 = poly2.head;
 
-    while(p1 && p2){
-        if(p1->expo == p2->expo){
-            sum.Insert((p1->coef + p2->coef), p1->expo);
+    while(p1 && p2)
+    {
+        if(p1->expo == p2->expo)
+        {
+            sum.Insert((p1->coef+p2->coef), p1->expo);
             p1 = p1->next;
             p2 = p2->next;
         }
-        else if(p1->expo > p2->expo){
+        else if(p1->expo > p2->expo)
+        {
             sum.Insert(p1->coef, p1->expo);
             p1 = p1->next;
         }
-        else{
+        else
+        {
             sum.Insert(p2->coef, p2->expo);
             p2 = p2->next;
         }
     }
 
-    while(p1){
+    while(p1)
+    {
         sum.Insert(p1->coef, p1->expo);
         p1 = p1->next;
     }
 
-    while(p2){
+    while(p2)
+    {
         sum.Insert(p2->coef, p2->expo);
         p2 = p2->next;
     }
@@ -165,9 +194,11 @@ polynomial multiply(polynomial poly1, polynomial poly2)
     term *p1 = poly1.head;
     term *p2 = poly2.head;
 
-    while(p1){
-        while(p2){
-            pro.Insert((p1->coef * p2->coef), (p1->expo + p2->expo));
+    while(p1)
+    {
+        while(p2)
+        {
+            pro.Insert((p1->coef*p2->coef), (p1->expo+p2->expo));
             p2 = p2->next;
         }
         p1 = p1->next;

@@ -21,15 +21,18 @@ struct Set
 
     Set(int arr[], int n)
     {
-        if(n == 0){
+        if(n == 0)
+        {
             head = nullptr;
         }
-        else{
+        else
+        {
             head = new node(arr[0]);
             tail = head;
         }
 
-        for(int i = 1; i < n; i++){
+        for(int i = 1; i < n; i++)
+        {
             node *t = new node(arr[i]);
             tail->next = t;
             tail = t;
@@ -39,14 +42,17 @@ struct Set
 
     void display(node *p)
     {
-        if(!p){
+        if(!p)
+        {
             printf("\n");
             return;
         }
-        else if(p->next == nullptr){
+        else if(p->next == nullptr)
+        {
             printf("%d}", p->val);
         }
-        else{
+        else
+        {
             printf("%d, ", p->val);
         }
 
@@ -67,25 +73,30 @@ void Merge()
     node *q = B.head;
     Set C({}, 0);
 
-    if(p->val < q->val){
+    if(p->val < q->val)
+    {
         C.head = C.tail = p;
         p = p->next;
         C.tail->next = nullptr;
     }
-    else{
+    else
+    {
         C.head = C.tail = q;
         q = q->next;
         C.tail->next = nullptr;
     }
 
-    while(p && q){
-        if(p->val < q->val){
+    while(p && q)
+    {
+        if(p->val < q->val)
+        {
             C.tail->next = p;
             C.tail = p;
             p = p->next;
             C.tail->next = nullptr;
         }
-        else{
+        else
+        {
             C.tail->next = q;
             C.tail = q;
             q = q->next;
@@ -93,10 +104,12 @@ void Merge()
         }
     }
 
-    if(p){
+    if(p)
+    {
         C.tail->next = p;
     }
-    else{
+    else
+    {
         C.tail->next = p;
     }
     cout << "\nA merge  B : {";
@@ -107,7 +120,8 @@ void Merge()
 void concat()
 {
     node *p = A.head;
-    while(p->next){
+    while(p->next)
+    {
         p = p->next;
     }
     p->next = B.head;
