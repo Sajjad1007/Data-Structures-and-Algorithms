@@ -13,14 +13,17 @@ using namespace std;
 
 int n, e;
 int dis[MAX][MAX];
-int nxt[MAX][MAX];       //nxt[i][j] will store the next node of i in order to reach j.
+int nxt[MAX][MAX];       // 'nxt[i][j]' will store the next node of i in order to reach j.
 
 void init()
 {
-    for(int i = 1; i <= n; i++){
-        for(int j = 1; j <= n; j++){
+    for(int i = 1; i <= n; i++)
+    {
+        for(int j = 1; j <= n; j++)
+        {
             nxt[i][j] = j;
-            if(i == j){
+            if(i == j)
+            {
                 continue;
             }
             dis[i][j] = INF;
@@ -37,7 +40,8 @@ void input_graph()
 
     init();
     cout << "\nEnter the weighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
         dis[u][v] = wt;
         dis[v][u] = wt;
@@ -48,11 +52,15 @@ void input_graph()
 
 void floyd_warshall()
 {
-    for(int k = 1; k <= n; k++){
-        for(int i = 1; i <= n; i++){
-            for(int j = 1; j <= n; j++){
-                if(dis[i][j] > dis[i][k] + dis[k][j]){
-                    dis[i][j] = dis[i][k] + dis[k][j];
+    for(int k = 1; k <= n; k++)
+    {
+        for(int i = 1; i <= n; i++)
+        {
+            for(int j = 1; j <= n; j++)
+            {
+                if(dis[i][j] > dis[i][k]+dis[k][j])
+                {
+                    dis[i][j] = dis[i][k]+dis[k][j];
                     nxt[i][j] = nxt[i][k];
                 }
             }
@@ -64,7 +72,8 @@ void floyd_warshall()
 void print_path(int i, int j)
 {
     cout << "path : " << i;
-    while(i != j){
+    while(i != j)
+    {
         i = nxt[i][j];
         cout << " -- " << i;
     }
@@ -79,12 +88,15 @@ int main()
     floyd_warshall();
 
     cout << "Shortest distances\n\n";
-    for(i = 1; i <= n; i++){
-        for(j = 1; j <= n; j++){
+    for(i = 1; i <= n; i++)
+    {
+        for(j = 1; j <= n; j++)
+        {
             printf("From %d to %d = %d,  ", i, j, dis[i][j]);
             print_path(i, j);
         }
-        if(i < n){
+        if(i < n)
+        {
             cout << "\n";
         }
     }

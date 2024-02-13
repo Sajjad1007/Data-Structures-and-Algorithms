@@ -1,7 +1,7 @@
 /*
 Topological sort is used for ordering tasks based on requirements. It is only valid in a directed acyclic graph(DAG).
 The topological sort algorithm that implemented below is famously known as Kahn's algorithm.
-Time complexity is O(V + E).
+Time complexity is O(V+E).
 */
 
 #include <iostream>
@@ -24,7 +24,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the directed acyclic graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v;
         G[u].push_back(v);
         indeg[v]++;
@@ -38,20 +39,25 @@ void toposort()
     int u;
     queue <int> q;
 
-    for(u = 1; u <= n; u++){
-        if(indeg[u] == 0){
+    for(u = 1; u <= n; u++)
+    {
+        if(indeg[u] == 0)
+        {
             q.push(u);
         }
     }
 
-    while(!q.empty()){
+    while(!q.empty())
+    {
         u = q.front();
         nodes.push_back(u);
         q.pop();
 
-        for(auto v : G[u]){
+        for(auto v : G[u])
+        {
             indeg[v]--;
-            if(indeg[v] == 0){
+            if(indeg[v] == 0)
+            {
                 q.push(v);
             }
         }
@@ -62,7 +68,8 @@ void toposort()
 void print_order()
 {
     cout << "Topological order :";
-    for(auto x : nodes){
+    for(auto x : nodes)
+    {
         cout << " " << x;
     }
     return;

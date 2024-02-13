@@ -15,8 +15,10 @@ int n = 10;
 int find_max(int arr[])
 {
     int i, max = arr[0];
-    for(i = 1; i < n; i++){
-        if(arr[i] > max){
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > max)
+        {
             max = arr[i];
         }
     }
@@ -27,22 +29,27 @@ void count_sort(int arr[])
 {
     int i, j;
     int max = find_max(arr);
-    int cnt[max + 1];
+    int cnt[max+1];
 
-    for(i = 0; i <= max; i++){
+    for(i = 0; i <= max; i++)
+    {
         cnt[i] = 0;
     }
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         cnt[arr[i]]++;
     }
 
     i = j = 0;
-    while(j <= max){
-        if(cnt[j] > 0){
+    while(j <= max)
+    {
+        if(cnt[j] > 0)
+        {
             arr[i++] = j;
             cnt[j]--;
         }
-        else{
+        else
+        {
             j++;
         }
     }
@@ -51,7 +58,8 @@ void count_sort(int arr[])
 
 void display(int t[])
 {
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         printf(" %d", t[i]);
     }
     printf("\n");

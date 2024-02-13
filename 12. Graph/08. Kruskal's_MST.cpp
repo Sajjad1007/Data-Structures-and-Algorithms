@@ -1,4 +1,4 @@
-//Time complexity is O(ElogE).
+// Time complexity is O(ElogE).
 
 #include <iostream>
 #include <vector>
@@ -18,9 +18,10 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the weighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
-        edges.push_back({wt, {u, v}});       //{weight, {initial node, terminal node}}
+        edges.push_back({wt, {u, v}});       // {weight, {initial node, terminal node}}
     }
     cout << "\n";
     return;
@@ -28,7 +29,8 @@ void input_graph()
 
 void init()
 {
-    for(int u = 1; u <= n; u++){
+    for(int u = 1; u <= n; u++)
+    {
         parent[u] = u;
     }
     return;
@@ -36,7 +38,8 @@ void init()
 
 int Find(int u)
 {
-    if(parent[u] == u){
+    if(parent[u] == u)
+    {
         return u;
     }
     parent[u] = Find(parent[u]);
@@ -56,12 +59,14 @@ void kruskals_mst()
     init();
     sort(edges.begin(), edges.end());
 
-    for(auto x : edges){
+    for(auto x : edges)
+    {
         int wt = x.first;
         int u = x.second.first;
         int v = x.second.second;
 
-        if(Find(u) != Find(v)){
+        if(Find(u) != Find(v))
+        {
             total_wt += wt;
             Union(u, v);
         }

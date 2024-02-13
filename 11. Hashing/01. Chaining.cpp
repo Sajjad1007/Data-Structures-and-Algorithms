@@ -2,7 +2,7 @@
 Notes:
 
 1. Hashing is a searching technique whose time complexity is O(1).
-2. Loading Factor, lf = number of elements / size of the hash table.
+2. Loading Factor, lf = number of elements/size of the hash table.
 3. In open hashing, extra spaces will be consumed if needed.
 4. Chaining is a method of open hashing technique.
 5. In chaining method, the size of the hash table should be anything.
@@ -26,11 +26,11 @@ struct node
     }
 };
 
-node *hash_table[sz];         //hash_table is a pointer to an array of 10 nodes.
+node *hash_table[sz];         // 'hash_table' is a pointer to an array of 10 nodes.
 
 int Hash(int key)
 {
-    return key % sz;
+    return key%sz;
 }
 
 void Insert(int val)
@@ -39,20 +39,25 @@ void Insert(int val)
     node *p = hash_table[indx], *q = nullptr;
     node *t = new node(val);
 
-    if(hash_table[indx] == nullptr){
+    if(hash_table[indx] == nullptr)
+    {
         hash_table[indx] = t;
     }
-    else{
-        while(p != nullptr && p->val < val){
+    else
+    {
+        while(p != nullptr && p->val < val)
+        {
             q = p;
             p = p->next;
         }
 
-        if(p == hash_table[indx]){
+        if(p == hash_table[indx])
+        {
             t->next = hash_table[indx];
             hash_table[indx] = t;
         }
-        else{
+        else
+        {
             t->next = q->next;
             q->next = t;
         }
@@ -65,8 +70,10 @@ bool Search(int key)
     int indx = Hash(key);
     node *p = hash_table[indx];
 
-    while(p){
-        if(key == p->val){
+    while(p)
+    {
+        if(key == p->val)
+        {
             return true;
         }
         p = p->next;
@@ -76,7 +83,8 @@ bool Search(int key)
 
 void print(node *p)
 {
-    while(p){
+    while(p)
+    {
         cout << " " << p->val;
         p = p->next;
     }
@@ -90,23 +98,27 @@ int main()
     cout << "Number of elements : ";
     cin >> n;
     cout << "Enter the elements : ";
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         cin >> val;
         Insert(val);
     }
 
     cout << "\nThe hash table\n";
-    for(i = 0; i < sz; i++){
+    for(i = 0; i < sz; i++)
+    {
         cout << "\nindex " << i << " :";
         print(hash_table[i]);
     }
 
     cout << "\n\nEnter an element to be searched : ";
     cin >> val;
-    if(Search(val)){
+    if(Search(val))
+    {
         cout << "\n" << val << " is found\n";
     }
-    else{
+    else
+    {
         cout << "\n" << val << " is not found\n";
     }
     return 0;

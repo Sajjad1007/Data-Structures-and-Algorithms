@@ -4,13 +4,14 @@
 
 #define MAX 100000
 
-bool status[MAX + 1];         //For a prime number x, status[x] = false.
-int factor_cnt[MAX + 1];
+bool status[MAX+1];           // For a prime number x, status[x] = false.
+int factor_cnt[MAX+1];
 int root = ceil(sqrt(MAX));
 
 void init()
 {
-    for(int i = 1; i <= MAX; i++){
+    for(int i = 1; i <= MAX; i++)
+    {
         factor_cnt[i] = 0;
     }
     return;
@@ -21,9 +22,12 @@ void sieve()
     int i, j;
     status[1] = true;
 
-    for(i = 2; i <= root; i++){
-        if(status[i] == false){
-            for(j = i * i; j <= MAX; j += i){
+    for(i = 2; i <= root; i++)
+    {
+        if(status[i] == false)
+        {
+            for(j = i*i; j <= MAX; j += i)
+            {
                 status[j] = true;
             }
         }
@@ -35,8 +39,10 @@ void print_primes(int strt, int end)
 {
     int i, cnt = 0;
     printf("\nPrime numbers from %d to %d :", strt, end);
-    for(i = strt; i <= end; i++){
-        if(status[i] == false){
+    for(i = strt; i <= end; i++)
+    {
+        if(status[i] == false)
+        {
             printf(" %d", i);
             cnt++;
         }
@@ -48,15 +54,19 @@ void print_primes(int strt, int end)
 void prime_factors(int num)
 {
     int i = 2;
-    while(i <= num){
-        if(status[i] == false){
-            while(num % i == 0){
+    while(i <= num)
+    {
+        if(status[i] == false)
+        {
+            while(num%i == 0)
+            {
                 factor_cnt[i]++;
                 num /= i;
             }
             i++;
         }
-        else{
+        else
+        {
             i++;
         }
     }
@@ -66,10 +76,13 @@ void prime_factors(int num)
 void print_factors(int num)
 {
     int i, cnt = 0;
-    for(i = 2; i <= num; i++){
-        while(factor_cnt[i] != 0){
+    for(i = 2; i <= num; i++)
+    {
+        while(factor_cnt[i] != 0)
+        {
             printf(" %d", i);
-            if(factor_cnt[i] == 1){
+            if(factor_cnt[i] == 1)
+            {
                 cnt++;
             }
             factor_cnt[i]--;
@@ -95,7 +108,8 @@ int main(void)
     sieve();
     printf("Sieve Eratosthenes from 1 to %d has been initialized\n", MAX);
 
-    while(true){
+    while(true)
+    {
         print_choice_list();
         printf("\nEnter your choice : ");
         scanf("%d", &ch);
@@ -105,10 +119,12 @@ int main(void)
             case 1:
                 printf("Enter the number  : ");
                 scanf("%d", &num);
-                if(status[num]){
+                if(status[num])
+                {
                     printf("\n%d is not a prime", num);
                 }
-                else{
+                else
+                {
                     printf("\n%d is a prime", num);
                 }
                 break;
@@ -132,7 +148,8 @@ int main(void)
                 printf("Enter the factorial : ");
                 scanf("%d!", &num);
                 init();
-                for(int i = 1; i <= num; i++){
+                for(int i = 1; i <= num; i++)
+                {
                     prime_factors(i);
                 }
                 printf("\nPrime factorization of %d! :", num);

@@ -4,7 +4,7 @@ Notes:
 1. Index based sorting technique
 2. Not adaptive(takes greater amount of time over already sorted list)
 3. Stable(preserves the relative order of duplicate elements after sorting)
-4. Space complexity O(n + m) when m = maximum element in the list
+4. Space complexity O(n+m) when m = maximum element in the list
 5. Best case time complexity O(n)
 6. Worst case time complexity O(n^2)
 */
@@ -14,7 +14,8 @@ Notes:
 
 int n = 10;
 
-struct node{
+struct node
+{
     int data;
     struct node *next;
 };
@@ -22,8 +23,10 @@ struct node{
 int find_max(int arr[])
 {
     int i, max = arr[0];
-    for(i = 1; i < n; i++){
-        if(arr[i] > max){
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > max)
+        {
             max = arr[i];
         }
     }
@@ -37,12 +40,15 @@ void Insert(struct node *bin[], int indx)
     t->data = indx;
     t->next = NULL;
 
-    if(p[indx] == NULL){
+    if(p[indx] == NULL)
+    {
         p[indx] = t;
     }
-    else{
+    else
+    {
         struct node *q = p[indx];
-        while(q->next != NULL){
+        while(q->next != NULL)
+        {
             q = q->next;
         }
         q->next = t;
@@ -64,18 +70,22 @@ void bin_sort(int arr[])
 {
     int i, j;
     int max = find_max(arr);
-    struct node *bin[max + 1];
+    struct node *bin[max+1];
 
-    for(i = 0; i <= max; i++){
+    for(i = 0; i <= max; i++)
+    {
         bin[i] = NULL;
     }
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         Insert(bin, arr[i]);
     }
 
     i = j = 0;
-    while(j <= max){
-        while(bin[j] != NULL){
+    while(j <= max)
+    {
+        while(bin[j] != NULL)
+        {
             arr[i++] = Delete(bin, j);
         }
         ++j;
@@ -85,7 +95,8 @@ void bin_sort(int arr[])
 
 void display(int t[])
 {
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         printf(" %d", t[i]);
     }
     printf("\n");

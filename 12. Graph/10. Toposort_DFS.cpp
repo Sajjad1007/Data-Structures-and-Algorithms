@@ -1,4 +1,4 @@
-//Time complexity is O(V + E).
+// Time complexity is O(V+E).
 
 #include <iostream>
 #include <vector>
@@ -20,7 +20,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the directed acyclic graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v;
         G[u].push_back(v);
     }
@@ -31,19 +32,22 @@ void input_graph()
 void toposort(int u)
 {
     vis[u] = true;
-    for(auto v : G[u]){
-        if(!vis[v]){
+    for(auto v : G[u])
+    {
+        if(!vis[v])
+        {
             toposort(v);
         }
     }
-    s.push(u);        //All children of u has been explored.
+    s.push(u);           // All children of u has been explored.
     return;
 }
 
 void print_order()
 {
     cout << "Topological order :";
-    while(!s.empty()){
+    while(!s.empty())
+    {
         cout << " " << s.top();
         s.pop();
     }
@@ -53,8 +57,10 @@ void print_order()
 int main()
 {
     input_graph();
-    for(int u = 1; u <= n; u++){
-        if(!vis[u]){
+    for(int u = 1; u <= n; u++)
+    {
+        if(!vis[u])
+        {
             toposort(u);
         }
     }

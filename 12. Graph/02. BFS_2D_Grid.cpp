@@ -6,7 +6,7 @@
 using namespace std;
 
 int Move[9][9];
-int dr[] = {0, -2, -2, -1, -1, 1, 1, 2, 2};         //Direction array
+int dr[] = {0, -2, -2, -1, -1, 1, 1, 2, 2};            // Direction array
 int dc[] = {0, -1, 1, -2, 2, -2, 2, -1, 1};
 
 struct node
@@ -16,8 +16,10 @@ struct node
 
 void init()
 {
-    for(int i = 1; i <= 8; i++){
-        for(int j = 1; j <= 8; j++){
+    for(int i = 1; i <= 8; i++)
+    {
+        for(int j = 1; j <= 8; j++)
+        {
             Move[i][j] = INF;
         }
     }
@@ -26,10 +28,12 @@ void init()
 
 bool valid(int r, int c)
 {
-    if(r >= 1 && r <= 8 && c >= 1 && c <= 8){
+    if(r >= 1 && r <= 8 && c >= 1 && c <= 8)
+    {
         return true;
     }
-    else{
+    else
+    {
         return false;
     }
 }
@@ -42,17 +46,20 @@ void bfs(int sr, int sc)
     parent[sr][sc] = {sr, sc};
     q.push({sr, sc});
 
-    while(!q.empty()){
+    while(!q.empty())
+    {
         int r = q.front().r;
         int c = q.front().c;
         q.pop();
 
-        for(int i = 1; i <= 8; i++){
-            int nr = r + dr[i];
-            int nc = c + dc[i];
+        for(int i = 1; i <= 8; i++)
+        {
+            int nr = r+dr[i];
+            int nc = c+dc[i];
 
-            if(Move[nr][nc] == INF && valid(nr, nc)){
-                Move[nr][nc] = Move[r][c] + 1;
+            if(Move[nr][nc] == INF && valid(nr, nc))
+            {
+                Move[nr][nc] = Move[r][c]+1;
                 parent[nr][nc] = {r, c};
                 q.push({nr, nc});
             }
@@ -64,10 +71,12 @@ void bfs(int sr, int sc)
 void print_path(int r, int c)
 {
     node p = parent[r][c];
-    if(r == p.r && c == p.c){
+    if(r == p.r && c == p.c)
+    {
         printf("(%d, %d)", r, c);
     }
-    else{
+    else
+    {
         print_path(p.r, p.c);
         printf(" -- (%d, %d)", r, c);
     }

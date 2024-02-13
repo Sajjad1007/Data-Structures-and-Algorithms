@@ -5,7 +5,8 @@ using namespace std;
 class AVL
 {
 private:
-    struct node{
+    struct node
+    {
         node *lchild;
         int val;
         int ht;
@@ -24,20 +25,21 @@ private:
     {
         int hl = (p && p->lchild) ? p->lchild->ht : -1;
         int hr = (p && p->rchild) ? p->rchild->ht : -1;
-        return (hl > hr) ? hl + 1 : hr + 1;
+        return (hl > hr) ? hl+1 : hr+1;
     }
 
     int balance_factor(node *p)
     {
         int hl = (p && p->lchild) ? p->lchild->ht : -1;
         int hr = (p && p->rchild) ? p->rchild->ht : -1;
-        return hl - hr;
+        return hl-hr;
     }
 
     node *inorder_predecessor(node *p)
     {
         node *t = p->lchild;
-        while(t && t->rchild){
+        while(t && t->rchild)
+        {
             t = t->rchild;
         }
         return t;
@@ -46,7 +48,8 @@ private:
     node *inorder_successor(node *p)
     {
         node *t = p->rchild;
-        while(t && t->lchild){
+        while(t && t->lchild)
+        {
             t = t->lchild;
         }
         return t;
@@ -62,7 +65,8 @@ private:
         p->ht = height(p);
         pl->ht = height(pl);
 
-        if(root == p){
+        if(root == p)
+        {
             root = pl;
         }
         return pl;
@@ -81,7 +85,8 @@ private:
         p->ht = height(p);
         plr->ht = height(plr);
 
-        if(root == p){
+        if(root == p)
+        {
             root = plr;
         }
         return plr;
@@ -97,7 +102,8 @@ private:
         p->ht = height(p);
         pr->ht = height(pr);
 
-        if(root == p){
+        if(root == p)
+        {
             root = pr;
         }
         return pr;
@@ -116,7 +122,8 @@ private:
         p->ht = height(p);
         prl->ht = height(prl);
 
-        if(root == p){
+        if(root == p)
+        {
             root = prl;
         }
         return prl;
@@ -124,13 +131,16 @@ private:
 
     node *Insert(node *p, int key)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             p = new node(key);
         }
-        else if(key < p->val){
+        else if(key < p->val)
+        {
             p->lchild = Insert(p->lchild, key);
         }
-        else if(key > p->val){
+        else if(key > p->val)
+        {
             p->rchild = Insert(p->rchild, key);
         }
 
@@ -139,16 +149,20 @@ private:
         int bf_pl = balance_factor(p->lchild);
         int bf_pr = balance_factor(p->rchild);
 
-        if(bf_p == 2 && bf_pl == 1){
+        if(bf_p == 2 && bf_pl == 1)
+        {
             return LL_rotation(p);
         }
-        else if(bf_p == 2 && bf_pl == -1){
+        else if(bf_p == 2 && bf_pl == -1)
+        {
             return LR_rotation(p);
         }
-        else if(bf_p == -2 && bf_pr == -1){
+        else if(bf_p == -2 && bf_pr == -1)
+        {
             return RR_rotation(p);
         }
-        else if(bf_p == -2 && bf_pr == 1){
+        else if(bf_p == -2 && bf_pr == 1)
+        {
             return RL_rotation(p);
         }
         return p;
@@ -157,26 +171,33 @@ private:
     node *Delete(node *p, int key)
     {
         if(p == nullptr);
-        else if(key == p->val && !p->lchild && !p->rchild){
-            if(p == root){
+        else if(key == p->val && !p->lchild && !p->rchild)
+        {
+            if(p == root)
+            {
                 root = nullptr;
             }
             delete p;
             p = nullptr;
         }
-        else if(key < p->val){
+        else if(key < p->val)
+        {
             p->lchild = Delete(p->lchild, key);
         }
-        else if(key > p->val){
+        else if(key > p->val)
+        {
             p->rchild = Delete(p->rchild, key);
         }
-        else{
-            if(height(p->lchild) >= height(p->rchild)){
+        else
+        {
+            if(height(p->lchild) >= height(p->rchild))
+            {
                 node *q = inorder_predecessor(p);
                 p->val = q->val;
                 p->lchild = Delete(p->lchild, q->val);
             }
-            else{
+            else
+            {
                 node *q = inorder_successor(p);
                 p->val = q->val;
                 p->rchild = Delete(p->rchild, q->val);
@@ -187,23 +208,29 @@ private:
             int bf_pl = balance_factor(p->lchild);
             int bf_pr = balance_factor(p->rchild);
 
-            if(bf_p == 2 && bf_pl == 1){
-                return LL_rotation(p);       //L1 Rotation
+            if(bf_p == 2 && bf_pl == 1)
+            {
+                return LL_rotation(p);       // L1 Rotation
             }
-            else if(bf_p == 2 && bf_pl == -1){
-                return LR_rotation(p);       //L-1 Rotation
+            else if(bf_p == 2 && bf_pl == -1)
+            {
+                return LR_rotation(p);       // L-1 Rotation
             }
-            else if(bf_p == -2 && bf_pr == -1){
-                return RR_rotation(p);       //R-1 Rotation
+            else if(bf_p == -2 && bf_pr == -1)
+            {
+                return RR_rotation(p);       // R-1 Rotation
             }
-            else if(bf_p == -2 && bf_pr == 1){
-                return RL_rotation(p);       //R1 Rotation
+            else if(bf_p == -2 && bf_pr == 1)
+            {
+                return RL_rotation(p);       // R1 Rotation
             }
-            else if(bf_p == 2 && bf_pl == 0){
-                return LL_rotation(p);       //L0 Rotation
+            else if(bf_p == 2 && bf_pl == 0)
+            {
+                return LL_rotation(p);       // L0 Rotation
             }
-            else if(bf_p == -2 && bf_pr == 0){
-                return RR_rotation(p);       //R0 Rotation
+            else if(bf_p == -2 && bf_pr == 0)
+            {
+                return RR_rotation(p);       // R0 Rotation
             }
         }
         return p;
@@ -240,7 +267,8 @@ public:
 
     void preorder(node *p)
     {
-        if(p != nullptr){
+        if(p != nullptr)
+        {
             cout << " " << p->val;
             preorder(p->lchild);
             preorder(p->rchild);
@@ -250,7 +278,8 @@ public:
 
     void inorder(node *p)
     {
-        if(p != nullptr){
+        if(p != nullptr)
+        {
             inorder(p->lchild);
             cout << " " << p->val;
             inorder(p->rchild);
@@ -260,7 +289,8 @@ public:
 
     void postorder(node *p)
     {
-        if(p != nullptr){
+        if(p != nullptr)
+        {
             postorder(p->lchild);
             postorder(p->rchild);
             cout << " " << p->val;
@@ -285,7 +315,8 @@ int main()
     AVL t;
     int i, n, ch, key;
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
@@ -296,7 +327,8 @@ int main()
                 cout << "Number of nodes : ";
                 cin >> n;
                 cout << "Enter " << n << " nodes : ";
-                for(i = 1; i <= n; i++){
+                for(i = 1; i <= n; i++)
+                {
                     cin >> key;
                     t.Insert(key);
                 }

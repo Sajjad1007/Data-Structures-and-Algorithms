@@ -17,15 +17,18 @@ int n = 10;
 void shell_sort(int arr[])
 {
     int i, j, temp, gap;
-    for(gap = n / 2; gap >= 1; gap /= 2){
-        for(i = gap; i < n; i++){
+    for(gap = n/2; gap >= 1; gap /= 2)
+    {
+        for(i = gap; i < n; i++)
+        {
             temp = arr[i];
-            j = i - gap;
-            while(j >= 0 && arr[j] > temp){
-                arr[j + gap] = arr[j];
+            j = i-gap;
+            while(j >= 0 && arr[j] > temp)
+            {
+                arr[j+gap] = arr[j];
                 j -= gap;
             }
-            arr[j + gap] = temp;
+            arr[j+gap] = temp;
         }
     }
     return;
@@ -33,7 +36,8 @@ void shell_sort(int arr[])
 
 void display(int t[])
 {
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         printf(" %d", t[i]);
     }
     printf("\n");

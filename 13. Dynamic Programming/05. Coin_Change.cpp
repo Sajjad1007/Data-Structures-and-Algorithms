@@ -6,24 +6,28 @@
 
 using namespace std;
 
-int dp[MAX + 1];                   //dp[i] will store the minimum number of coins needed to change i.
+int dp[MAX+1];                     // 'dp[i]' will store the minimum number of coins needed to change i.
 vector <int> coins;
 
 void init()
 {
-    for(int i = 1; i <= MAX; i++){
+    for(int i = 1; i <= MAX; i++)
+    {
         dp[i] = INF;
     }
     return;
 }
 
-//Time complexity is O(n^2).
+// Time complexity is O(n^2).
 int min_coin(int sum, int n)
 {
-    for(int tk = 1; tk <= sum; tk++){
-        for(auto c : coins){
-            if(c <= tk){           //We have infinite number of coins.
-                dp[tk] = min(dp[tk], 1 + dp[tk - c]);
+    for(int tk = 1; tk <= sum; tk++)
+    {
+        for(auto c : coins)
+        {
+            if(c <= tk)            // We have infinite number of coins.
+            {
+                dp[tk] = min(dp[tk], 1+dp[tk-c]);
             }
         }
     }
@@ -39,17 +43,20 @@ int main()
     cin >> n;
     cout << "Enter the different coins : ";
 
-    for(i = 1; i <= n; i++){
+    for(i = 1; i <= n; i++)
+    {
         cin >> x;
         coins.push_back(x);
     }
 
     init();
     n = min_coin(sum, n);
-    if(n != INF){
+    if(n != INF)
+    {
         cout << "\nMinimum coins needed = " << n << "\n";
     }
-    else{
+    else
+    {
         cout << "\n" << sum << " cannot be changed\n";
     }
     return 0;

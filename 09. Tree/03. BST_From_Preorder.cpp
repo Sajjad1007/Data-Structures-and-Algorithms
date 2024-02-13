@@ -5,7 +5,8 @@
 
 using namespace std;
 
-struct node{
+struct node
+{
     node *lchild;
     int val;
     node *rchild;
@@ -25,20 +26,25 @@ void create(int *arr, int n)
     node *p = root, *t = nullptr;
     stack <node*> s;
 
-    while(i < n){
-        if(arr[i] < p->val){
+    while(i < n)
+    {
+        if(arr[i] < p->val)
+        {
             t = new node(arr[i++]);
             p->lchild = t;
             s.push(p);
             p = t;
         }
-        else{
-            if(arr[i] > p->val && arr[i] < (s.empty() ? INF : s.top()->val)){
+        else
+        {
+            if(arr[i] > p->val && arr[i] < (s.empty() ? INF : s.top()->val))
+            {
                 t = new node(arr[i++]);
                 p->rchild = t;
                 p = t;
             }
-            else{
+            else
+            {
                 p = s.top();
                 s.pop();
             }
@@ -49,7 +55,8 @@ void create(int *arr, int n)
 
 void inorder(node *p)
 {
-    if(p != nullptr){
+    if(p != nullptr)
+    {
         inorder(p->lchild);
         cout << " " << p->val;
         inorder(p->rchild);
@@ -65,7 +72,8 @@ int main()
     int arr[n];
 
     cout << "Enter pre-order traversal of BST : ";
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         cin >> arr[i];
     }
 

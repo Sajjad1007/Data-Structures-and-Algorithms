@@ -1,6 +1,6 @@
 /*
 Dijkstra is used to find the shortest distance between two nodes in an weighted graph.
-Time complexity is O(VlogV + E).
+Time complexity is O(VlogV+E).
 */
 
 #include <iostream>
@@ -25,7 +25,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the weighted graph\n";
-    for(int i = 1; i <= e; i++){
+    for(int i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
         G[u].push_back({wt, v});
         G[v].push_back({wt, u});
@@ -36,7 +37,8 @@ void input_graph()
 
 void init()
 {
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++)
+    {
         dis[i] = INF;
     }
     return;
@@ -48,19 +50,22 @@ void dijkstra(int src)
     init();
     dis[src] = 0;
     parent[src] = src;
-    pq.push({dis[src], src});                //{distance, terminal node}
+    pq.push({dis[src], src});                // {distance, terminal node}
 
-    while(!pq.empty()){
+    while(!pq.empty())
+    {
         auto x = pq.top();
         int u = x.second;
         pq.pop();
 
-        for(auto y : G[u]){
+        for(auto y : G[u])
+        {
             int v = y.second;
             int wt = y.first;
 
-            if(dis[u] + wt < dis[v]){
-                dis[v] = dis[u] + wt;        //dis[v] = distance of v from source
+            if(dis[u]+wt < dis[v])
+            {
+                dis[v] = dis[u]+wt;          // dis[v] = distance of v from source
                 parent[v] = u;
                 pq.push({dis[v], v});
             }
@@ -71,10 +76,12 @@ void dijkstra(int src)
 
 void print_path(int u)
 {
-    if(parent[u] == u){
+    if(parent[u] == u)
+    {
         cout << u;
     }
-    else{
+    else
+    {
         print_path(parent[u]);
         cout << " -- " << u;
     }

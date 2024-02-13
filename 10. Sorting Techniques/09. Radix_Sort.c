@@ -4,8 +4,8 @@ Notes:
 1. Index based sorting technique
 2. Not adaptive(takes greater amount of time over already sorted list)
 3. Stable(preserves the relative order of duplicate elements after sorting)
-4. Space complexity O(n + r) when r = radix/base of the number system
-5. Best and worst case time complexity O(n * d) when d = maximum number of digits
+4. Space complexity O(n+r) when r = radix/base of the number system
+5. Best and worst case time complexity O(n*d) when d = maximum number of digits
 */
 
 #include <stdio.h>
@@ -14,7 +14,8 @@ Notes:
 
 int n = 10;
 
-struct node{
+struct node
+{
     int data;
     struct node *next;
 } *bin[10];
@@ -22,12 +23,15 @@ struct node{
 int find_digits(int arr[])
 {
     int i, digit_count = 0, max = arr[0];
-    for(i = 1; i < n; i++){
-        if(arr[i] > max){
+    for(i = 1; i < n; i++)
+    {
+        if(arr[i] > max)
+        {
             max = arr[i];
         }
     }
-    while(max != 0){
+    while(max != 0)
+    {
         max /= 10;
         ++digit_count;
     }
@@ -41,12 +45,15 @@ void Insert(int data, int indx)
     t->data = data;
     t->next = NULL;
 
-    if(p[indx] == NULL){
+    if(p[indx] == NULL)
+    {
         p[indx] = t;
     }
-    else{
+    else
+    {
         struct node *q = p[indx];
-        while(q->next != NULL){
+        while(q->next != NULL)
+        {
             q = q->next;
         }
         q->next = t;
@@ -69,16 +76,20 @@ void radix_sort(int arr[])
     int i, j, cnt = 0;
     int digits = find_digits(arr);
 
-    while(cnt < digits){
+    while(cnt < digits)
+    {
         int div = pow(10, cnt);
-        for(i = 0; i < n; i++){
-            j = (arr[i] / div) % 10;
+        for(i = 0; i < n; i++)
+        {
+            j = (arr[i]/div)%10;
             Insert(arr[i], j);
         }
 
         i = j = 0;
-        while(j < 10){
-            while(bin[j] != NULL){
+        while(j < 10)
+        {
+            while(bin[j] != NULL)
+            {
                 arr[i++] = Delete(j);
             }
             ++j;
@@ -90,7 +101,8 @@ void radix_sort(int arr[])
 
 void display(int t[])
 {
-    for(int i = 0; i < n; i++){
+    for(int i = 0; i < n; i++)
+    {
         printf(" %d", t[i]);
     }
     printf("\n");

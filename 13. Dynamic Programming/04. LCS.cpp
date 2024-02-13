@@ -7,34 +7,40 @@ using namespace std;
 
 string s, w;
 int cnt, slen, wlen;
-int dp[MAX][MAX];        //dp[i][j] will store the length of LCS from ith index of s and jth index of w.
+int dp[MAX][MAX];        // 'dp[i][j]' will store the length of LCS from ith index of s and jth index of w.
 
 void init()
 {
-    for(int i = 0; i < MAX; i++){
-        for(int j = 0; j < MAX; j++){
+    for(int i = 0; i < MAX; i++)
+    {
+        for(int j = 0; j < MAX; j++)
+        {
             dp[i][j] = EMPTY;
         }
     }
     return;
 }
 
-//Time complexity is O(n^2).
+// Time complexity is O(n^2).
 int lcs_length(int i, int j)
 {
     ++cnt;
-    if(i == slen || j == wlen){
+    if(i == slen || j == wlen)
+    {
         dp[i][j] = 0;
     }
-    else if(dp[i][j] == EMPTY){
+    else if(dp[i][j] == EMPTY)
+    {
         int ans = 0;
-        if(s[i] == w[j]){
-            ans += 1;    //Because of s[i] == w[j], the length of LCS is increased by 1.
-            ans += (dp[i + 1][j + 1] == EMPTY) ? lcs_length(i + 1, j + 1) : dp[i + 1][j + 1];
+        if(s[i] == w[j])
+        {
+            ans += 1;    // Because of s[i] == w[j], the length of LCS is increased by 1.
+            ans += (dp[i+1][j+1] == EMPTY) ? lcs_length(i+1, j+1) : dp[i+1][j+1];
         }
-        else{
-            int len1 = (dp[i + 1][j] == EMPTY) ? lcs_length(i + 1, j) : dp[i + 1][j];
-            int len2 = (dp[i][j + 1] == EMPTY) ? lcs_length(i, j + 1) : dp[i][j + 1];
+        else
+        {
+            int len1 = (dp[i+1][j] == EMPTY) ? lcs_length(i+1, j) : dp[i+1][j];
+            int len2 = (dp[i][j+1] == EMPTY) ? lcs_length(i, j+1) : dp[i][j+1];
             ans = max(len1, len2);
         }
         dp[i][j] = ans;

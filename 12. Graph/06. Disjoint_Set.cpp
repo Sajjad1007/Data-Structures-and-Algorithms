@@ -1,4 +1,4 @@
-//Disjoint Set data structure is used to know whether two elements belong to same set or not.
+// Disjoint Set data structure is used to know whether two elements belong to same set or not.
 
 #include <iostream>
 #include <vector>
@@ -11,10 +11,11 @@ int parent[MAX];
 
 int Find(int u)
 {
-    if(parent[u] == u){
+    if(parent[u] == u)
+    {
         return u;
     }
-    parent[u] = Find(parent[u]);             //Path compression
+    parent[u] = Find(parent[u]);             // Path compression
     return parent[u];
 }
 
@@ -23,13 +24,16 @@ void Union(int u, int v)
     int p = Find(u);
     int q = Find(v);
 
-    if(p == 0){
+    if(p == 0)
+    {
         parent[u] = q;
     }
-    else if(q == 0){
+    else if(q == 0)
+    {
         parent[v] = p;
     }
-    else{
+    else
+    {
         parent[q] = p;
     }
     return;
@@ -47,8 +51,10 @@ void print_set(int u)
     int i, p;
     p = Find(u);
 
-    for(i = 1; i <= MAX; i++){
-        if(p == Find(i)){
+    for(i = 1; i <= MAX; i++)
+    {
+        if(p == Find(i))
+        {
             cout << " " << i;
         }
     }
@@ -73,7 +79,8 @@ int main()
     int ch, i, n, p, x, y;
 
     cout << "Disjoint Set Operations\n\n";
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice  : ";
         cin >> ch;
@@ -87,7 +94,8 @@ int main()
                 cin >> p;
                 parent[p] = p;
 
-                for(i = 2; i <= n; i++){
+                for(i = 2; i <= n; i++)
+                {
                     cin >> x;
                     Union(p, x);
                 }
@@ -98,10 +106,12 @@ int main()
                 cin >> x;
                 p = Find(x);
 
-                if(p != 0){
+                if(p != 0)
+                {
                     cout << "\nThe parent of " << x << " is " << Find(x) << "\n";
                 }
-                else{
+                else
+                {
                     cout << "\n" << x << " does not have any parent\n";
                 }
                 break;
@@ -112,10 +122,12 @@ int main()
                 cout << "Enter an element of 2nd set : ";
                 cin >> y;
 
-                if(parent[x] == 0 && parent[y] == 0){
+                if(parent[x] == 0 && parent[y] == 0)
+                {
                     parent[x] = parent[y] = x;
                 }
-                else{
+                else
+                {
                     Union(x, y);
                 }
 
@@ -127,10 +139,12 @@ int main()
                 cout << "Enter two elements : ";
                 cin >> x >> y;
 
-                if(Friend(x, y)){
+                if(Friend(x, y))
+                {
                     cout << "\n" << x << " and " << y << " are friends\n";
                 }
-                else{
+                else
+                {
                     cout << "\n" << x << " and " << y << " are not friends\n";
                 }
                 break;
@@ -140,11 +154,13 @@ int main()
                 cin >> x;
                 p = Find(x);
 
-                if(p != 0){
+                if(p != 0)
+                {
                     cout << "\nThe set :";
                     print_set(x);
                 }
-                else{
+                else
+                {
                     cout << x << " does not belong to any set\n";
                 }
                 break;

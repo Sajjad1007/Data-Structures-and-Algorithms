@@ -7,13 +7,14 @@
 using namespace std;
 
 int n, cnt;
-int dp[MAX];             //dp[i] will store the length of LIS from ith index of v.
-int next_indx[MAX];      //next_indx[i] will store the next index after the ith index of the LIS.
+int dp[MAX];             // 'dp[i]' will store the length of LIS from ith index of v.
+int next_indx[MAX];      // 'next_indx[i]' will store the next index after the ith index of the LIS.
 vector <int> v;
 
 void init()
 {
-    for(int i = 0; i < n; ++i){
+    for(int i = 0; i < n; ++i)
+    {
         dp[i] = EMPTY;
         next_indx[i] = EMPTY;
     }
@@ -23,30 +24,36 @@ void init()
 int lis_length(int i)
 {
     ++cnt;
-    if(dp[i] == EMPTY){
+    if(dp[i] == EMPTY)
+    {
         int ans = 0, res;
-        for(int j = i + 1; j < n; j++){
-            if(v[i] < v[j]){
+        for(int j = i+1; j < n; j++)
+        {
+            if(v[i] < v[j])
+            {
                 res = (dp[j] == EMPTY) ? lis_length(j) : dp[j];
-                if(res > ans){
+                if(res > ans)
+                {
                     ans = res;
                     next_indx[i] = j;
                 }
             }
         }
-        dp[i] = ans + 1;
+        dp[i] = ans+1;
     }
     return dp[i];
 }
 
-//Time complexity is O(n^2).
+// Time complexity is O(n^2).
 int print_lis()
 {
     int ans = 0, res, strt_indx = -1;
 
-    for(int i = 0; i < n; ++i){
-        res = (dp[i] == EMPTY) ? lis_length(i) : dp[i];     //Calculating LIS from ith index
-        if(res > ans){
+    for(int i = 0; i < n; ++i)
+    {
+        res = (dp[i] == EMPTY) ? lis_length(i) : dp[i];     // Calculating LIS from ith index
+        if(res > ans)
+        {
             ans = res;
             strt_indx = i;
         }
@@ -54,7 +61,8 @@ int print_lis()
     res = dp[strt_indx];
 
     cout << "\nLIS :";
-    while(strt_indx != EMPTY){
+    while(strt_indx != EMPTY)
+    {
         cout << " " << v[strt_indx];
         strt_indx = next_indx[strt_indx];
     }
@@ -68,7 +76,8 @@ int main()
     cin >> n;
     cout << "Enter the elements : ";
 
-    for(i = 1; i <= n; i++){
+    for(i = 1; i <= n; i++)
+    {
         cin >> x;
         v.push_back(x);
     }

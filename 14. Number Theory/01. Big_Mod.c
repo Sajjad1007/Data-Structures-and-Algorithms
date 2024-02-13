@@ -6,15 +6,18 @@ int m;
 
 ll big_mod(ll a, ll b)
 {
-    if(b == 0){
+    if(b == 0)
+    {
         return 1;
     }
-    else if(b % 2 == 0){
-        ll ans = ((big_mod(a, b / 2) % m) * (big_mod(a, b / 2) % m)) % m;  //(a*b)%m = ((a%m)*(b%m))%m
+    else if(b%2 == 0)
+    {
+        ll ans = ((big_mod(a, b/2)%m)*(big_mod(a, b/2)%m))%m;    // (a*b)%m = ((a%m)*(b%m))%m
         return ans;
     }
-    else if(b % 2 == 1){
-        ll ans = ((a % m) * (big_mod(a, b - 1) % m)) % m;
+    else if(b%2 == 1)
+    {
+        ll ans = ((a%m)*(big_mod(a, b-1)%m))%m;
         return ans;
     }
 }

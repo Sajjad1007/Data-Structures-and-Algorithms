@@ -15,19 +15,20 @@ int hash_table[sz];
 
 int hash1(int key)
 {
-    return key % sz;
+    return key%sz;
 }
 
 int hash2(int key)
 {
-    return 7 - (key % 7);          //7 is the largest among the prime numbers that are less than hash table size.
+    return 7-(key%7);              // 7 is the largest among the prime numbers that are less than hash table size.
 }
 
 int double_hash(int val)
 {
     int i = 0, indx;
-    do{
-        indx = (hash1(val) + i * hash2(val)) % sz;
+    do
+    {
+        indx = (hash1(val)+i*hash2(val))%sz;
         i++;
     } while(hash_table[indx] != 0);
     return indx;
@@ -43,20 +44,25 @@ void insert(int val)
 bool search(int key)
 {
     int i = 0, indx;
-    do{
-        indx = (hash1(key) + i * hash2(key)) % sz;
-        if(hash_table[indx] == 0){
+    do
+    {
+        indx = (hash1(key)+i*hash2(key))%sz;
+        if(hash_table[indx] == 0)
+        {
             return false;
         }
-        else{
+        else
+        {
             i++;
         }
     } while(i < sz && hash_table[indx] != key);
 
-    if(i == sz){
+    if(i == sz)
+    {
         return false;
     }
-    else{
+    else
+    {
         return true;
     }
 }
@@ -68,22 +74,26 @@ int main(void)
     printf("Number of elements : ");
     scanf("%d", &n);
     printf("Enter the elements : ");
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         scanf("%d", &val);
         insert(val);
     }
 
     printf("\nThe hash table\n");
-    for(i = 0; i < sz; i++){
+    for(i = 0; i < sz; i++)
+    {
         printf("\nindex %d : %d", i, hash_table[i]);
     }
 
     printf("\n\nEnter an element to be searched : ");
     scanf("%d", &val);
-    if(search(val)){
+    if(search(val))
+    {
         printf("\n%d is found\n", val);
     }
-    else{
+    else
+    {
         printf("\n%d is not found\n", val);
     }
     return 0;

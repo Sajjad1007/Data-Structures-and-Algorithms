@@ -14,36 +14,41 @@ Fibonacci Series
 
 using namespace std;
 
-int dp[MAX + 1];
+int dp[MAX+1];
 int mcnt, tcnt;
 
-//Memoization
-int mfibo(int n)         //Time complexity is O(n).
+// Memoization
+int mfibo(int n)         // Time complexity is O(n).
 {
     ++mcnt;
-    if(n <= 2){
-        dp[n] = n - 1;
+    if(n <= 2)
+    {
+        dp[n] = n-1;
     }
-    else if(dp[n] == EMPTY){
-        dp[n - 1] = mfibo(n - 1);
-        dp[n - 2] = mfibo(n - 2);
-        dp[n] = dp[n - 1] + dp[n - 2];
+    else if(dp[n] == EMPTY)
+    {
+        dp[n-1] = mfibo(n-1);
+        dp[n-2] = mfibo(n-2);
+        dp[n] = dp[n-1]+dp[n-2];
     }
     return dp[n];
 }
 
-//Tabulation
-int tfibo(int n)         //Time complexity is O(1).
+// Tabulation
+int tfibo(int n)         // Time complexity is O(1).
 {
     ++tcnt;
     int i, prev = 0, curr = 1, next;
 
-    if(n <= 2){
-        return n - 1;
+    if(n <= 2)
+    {
+        return n-1;
     }
-    else{
-        for(i = 3; i <= n; i++){
-            next = prev + curr;
+    else
+    {
+        for(i = 3; i <= n; i++)
+        {
+            next = prev+curr;
             prev = curr;
             curr = next;
         }

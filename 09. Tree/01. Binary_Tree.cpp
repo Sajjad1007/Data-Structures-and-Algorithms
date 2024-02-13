@@ -8,7 +8,8 @@ using namespace std;
 class BT
 {
 private:
-    struct node{
+    struct node
+    {
         node *lchild;
         int val;
         node *rchild;
@@ -35,7 +36,8 @@ public:
 
     ~BT()
     {
-        while(!q.empty()){
+        while(!q.empty())
+        {
             q.pop();
         }
     }
@@ -53,24 +55,28 @@ public:
 
         cout << "\nEnter root (non-zero value) : " << flush;
         cin >> rt;
-        if(rt != 0){
+        if(rt != 0)
+        {
             root = new node(rt);
             q.push(root);
         }
 
-        while(!q.empty()){
+        while(!q.empty())
+        {
             p = q.front();
             q.pop();
 
             cout << "Enter left and right child of " << p->val << " : ";
             cin >> l >> r;
-            if(l != 0){
+            if(l != 0)
+            {
                 t = new node(l);
                 p->lchild = t;
                 q.push(t);
             }
 
-            if(r != 0){
+            if(r != 0)
+            {
                 t = new node(r);
                 p->rchild = t;
                 q.push(t);
@@ -81,39 +87,46 @@ public:
 
     int count_nodes(node *p)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             return 0;
         }
-        else{
-            int n = count_nodes(p->lchild) + count_nodes(p->rchild) + 1;
+        else
+        {
+            int n = count_nodes(p->lchild)+count_nodes(p->rchild)+1;
             return n;
         }
     }
 
     int external_nodes(node *p)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             return 0;
         }
-        else if(p->lchild == nullptr && p->rchild == nullptr){
+        else if(p->lchild == nullptr && p->rchild == nullptr)
+        {
             return 1;
         }
-        else{
-            int e = external_nodes(p->lchild) + external_nodes(p->rchild);
+        else
+        {
+            int e = external_nodes(p->lchild)+external_nodes(p->rchild);
             return e;
         }
     }
 
     int height(node *p)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             return 0;
         }
-        else{
+        else
+        {
             int lh = height(p->lchild);
             int rh = height(p->rchild);
-            diameter = max(diameter, lh + rh);
-            return 1 + max(lh, rh);
+            diameter = max(diameter, lh+rh);
+            return 1+max(lh, rh);
         }
     }
 
@@ -124,24 +137,30 @@ public:
 
     bool balanced(node *p)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             return true;
         }
-        else{
+        else
+        {
             int lh = height(p->lchild);
             int rh = height(p->rchild);
 
-            if(abs(lh - rh) > 1){
+            if(abs(lh-rh) > 1)
+            {
                 return false;
             }
-            else{
+            else
+            {
                 bool lb = balanced(p->lchild);
                 bool rb = balanced(p->rchild);
 
-                if(lb == false || rb == false){
+                if(lb == false || rb == false)
+                {
                     return false;
                 }
-                else{
+                else
+                {
                     return true;
                 }
             }
@@ -158,13 +177,16 @@ public:
         node *p = root;
         stack <node*> s;
 
-        while(!s.empty() || p != nullptr){
-            if(p != nullptr){
+        while(!s.empty() || p != nullptr)
+        {
+            if(p != nullptr)
+            {
                 cout << " " << p->val;
                 s.push(p);
                 p = p->lchild;
             }
-            else{
+            else
+            {
                 p = s.top();
                 s.pop();
                 p = p->rchild;
@@ -178,12 +200,15 @@ public:
         node *p = root;
         stack <node*> s;
 
-        while(!s.empty() || p != nullptr){
-            if(p != nullptr){
+        while(!s.empty() || p != nullptr)
+        {
+            if(p != nullptr)
+            {
                 s.push(p);
                 p = p->lchild;
             }
-            else{
+            else
+            {
                 p = s.top();
                 s.pop();
                 cout << " " << p->val;
@@ -198,25 +223,31 @@ public:
         node *q, *p = root;
         stack <node*> s;
 
-        while(!s.empty() || p != nullptr){
-            if(p != nullptr){
+        while(!s.empty() || p != nullptr)
+        {
+            if(p != nullptr)
+            {
                 s.push(p);
                 p = p->lchild;
             }
-            else{
+            else
+            {
                 q = s.top()->rchild;
-                if(q == nullptr){
+                if(q == nullptr)
+                {
                     q = s.top();
                     s.pop();
                     cout << " " << q->val;
 
-                    while(!s.empty() && q == s.top()->rchild){
+                    while(!s.empty() && q == s.top()->rchild)
+                    {
                         q = s.top();
                         s.pop();
                         cout << " " << q->val;
                     }
                 }
-                else{
+                else
+                {
                     p = q;
                 }
             }
@@ -231,20 +262,24 @@ public:
         queue <node*> lq;
         lq.push(root);
 
-        while(!lq.empty()){
+        while(!lq.empty())
+        {
             int sz = lq.size();
             cout << "\nLevel " << level << " :";
             level++;
 
-            for(int i = 1; i <= sz; i++){
+            for(int i = 1; i <= sz; i++)
+            {
                 p = lq.front();
                 lq.pop();
                 cout << " " << p->val;
 
-                if(p->lchild != nullptr){
+                if(p->lchild != nullptr)
+                {
                     lq.push(p->lchild);
                 }
-                if(p->rchild != nullptr){
+                if(p->rchild != nullptr)
+                {
                     lq.push(p->rchild);
                 }
             }
@@ -257,7 +292,8 @@ public:
         stack <pair <node*, int>> s;
         s.push({root, 1});
 
-        while(!s.empty()){
+        while(!s.empty())
+        {
             pair <node*, int> p = s.top();
             s.pop();
 
@@ -267,7 +303,8 @@ public:
                     pre.push_back(p.first->val);
                     s.push({p.first, 2});
 
-                    if(p.first->lchild){
+                    if(p.first->lchild)
+                    {
                         s.push({p.first->lchild, 1});
                     }
                     break;
@@ -276,7 +313,8 @@ public:
                     in.push_back(p.first->val);
                     s.push({p.first, 3});
 
-                    if(p.first->rchild){
+                    if(p.first->rchild)
+                    {
                         s.push({p.first->rchild, 1});
                     }
                     break;
@@ -291,23 +329,29 @@ public:
 
     int lca(node *p, int x, int y)
     {
-        if(p == nullptr){
+        if(p == nullptr)
+        {
             return 0;
         }
-        else if(p->val == x || p->val == y){
+        else if(p->val == x || p->val == y)
+        {
             return p->val;
         }
-        else{
+        else
+        {
             int l = lca(p->lchild, x, y);
             int r = lca(p->rchild, x, y);
 
-            if(l == 0){
+            if(l == 0)
+            {
                 return r;
             }
-            else if(r == 0){
+            else if(r == 0)
+            {
                 return l;
             }
-            else{
+            else
+            {
                 return p->val;
             }
         }
@@ -333,7 +377,8 @@ int main()
     vector <int> v;
     int n, e, x, y, ch;
 
-    while(true){
+    while(true)
+    {
         choice_list();
         cout << "\nEnter your choice : ";
         cin >> ch;
@@ -350,19 +395,21 @@ int main()
                 e = t.external_nodes(t.get_root());
                 cout << "\nNumber of nodes = " << n;
                 cout << "\nExternal nodes = " << e;
-                cout << "\nInternal nodes = " << n - e;
+                cout << "\nInternal nodes = " << n-e;
                 break;
 
             case 3:
-                cout << "\nHeight of the tree = " << t.height(t.get_root()) - 1;
+                cout << "\nHeight of the tree = " << t.height(t.get_root())-1;
                 cout << "\nDiameter of the tree = " << t.get_diameter();
                 break;
 
             case 4:
-                if(t.balanced(t.get_root())){
+                if(t.balanced(t.get_root()))
+                {
                     cout << "\nThe tree is balanced";
                 }
-                else{
+                else
+                {
                     cout << "\nThe tree is not balanced";
                 }
                 break;

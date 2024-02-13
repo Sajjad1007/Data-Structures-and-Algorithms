@@ -25,7 +25,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the weighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
         G[u].push_back({wt, v});
         G[v].push_back({wt, u});
@@ -37,21 +38,25 @@ void input_graph()
 void prims_mst()
 {
     priority_queue <pii, vector <pii>, greater<pii>> pq;
-    pq.push({0, 1});          //{weight, terminal node}
+    pq.push({0, 1});          // {weight, terminal node}
 
-    while(!pq.empty()){
+    while(!pq.empty())
+    {
         auto x = pq.top();
         int u = x.second;
         int u_wt = x.first;
         pq.pop();
 
-        if(!vis[u]){
+        if(!vis[u])
+        {
             vis[u] = true;
             total_wt += u_wt;
 
-            for(auto y : G[u]){
+            for(auto y : G[u])
+            {
                 int v = y.second;
-                if(!vis[v]){
+                if(!vis[v])
+                {
                     pq.push(y);
                 }
             }

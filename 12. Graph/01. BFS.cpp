@@ -1,6 +1,6 @@
 /*
 BFS can be used to find the shortest distance between two nodes in an unweighted graph.
-Time and space complexity is O(V + E).
+Time and space complexity is O(V+E).
 */
 
 #include <iostream>
@@ -12,11 +12,11 @@ Time and space complexity is O(V + E).
 
 using namespace std;
 
-int n, e;                     //n = number of nodes, e = number of edges
-int dis[MAX];                 //For an unweighted graph, level and distance both are same.
-int parent[MAX];              //Parent array will be used to print shortest paths.
-vector <int> nodes;           //During BFS, nodes will be stored here.
-vector <int> G[MAX];          //Graph
+int n, e;                     // n = number of nodes, e = number of edges
+int dis[MAX];                 // For an unweighted graph, level and distance both are same.
+int parent[MAX];              // Parent array will be used to print shortest paths.
+vector <int> nodes;           // During BFS, nodes will be stored here.
+vector <int> G[MAX];          // Graph
 
 void input_graph()
 {
@@ -25,7 +25,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the unweighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v;
         G[u].push_back(v);
         G[v].push_back(u);
@@ -36,7 +37,8 @@ void input_graph()
 
 void init()
 {
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++)
+    {
         dis[i] = INF;
     }
     return;
@@ -50,14 +52,17 @@ void bfs(int src)
     parent[src] = src;
     q.push(src);
 
-    while(!q.empty()){
+    while(!q.empty())
+    {
         int u = q.front();
         nodes.push_back(u);
         q.pop();
 
-        for(auto v : G[u]){                  //Traverse the adjacent nodes of u.
-            if(dis[v] == INF){               //INF does the work of visited array.
-                dis[v] = dis[u] + 1;         //Edge cost is 1 for an unweighted graph.
+        for(auto v : G[u])                   // Traverse the adjacent nodes of u.
+        {
+            if(dis[v] == INF)                // INF does the work of visited array.
+            {
+                dis[v] = dis[u]+1;           // Edge cost is 1 for an unweighted graph.
                 parent[v] = u;
                 q.push(v);
             }
@@ -69,7 +74,8 @@ void bfs(int src)
 void print_bfs()
 {
     cout << "\nBFS :";
-    for(auto x : nodes){
+    for(auto x : nodes)
+    {
         cout << " " << x;
     }
     return;
@@ -77,10 +83,12 @@ void print_bfs()
 
 void print_path(int u)
 {
-    if(parent[u] == u){
+    if(parent[u] == u)
+    {
         cout << u;
     }
-    else{
+    else
+    {
         print_path(parent[u]);
         cout << " -- " << u;
     }

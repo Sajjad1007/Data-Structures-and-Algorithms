@@ -1,4 +1,4 @@
-//Time complexity is O(V * E).
+// Time complexity is O(V*E).
 
 #include <iostream>
 #include <vector>
@@ -20,7 +20,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the weighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
         edges.push_back({wt, {u, v}});
         edges.push_back({wt, {v, u}});
@@ -31,7 +32,8 @@ void input_graph()
 
 void init()
 {
-    for(int i = 1; i <= n; i++){
+    for(int i = 1; i <= n; i++)
+    {
         dis[i] = INF;
     }
     return;
@@ -43,25 +45,30 @@ void bellman_ford(int src)
     dis[src] = 0;
     parent[src] = src;
 
-    for(int step = 1; step <= n - 1; step++){
-        for(auto x : edges){
+    for(int step = 1; step <= n-1; step++)
+    {
+        for(auto x : edges)
+        {
             int wt = x.first;
             int u = x.second.first;
             int v = x.second.second;
 
-            if(dis[u] + wt < dis[v]){
-                dis[v] = dis[u] + wt;        //dis[v] = distance of v from source
+            if(dis[u]+wt < dis[v])
+            {
+                dis[v] = dis[u]+wt;          // dis[v] = distance of v from source
                 parent[v] = u;
             }
         }
     }
 
-    for(auto x : edges){
+    for(auto x : edges)
+    {
         int wt = x.first;
         int u = x.second.first;
         int v = x.second.second;
 
-        if(dis[u] + wt < dis[v]){
+        if(dis[u]+wt < dis[v])
+        {
             cout << "\nNegative cycle detected\n";
             exit(1);
         }
@@ -71,10 +78,12 @@ void bellman_ford(int src)
 
 void print_path(int u)
 {
-    if(parent[u] == u){
+    if(parent[u] == u)
+    {
         cout << u;
     }
-    else{
+    else
+    {
         print_path(parent[u]);
         cout << " -- " << u;
     }

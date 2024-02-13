@@ -1,4 +1,4 @@
-//Time and space complexity is O(V + E).
+// Time and space complexity is O(V+E).
 
 #include <iostream>
 #include <vector>
@@ -19,7 +19,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the unweighted graph\n";
-    for(i = 1; i <= e; i++){
+    for(i = 1; i <= e; i++)
+    {
         cin >> u >> v;
         G[u].push_back(v);
         G[v].push_back(u);
@@ -33,8 +34,10 @@ void dfs(int u)
     vis[u] = true;
     nodes.push_back(u);
 
-    for(auto v : G[u]){
-        if(!vis[v]){
+    for(auto v : G[u])
+    {
+        if(!vis[v])
+        {
             dfs(v);
         }
     }
@@ -44,7 +47,8 @@ void dfs(int u)
 void print_dfs()
 {
     cout << "\nDFS :";
-    for(auto x : nodes){
+    for(auto x : nodes)
+    {
         cout << " " << x;
     }
     return;

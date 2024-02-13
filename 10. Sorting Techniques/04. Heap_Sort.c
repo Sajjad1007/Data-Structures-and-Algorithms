@@ -12,7 +12,7 @@ Notes:
 
 #include <stdio.h>
 
-int n = 8;               //Actually 7 elements will be there in the array.
+int n = 8;               // Actually 7 elements will be there in the array.
 
 void swap(int *a, int *b)
 {
@@ -22,13 +22,15 @@ void swap(int *a, int *b)
     return;
 }
 
-//Time complexity of insertion = O(nlogn).
+// Time complexity of insertion is O(nlogn).
 void Insert(int p[])
 {
-    for(int i = 1; i < n; i++){
+    for(int i = 1; i < n; i++)
+    {
         int temp = p[i];
-        while (i > 1 && temp > p[i / 2]){
-            p[i] = p[i / 2];
+        while (i > 1 && temp > p[i/2])
+        {
+            p[i] = p[i/2];
             i /= 2;
         }
         p[i] = temp;
@@ -36,22 +38,27 @@ void Insert(int p[])
     return;
 }
 
-//Time complexity of heapify = O(n).
+// Time complexity of heapify is O(n).
 void heapify(int q[])
 {
     int i, j;
-    for(i = (n - 1) / 2; i >= 1; i--){
-        j = 2 * i;                      //Left child q[i]
-        while(j < n){
-            if(q[j] < q[j + 1]){
-                j++;                    //Compare left and right children of q[i].
+    for(i = (n-1)/2; i >= 1; i--)
+    {
+        j = 2*i;                        // Left child q[i]
+        while(j < n)
+        {
+            if(q[j] < q[j+1])
+            {
+                j++;                    // Compare left and right children of q[i].
             }
-            if(q[i] < q[j]){            //Compare parent and largest child.
+            if(q[i] < q[j])             // Compare parent and largest child.
+            {
                 swap(&q[i], &q[j]);
                 i = j;
-                j = 2 * i;
+                j = 2*i;
             }
-            else{
+            else
+            {
                 break;
             }
         }
@@ -59,24 +66,29 @@ void heapify(int q[])
     return;
 }
 
-//Time complexity of deletion = O(nlogn).
+// Time complexity of deletion is O(nlogn).
 void Delete(int t[])
 {
     int temp_n;
-    for(temp_n = n - 1; temp_n > 0; temp_n--){
-        int i = 1, j = i * 2;
+    for(temp_n = n-1; temp_n > 0; temp_n--)
+    {
+        int i = 1, j = i*2;
         swap(&t[i], &t[temp_n]);
 
-        while(j < temp_n){
-            if(j < temp_n - 1 && t[j] < t[j + 1]){
+        while(j < temp_n)
+        {
+            if(j < temp_n-1 && t[j] < t[j+1])
+            {
                 j++;
             }
-            if(t[i] < t[j]){
+            if(t[i] < t[j])
+            {
                 swap(&t[i], &t[j]);
                 i = j;
-                j = i * 2;
+                j = i*2;
             }
-            else{
+            else
+            {
                 break;
             }
         }
@@ -84,10 +96,11 @@ void Delete(int t[])
     return;
 }
 
-//This display() function traverses a heap level by level.
+// This display() function traverses a heap level by level.
 void display(int t[])
 {
-    for(int i = 1; i < n; i++){
+    for(int i = 1; i < n; i++)
+    {
         printf(" %d", t[i]);
     }
     printf("\n");
@@ -96,10 +109,11 @@ void display(int t[])
 
 int main(void)
 {
-    int i, arr[] = {0, 5, 10, 30, 20, 35, 40, 15};     //0th index will not be used in heap sort.
+    int i, arr[] = {0, 5, 10, 30, 20, 35, 40, 15};     // 0th index will not be used in heap sort.
     int p[n], q[n];
 
-    for(i = 0; i < n; i++){                            //Elements are stored from index 1.
+    for(i = 0; i < n; i++)                             // Elements are stored from index 1.
+    {
         p[i] = q[i] = arr[i];
     }
     printf("The array :");

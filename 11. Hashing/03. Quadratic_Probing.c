@@ -11,16 +11,17 @@ int hash_table[sz];
 
 int hash(int key)
 {
-    return key % sz;
+    return key%sz;
 }
 
 int quadratic_probe(int val)
 {
     int i = 0, indx = hash(val);
-    while(hash_table[(indx + i * i) % sz] != 0){
+    while(hash_table[(indx+i*i)%sz] != 0)
+    {
         i++;
     }
-    return (indx + i * i) % sz;
+    return (indx+i*i)%sz;
 }
 
 void insert(int val)
@@ -33,19 +34,24 @@ void insert(int val)
 bool search(int key)
 {
     int i = 0, indx = hash(key);
-    while(i < sz && hash_table[(indx + i * i) % sz] != key){
-        if(hash_table[(indx + i * i) % sz] == 0){
+    while(i < sz && hash_table[(indx+i*i)%sz] != key)
+    {
+        if(hash_table[(indx+i*i)%sz] == 0)
+        {
             return false;
         }
-        else{
+        else
+        {
             i++;
         }
     }
 
-    if(i == sz){
+    if(i == sz)
+    {
         return false;
     }
-    else{
+    else
+    {
         return true;
     }
 }
@@ -57,22 +63,26 @@ int main(void)
     printf("Number of elements : ");
     scanf("%d", &n);
     printf("Enter the elements : ");
-    for(i = 0; i < n; i++){
+    for(i = 0; i < n; i++)
+    {
         scanf("%d", &val);
         insert(val);
     }
 
     printf("\nThe hash table\n");
-    for(i = 0; i < sz; i++){
+    for(i = 0; i < sz; i++)
+    {
         printf("\nindex %d : %d", i, hash_table[i]);
     }
 
     printf("\n\nEnter an element to be searched : ");
     scanf("%d", &val);
-    if(search(val)){
+    if(search(val))
+    {
         printf("\n%d is found\n", val);
     }
-    else{
+    else
+    {
         printf("\n%d is not found\n", val);
     }
     return 0;

@@ -7,7 +7,7 @@
 
 using namespace std;
 
-int cnt, dp[MAX][MAX];        //dp[i][n] will store the minimum number of multiplications required to multiply matrices from ith to nth index.
+int cnt, dp[MAX][MAX];        // 'dp[i][n]' will store the minimum number of multiplications required to multiply matrices from ith to nth index.
 
 struct matrix
 {
@@ -25,8 +25,10 @@ vector <matrix> mat;
 
 void init()
 {
-    for(int i = 0; i < MAX; i++){
-        for(int j = 0; j < MAX; j++){
+    for(int i = 0; i < MAX; i++)
+    {
+        for(int j = 0; j < MAX; j++)
+        {
             dp[i][j] = EMPTY;
         }
     }
@@ -35,7 +37,7 @@ void init()
 
 int merge_cost(int i, int n, int j)
 {
-    int total_cost = (mat[i].row * mat[j].col) * mat[n].row;     //Total number of multiplications to multiply 3 matrices = (r1 * c3) * r2
+    int total_cost = (mat[i].row*mat[j].col)*mat[n].row;    // Total number of multiplications to multiply 3 matrices = (r1 * c3) * r2
     return total_cost;
 }
 
@@ -43,16 +45,19 @@ int merge_cost(int i, int n, int j)
 int min_multiplication(int i, int n)
 {
     cnt++;
-    if(i >= n){
+    if(i >= n)
+    {
         dp[i][n] = 0;
     }
     else if(dp[i][n] != EMPTY);
-    else{
+    else
+    {
         int ans = INF;
-        for(int j = i; j < n; j++){
+        for(int j = i; j < n; j++)
+        {
             int res_left = min_multiplication(i, j);
-            int res_right = min_multiplication(j + 1, n);
-            int cost = (res_left + res_right) + merge_cost(i, n, j);
+            int res_right = min_multiplication(j+1, n);
+            int cost = (res_left+res_right)+merge_cost(i, n, j);
             ans = min(ans, cost);
         }
         dp[i][n] = ans;
@@ -67,7 +72,8 @@ int main()
     cin >> n;
     cout << "\nEnter number of rows and number of columns of " << n << " matrices\n\n";
 
-    for(i = 1; i <= n; i++){
+    for(i = 1; i <= n; i++)
+    {
         cout << "Matrix " << i << " : ";
         cin >> r >> c;
         matrix m(r, c);
@@ -75,7 +81,7 @@ int main()
     }
 
     init();
-    cout << "\nMinimum number of multiplications required = " << min_multiplication(0, n - 1) << "\n";
+    cout << "\nMinimum number of multiplications required = " << min_multiplication(0, n-1) << "\n";
     cout << "Total function calls = " << cnt << "\n";
     return 0;
 }

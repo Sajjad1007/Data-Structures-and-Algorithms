@@ -9,8 +9,8 @@
 using namespace std;
 
 int n, e, cnt;
-int dp[MAX];             //dp[i] will store the shortest distance from node i to destination.
-vector <pii> G[MAX + 1];
+int dp[MAX];             // 'dp[i]' will store the shortest distance from node i to destination.
+vector <pii> G[MAX+1];
 
 void input_graph()
 {
@@ -19,7 +19,8 @@ void input_graph()
     cin >> n >> e;
 
     cout << "\nEnter the directed acyclic graph\n";
-    for(int i = 1; i <= e; i++){
+    for(int i = 1; i <= e; i++)
+    {
         cin >> u >> v >> wt;
         G[u].push_back({v, wt});
     }
@@ -29,31 +30,37 @@ void input_graph()
 
 void init()
 {
-    for(int i = 1; i <= MAX; ++i){
+    for(int i = 1; i <= MAX; ++i)
+    {
         dp[i] = EMPTY;
     }
     return;
 }
 
-//Time complexity is O(n^2).
+// Time complexity is O(n^2).
 int shortest_distance(int u, int des)
 {
     ++cnt;
-    if(u == des){
+    if(u == des)
+    {
         dp[u] = 0;
     }
-    else if(dp[u] == EMPTY){
+    else if(dp[u] == EMPTY)
+    {
         int ans = INF;
-        for(auto x : G[u]){
+        for(auto x : G[u])
+        {
             int dis;
             int v = x.first;
             int wt = x.second;
 
-            if(dp[v] == EMPTY){
-                dis = shortest_distance(v, des) + wt;
+            if(dp[v] == EMPTY)
+            {
+                dis = shortest_distance(v, des)+wt;
             }
-            else{
-                dis = dp[v] + wt;
+            else
+            {
+                dis = dp[v]+wt;
             }
             ans = min(ans, dis);
         }
