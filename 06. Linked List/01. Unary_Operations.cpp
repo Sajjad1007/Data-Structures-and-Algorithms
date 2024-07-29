@@ -218,7 +218,6 @@ void max_min()
 void sum_average()
 {
     int sum = 0;
-    float avg;
     node *p = head;
 
     while(p != nullptr)
@@ -227,7 +226,7 @@ void sum_average()
         p = p->next;
     }
 
-    avg = (float)sum/list_size;
+    float avg = (float)sum/list_size;
     cout << "\nSum = " << sum << "\n";
     cout << "Average = " << avg << "\n";
     return;
@@ -264,7 +263,7 @@ int main()
 {
     int ch;
     input();
-    cout << "\nThe singly linked list has been initialized\n\n";
+    cout << "\nThe singly linked list has been initialized.\n\n";
 
     while(true)
     {

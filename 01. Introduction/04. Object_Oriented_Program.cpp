@@ -2,13 +2,13 @@
 
 using namespace std;
 
-class Rec
+class Rectangle
 {
 private:
     double l, b;
 
 public:
-    Rec(double l, double b)
+    Rectangle(double l, double b)
     {
         this->l = l;
         this->b = b;
@@ -19,7 +19,7 @@ public:
         return l*b;
     }
 
-    double peri()
+    double perimeter()
     {
         return 2*(l+b);
     }
@@ -28,17 +28,20 @@ public:
 int main()
 {
     double l, b;
-    cout << "Enter length and breadth : ";
-    cin >> l >> b;
+    cout << "Enter length  : ";
+    cin >> l;
+    cout << "Enter breadth : ";
+    cin >> b;
 
-    Rec r(l, b);
-    cout << "\nArea = " << r.area();
-    cout << "\nPerimeter = " << r.peri() << "\n";
+    Rectangle rec(l, b);
+    cout << "\nArea = " << rec.area();
+    cout << "\nPerimeter = " << rec.perimeter() << "\n";
     return 0;
 }
 
 /*
-Enter length and breadth : 10 5
+Enter length  : 10
+Enter breadth : 5
 
 Area = 50
 Perimeter = 30

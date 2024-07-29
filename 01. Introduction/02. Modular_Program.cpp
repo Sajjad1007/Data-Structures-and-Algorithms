@@ -7,7 +7,7 @@ double area(double l, double b)
     return l*b;
 }
 
-double peri(double l, double b)
+double perimeter(double l, double b)
 {
     return 2*(l+b);
 }
@@ -15,16 +15,19 @@ double peri(double l, double b)
 int main()
 {
     double l, b;
-    cout << "Enter length and breadth : ";
-    cin >> l >> b;
+    cout << "Enter length  : ";
+    cin >> l;
+    cout << "Enter breadth : ";
+    cin >> b;
 
     cout << "\nArea = " << area(l, b);
-    cout << "\nPerimeter = " << peri(l, b) << "\n";
+    cout << "\nPerimeter = " << perimeter(l, b) << "\n";
     return 0;
 }
 
 /*
-Enter length and breadth : 10 5
+Enter length  : 10
+Enter breadth : 5
 
 Area = 50
 Perimeter = 30

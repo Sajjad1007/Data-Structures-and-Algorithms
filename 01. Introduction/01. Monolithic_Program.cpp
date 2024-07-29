@@ -5,19 +5,22 @@ using namespace std;
 int main()
 {
     double l, b;
-    cout << "Enter length and breadth : ";
-    cin >> l >> b;
+    cout << "Enter length  : ";
+    cin >> l;
+    cout << "Enter breadth : ";
+    cin >> b;
 
     double area = l*b;
-    double peri = 2*(l+b);
+    double perimeter = 2*(l+b);
 
     cout << "\nArea = " << area;
-    cout << "\nPerimeter = " << peri << "\n";
+    cout << "\nPerimeter = " << perimeter << "\n";
     return 0;
 }
 
 /*
-Enter length and breadth : 10 5
+Enter length  : 10
+Enter breadth : 5
 
 Area = 50
 Perimeter = 30

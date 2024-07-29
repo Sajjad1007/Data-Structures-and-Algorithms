@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, cnt;
-vector <int> v;
+vector<int> v;
 
 void print()
 {
@@ -21,6 +21,7 @@ void print()
 void print_subsequence(int i, int *arr)
 {
     cnt++;
+
     if(i == n)
     {
         print();

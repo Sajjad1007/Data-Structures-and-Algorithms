@@ -12,14 +12,7 @@ node *frnt = NULL;            // 'rear' pointer will not be needed in case of pr
 
 bool empty()
 {
-    if(frnt == NULL)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (frnt == NULL);
 }
 
 void push(int val)
@@ -70,7 +63,7 @@ void display()
 {
     if(empty())
     {
-        printf("\nThe queue is empty\n");
+        printf("\nThe queue is empty.\n");
         return;
     }
 
@@ -89,7 +82,7 @@ void display()
 int main(void)
 {
     int ch, val;
-    printf("The queue has been initialized\n\n");
+    printf("The queue has been initialized.\n\n");
 
     while(true)
     {
@@ -118,11 +111,11 @@ int main(void)
             case 3:
                 if(empty())
                 {
-                    printf("\nThe queue is empty\n");
+                    printf("\nThe queue is empty.\n");
                 }
                 else
                 {
-                    printf("\nThe front element is %d\n", Front());
+                    printf("\nThe front element is %d.\n", Front());
                 }
                 break;
 

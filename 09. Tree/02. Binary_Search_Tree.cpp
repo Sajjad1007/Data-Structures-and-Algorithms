@@ -29,7 +29,7 @@ private:
         {
             int lh = height(p->lchild);
             int rh = height(p->rchild);
-            return 1+max(lh, rh);
+            return 1 + max(lh, rh);
         }
     }
 
@@ -282,21 +282,21 @@ int main()
                     cin >> key;
                     t.Insert(key);
                 }
-                cout << "\nThe binary search tree has been initialized";
+                cout << "\nThe binary search tree has been initialized.";
                 break;
 
             case 2:
                 cout << "Enter a node : ";
                 cin >> key;
                 t.Insert(key);
-                cout << "\n" << key << " has been inserted";
+                cout << "\n" << key << " has been inserted.";
                 break;
 
             case 3:
                 cout << "Enter a node : ";
                 cin >> key;
                 t.Delete(key);
-                cout << "\n" << key << " has been deleted";
+                cout << "\n" << key << " has been deleted.";
                 break;
 
             case 4:
@@ -305,11 +305,11 @@ int main()
                 cout << "\n";
                 if(t.Search(key))
                 {
-                    cout << key << " is found";
+                    cout << key << " is found.";
                 }
                 else
                 {
-                    cout << key << " is not found";
+                    cout << key << " is not found.";
                 }
                 break;
 

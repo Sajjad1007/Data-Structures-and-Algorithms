@@ -8,14 +8,7 @@ int top = -1;
 
 bool empty()
 {
-    if(top == -1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (top == -1);
 }
 
 void push(int data)
@@ -59,7 +52,7 @@ int main(void)
 
     if(num < 0)
     {
-        printf("\nError 404 not found\n");
+        printf("\nError 404 not found.\n");
         return 0;
     }
     printf("\nBinary equivalent of %d = ", num);

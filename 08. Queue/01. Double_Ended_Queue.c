@@ -12,26 +12,12 @@ int rear = -1;
 
 bool empty()
 {
-    if(frnt == -1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (frnt == -1);
 }
 
 bool full()
 {
-    if((frnt == 0 && rear == MAX-1) || (frnt == rear+1))
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return ((frnt == 0 && rear == MAX-1) || (frnt == rear+1));
 }
 
 void push_front(int val)
@@ -142,7 +128,7 @@ void display()
 {
     if(empty())
     {
-        printf("\nThe queue is empty\n");
+        printf("\nThe queue is empty.\n");
         return;
     }
 
@@ -181,7 +167,7 @@ void choice_list()
 int main(void)
 {
     int ch, val;
-    printf("The queue has been initialized\n\n");
+    printf("The queue has been initialized.\n\n");
 
     while(true)
     {
@@ -218,22 +204,22 @@ int main(void)
             case 5:
                 if(empty())
                 {
-                    printf("\nThe queue is empty\n");
+                    printf("\nThe queue is empty.\n");
                 }
                 else
                 {
-                    printf("\nThe front element is %d\n", Front());
+                    printf("\nThe front element is %d.\n", Front());
                 }
                 break;
 
             case 6:
                 if(empty())
                 {
-                    printf("\nThe queue is empty\n");
+                    printf("\nThe queue is empty.\n");
                 }
                 else
                 {
-                    printf("\nThe rear element is %d\n", Rear());
+                    printf("\nThe rear element is %d.\n", Rear());
                 }
                 break;
 

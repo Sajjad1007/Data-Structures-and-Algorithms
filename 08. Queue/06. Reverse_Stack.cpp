@@ -6,8 +6,8 @@
 
 using namespace std;
 
-stack <int> s;
-queue <int> q;
+stack<int> s;
+queue<int> q;
 
 void reverse_stack()
 {
@@ -33,7 +33,7 @@ void reverse_stack()
 
 void display()
 {
-    stack <int> st = s;
+    stack<int> st = s;
 
     while(!st.empty())
     {
@@ -47,7 +47,7 @@ void display()
 int main()
 {
     int i, data;
-    cout << "The stack has been initialized\n\n";
+    cout << "The stack has been initialized.\n\n";
     cout << "Enter " << MAX << " elements in the stack : ";
     for(i = 1; i <= MAX; i++)
     {

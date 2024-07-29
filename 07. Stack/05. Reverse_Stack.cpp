@@ -5,7 +5,7 @@
 
 using namespace std;
 
-stack <int> s;
+stack<int> s;
 
 void reverse_stack()
 {
@@ -36,7 +36,7 @@ void reverse_stack()
 
 void display()
 {
-    stack <int> st = s;
+    stack<int> st = s;
 
     while(!st.empty())
     {
@@ -50,7 +50,7 @@ void display()
 int main()
 {
     int n, data;
-    cout << "The stack has been initialized\n\n";
+    cout << "The stack has been initialized.\n\n";
     cout << "Enter " << MAX << " elements in the stack : ";
     for(int i = 1; i <= MAX; i++)
     {
@@ -67,7 +67,7 @@ int main()
 }
 
 /*
-The stack has been initialized
+The stack has been initialized.
 
 Enter 5 elements in the stack : 1 2 3 4 5
 

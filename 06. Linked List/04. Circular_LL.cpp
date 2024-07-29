@@ -154,7 +154,7 @@ int main()
 {
     int ch;
     input();
-    cout << "\nThe circular linked list has been initialized\n\n";
+    cout << "\nThe circular linked list has been initialized.\n\n";
 
     while(true)
     {

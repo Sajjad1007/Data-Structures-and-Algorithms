@@ -19,7 +19,7 @@ int ilinear_search()
 /*
 Two time shortening technique for further searching
 (a) Transposition
-    swap(&arr[i], &arr[i - 1]);
+    swap(&arr[i], &arr[i-1]);
 (b) Move-to-head
     swap(&arr[i], &arr[0]);
 */
@@ -122,11 +122,11 @@ int main(void)
 
     if(pos >= 1)
     {
-        printf("%d is at position %d\n", key, pos);
+        printf("%d is at position %d.\n", key, pos);
     }
     else
     {
-        printf("%d is not found\n", key);
+        printf("%d is not found.\n", key);
     }
 
     pos = rlinear_search(0)+1;
@@ -134,11 +134,11 @@ int main(void)
 
     if(pos >= 1)
     {
-        printf("%d is at position %d\n", key, pos);
+        printf("%d is at position %d.\n", key, pos);
     }
     else
     {
-        printf("%d is not found\n", key);
+        printf("%d is not found.\n", key);
     }
 
     if(sorted())
@@ -149,11 +149,11 @@ int main(void)
 
         if(pos >= 1)
         {
-            printf("%d is at position %d\n", key, pos);
+            printf("%d is at position %d.\n", key, pos);
         }
         else
         {
-            printf("%d is not found\n", key);
+            printf("%d is not found.\n", key);
         }
 
         pos = rbinary_search(0, n-1)+1;
@@ -161,16 +161,16 @@ int main(void)
 
         if(pos >= 1)
         {
-            printf("%d is at position %d\n", key, pos);
+            printf("%d is at position %d.\n", key, pos);
         }
         else
         {
-            printf("%d is not found\n", key);
+            printf("%d is not found.\n", key);
         }
     }
     else
     {
-        printf("\nBinary search can not be done in an unsorted array\n");
+        printf("\nBinary search can not be done in an unsorted array.\n");
     }
     return 0;
 }
@@ -182,11 +182,11 @@ Enter an element for searching : 5
 
 Linear search
 
-Iterative : 5 is at position 4
-Recursive : 5 is at position 4
+Iterative : 5 is at position 4.
+Recursive : 5 is at position 4.
 
 Binary search
 
-Iterative : 5 is at position 4
-Recursive : 5 is at position 4
+Iterative : 5 is at position 4.
+Recursive : 5 is at position 4.
 */

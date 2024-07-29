@@ -2,13 +2,13 @@
 
 using namespace std;
 
-int cnt;
-int steps;
+int cnt, steps;
 
 // Time complexity is O(2^n).
 void tower_of_hanoi(int n, char a, char b, char c)
 {
     ++cnt;
+
     if(n > 0)
     {
         tower_of_hanoi(n-1, a, c, b);
@@ -22,7 +22,7 @@ void tower_of_hanoi(int n, char a, char b, char c)
 int main()
 {
     int n;
-    cout << "Number of disks = ";
+    cout << "Enter number of discs : ";
     cin >> n;
     tower_of_hanoi(n, 'A', 'B', 'C');
     cout << "\n\nTotal function calls = " << cnt;
@@ -31,7 +31,7 @@ int main()
 }
 
 /*
-Number of disks = 3
+Enter number of discs : 3
 
 Move from A to C
 Move from A to B

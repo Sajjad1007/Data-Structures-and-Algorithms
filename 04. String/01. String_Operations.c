@@ -5,6 +5,7 @@
 int length(char str[])
 {
     int cnt = 0;
+
     while(str[cnt] != '\0')
     {
         cnt++;
@@ -15,6 +16,7 @@ int length(char str[])
 int count_words(char str[])
 {
     int i, cnt = 1;
+
     for(i = 0; str[i] != '\0'; i++)     // '\0' is sometimes called as string delimiter.
     {
         if(str[i] == ' ' && (str[i+1] != ' ' && str[i+1] != '\0'))
@@ -79,16 +81,16 @@ void compare(char str1[], char str2[])
     {
         if(to_lower(str1[i]) < to_lower(str2[i]))
         {
-            printf("\n\'%s\' is smaller than \'%s\'\n\n", str1, str2);
+            printf("\n\'%s\' is smaller than \'%s\'.\n\n", str1, str2);
             return;
         }
         else if(to_lower(str1[i]) > to_lower(str2[i]))
         {
-            printf("\n\'%s\' is greater than \'%s\'\n\n", str1, str2);
+            printf("\n\'%s\' is greater than \'%s\'.\n\n", str1, str2);
             return;
         }
     }
-    printf("\n\"%s\" is equal to \"%s\"\n\n", str1, str2);
+    printf("\n\'%s\' is equal to \'%s\'.\n\n", str1, str2);
     return;
 }
 

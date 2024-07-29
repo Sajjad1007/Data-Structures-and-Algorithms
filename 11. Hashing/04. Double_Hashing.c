@@ -56,15 +56,7 @@ bool search(int key)
             i++;
         }
     } while(i < sz && hash_table[indx] != key);
-
-    if(i == sz)
-    {
-        return false;
-    }
-    else
-    {
-        return true;
-    }
+    return (i != sz);
 }
 
 int main(void)
@@ -90,11 +82,11 @@ int main(void)
     scanf("%d", &val);
     if(search(val))
     {
-        printf("\n%d is found\n", val);
+        printf("\n%d is found.\n", val);
     }
     else
     {
-        printf("\n%d is not found\n", val);
+        printf("\n%d is not found.\n", val);
     }
     return 0;
 }
@@ -118,5 +110,5 @@ index 9 : 9
 
 Enter an element to be searched : 33
 
-33 is found
+33 is found.
 */

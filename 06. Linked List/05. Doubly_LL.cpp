@@ -163,7 +163,7 @@ int main()
 {
     int ch;
     input();
-    cout << "\nThe doubly linked list has been initialized\n\n";
+    cout << "\nThe doubly linked list has been initialized.\n\n";
 
     while(true)
     {

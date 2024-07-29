@@ -4,7 +4,7 @@
 using namespace std;
 
 int n, cnt, scnt;
-vector <int> v;
+vector<int> v;
 
 void print()
 {
@@ -19,6 +19,7 @@ void print()
 void print_subset(int i, int *arr, int sum)
 {
     cnt++;
+
     if(sum == 0)
     {
         print();

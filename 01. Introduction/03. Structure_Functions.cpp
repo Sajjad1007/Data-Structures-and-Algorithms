@@ -2,7 +2,7 @@
 
 using namespace std;
 
-struct rec
+struct rectangle
 {
     double l, b;
 
@@ -11,7 +11,7 @@ struct rec
         return l*b;
     }
 
-    double peri()
+    double perimeter()
     {
         return 2*(l+b);
     }
@@ -19,17 +19,20 @@ struct rec
 
 int main()
 {
-    rec r;
-    cout << "Enter length and breadth : ";
-    cin >> r.l >> r.b;
+    rectangle rec;
+    cout << "Enter length  : ";
+    cin >> rec.l;
+    cout << "Enter breadth : ";
+    cin >> rec.b;
 
-    cout << "\nArea = " << r.area();
-    cout << "\nPerimeter = " << r.peri() << "\n";
+    cout << "\nArea = " << rec.area();
+    cout << "\nPerimeter = " << rec.perimeter() << "\n";
     return 0;
 }
 
 /*
-Enter length and breadth : 10 5
+Enter length  : 10
+Enter breadth : 5
 
 Area = 50
 Perimeter = 30

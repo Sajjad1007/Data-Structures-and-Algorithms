@@ -50,7 +50,7 @@ void missing_elements()
     }
     else
     {
-        printf("\nNo elements are missing from %d to %d\n", min, max);
+        printf("\nNo elements are missing from %d to %d.\n", min, max);
         return;
     }
 
@@ -102,7 +102,7 @@ void duplicate_elements()
     }
     if(!printed)
     {
-        printf("\nNo duplicate elements found");
+        printf("\nNo duplicate elements found.");
     }
     printf("\n");
     return;
@@ -139,7 +139,7 @@ void find_pairs()
 
     if(!printed)
     {
-        printf("\nNo pairs found");
+        printf("\nNo pairs found.");
     }
     printf("\n");
     return;

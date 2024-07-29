@@ -24,7 +24,7 @@ void create(int *arr, int n)
     int i = 0;
     root = new node(arr[i++]);
     node *p = root, *t = nullptr;
-    stack <node*> s;
+    stack<node*> s;
 
     while(i < n)
     {

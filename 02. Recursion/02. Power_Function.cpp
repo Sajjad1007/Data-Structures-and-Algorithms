@@ -2,12 +2,12 @@
 
 using namespace std;
 
-int cnt1;
-int cnt2;
+int cnt1, cnt2;
 
-int power1(int b, int p)
+double power1(double b, int p)
 {
     ++cnt1;
+
     if(p == 0)
     {
         return 1;
@@ -18,9 +18,10 @@ int power1(int b, int p)
     }
 }
 
-int power2(int b, int p)
+double power2(double b, int p)
 {
     ++cnt2;
+
     if(p == 0)
     {
         return 1;
@@ -37,22 +38,28 @@ int power2(int b, int p)
 
 int main()
 {
-    int b, p;
-    cout << "Enter base and power = ";
-    cin >> b >> p;
+    int p;
+    double b;
+    cout << "Enter base  : ";
+    cin >> b;
+    cout << "Enter power : ";
+    cin >> p;
+    double base = (p > 0) ? b : 1/b;
+    int pow = abs(p);
 
     cout << "\n1st power function called\n\n";
-    cout << b << "^" << p << " = " << power1(b, p);
+    cout << b << "^" << p << " = " << power1(base, pow);
     cout << "\nTotal function calls = " << cnt1;
 
     cout << "\n\n2nd power function called\n\n";
-    cout << b << "^" << p << " = " << power2(b, p);
+    cout << b << "^" << p << " = " << power2(base, pow);
     cout << "\nTotal function calls = " << cnt2 << "\n";
     return 0;
 }
 
 /*
-Enter base and power = 3 15
+Enter base  : 3
+Enter power : 15
 
 1st power function called
 

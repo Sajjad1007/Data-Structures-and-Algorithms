@@ -23,10 +23,10 @@ private:
     } *root = nullptr;
 
     int diameter = 0;
-    queue <node*> q;
-    vector <int> pre;
-    vector <int> in;
-    vector <int> post;
+    queue<node*> q;
+    vector<int> pre;
+    vector<int> in;
+    vector<int> post;
 
 public:
     BT()
@@ -93,7 +93,7 @@ public:
         }
         else
         {
-            int n = count_nodes(p->lchild)+count_nodes(p->rchild)+1;
+            int n = count_nodes(p->lchild) + count_nodes(p->rchild)+1;
             return n;
         }
     }
@@ -110,7 +110,7 @@ public:
         }
         else
         {
-            int e = external_nodes(p->lchild)+external_nodes(p->rchild);
+            int e = external_nodes(p->lchild) + external_nodes(p->rchild);
             return e;
         }
     }
@@ -126,7 +126,7 @@ public:
             int lh = height(p->lchild);
             int rh = height(p->rchild);
             diameter = max(diameter, lh+rh);
-            return 1+max(lh, rh);
+            return 1 + max(lh, rh);
         }
     }
 
@@ -154,15 +154,7 @@ public:
             {
                 bool lb = balanced(p->lchild);
                 bool rb = balanced(p->rchild);
-
-                if(lb == false || rb == false)
-                {
-                    return false;
-                }
-                else
-                {
-                    return true;
-                }
+                return (lb && rb);
             }
         }
     }
@@ -175,7 +167,7 @@ public:
     void preorder()
     {
         node *p = root;
-        stack <node*> s;
+        stack<node*> s;
 
         while(!s.empty() || p != nullptr)
         {
@@ -198,7 +190,7 @@ public:
     void inorder()
     {
         node *p = root;
-        stack <node*> s;
+        stack<node*> s;
 
         while(!s.empty() || p != nullptr)
         {
@@ -221,7 +213,7 @@ public:
     void postorder()
     {
         node *q, *p = root;
-        stack <node*> s;
+        stack<node*> s;
 
         while(!s.empty() || p != nullptr)
         {
@@ -259,7 +251,7 @@ public:
     {
         int level = 1;
         node *p = root;
-        queue <node*> lq;
+        queue<node*> lq;
         lq.push(root);
 
         while(!lq.empty())
@@ -289,12 +281,12 @@ public:
 
     void all_traversals()
     {
-        stack <pair <node*, int>> s;
+        stack<pair<node*, int>> s;
         s.push({root, 1});
 
         while(!s.empty())
         {
-            pair <node*, int> p = s.top();
+            pair<node*, int> p = s.top();
             s.pop();
 
             switch(p.second)
@@ -374,7 +366,7 @@ void choice_list()
 int main()
 {
     BT t;
-    vector <int> v;
+    vector<int> v;
     int n, e, x, y, ch;
 
     while(true)
@@ -387,7 +379,7 @@ int main()
         {
             case 1:
                 t.create();
-                cout << "\nThe binary tree has been initialized";
+                cout << "\nThe binary tree has been initialized.";
                 break;
 
             case 2:
@@ -406,11 +398,11 @@ int main()
             case 4:
                 if(t.balanced(t.get_root()))
                 {
-                    cout << "\nThe tree is balanced";
+                    cout << "\nThe tree is balanced.";
                 }
                 else
                 {
-                    cout << "\nThe tree is not balanced";
+                    cout << "\nThe tree is not balanced.";
                 }
                 break;
 

@@ -38,14 +38,7 @@ public:
 
     bool Empty()
     {
-        if(frnt == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (frnt == nullptr);
     }
 
     void push_Front(int val)
@@ -136,7 +129,7 @@ public:
     {
         if(Empty())
         {
-            cout << "\nThe queue is empty\n";
+            cout << "\nThe queue is empty.\n";
             return;
         }
 
@@ -170,7 +163,7 @@ int main()
 {
     int ch, val;
     Queue q;
-    cout << "The queue has been initialized\n\n";
+    cout << "The queue has been initialized.\n\n";
 
     while(true)
     {
@@ -207,22 +200,22 @@ int main()
             case 5:
                 if(q.Empty())
                 {
-                    cout << "\nThe queue is empty\n";
+                    cout << "\nThe queue is empty.\n";
                 }
                 else
                 {
-                    cout << "\nThe front element is " << q.Front() << "\n";
+                    cout << "\nThe front element is " << q.Front() << ".\n";
                 }
                 break;
 
             case 6:
                 if(q.Empty())
                 {
-                    cout << "\nThe queue is empty\n";
+                    cout << "\nThe queue is empty.\n";
                 }
                 else
                 {
-                    cout << "\nThe rear element is " << q.Rear() << "\n";
+                    cout << "\nThe rear element is " << q.Rear() << ".\n";
                 }
                 break;
 

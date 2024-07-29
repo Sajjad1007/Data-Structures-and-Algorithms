@@ -6,8 +6,8 @@
 
 using namespace std;
 
-queue <int> q;
-stack <int> s;
+queue<int> q;
+stack<int> s;
 
 void reverse_queue()
 {
@@ -33,7 +33,7 @@ void reverse_queue()
 
 void display()
 {
-    queue <int> qt = q;
+    queue<int> qt = q;
 
     while(!qt.empty())
     {
@@ -47,7 +47,7 @@ void display()
 int main()
 {
     int i, data;
-    cout << "The queue has been initialized\n\n";
+    cout << "The queue has been initialized.\n\n";
     cout << "Enter " << MAX << " elements in the queue : ";
     for(i = 1; i <= MAX; i++)
     {

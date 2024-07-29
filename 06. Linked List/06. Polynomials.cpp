@@ -78,7 +78,7 @@ struct polynomial
 
         while(p)
         {
-            ans += (p->coef*pow(x, p->expo));
+            ans += (p->coef * pow(x, p->expo));
             p = p->next;
         }
         return ans;
@@ -198,7 +198,7 @@ polynomial multiply(polynomial poly1, polynomial poly2)
     {
         while(p2)
         {
-            pro.Insert((p1->coef*p2->coef), (p1->expo+p2->expo));
+            pro.Insert((p1->coef * p2->coef), (p1->expo + p2->expo));
             p2 = p2->next;
         }
         p1 = p1->next;

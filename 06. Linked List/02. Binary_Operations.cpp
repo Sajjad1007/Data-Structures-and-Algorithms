@@ -133,7 +133,7 @@ void concat()
 
 int main()
 {
-    cout << "The sets have been initialized\n\n";
+    cout << "The sets have been initialized.\n\n";
     cout << "Set A : {";
     A.display(A.head);
     cout << "Set B : {";

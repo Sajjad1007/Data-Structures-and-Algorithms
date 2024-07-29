@@ -6,8 +6,6 @@ Fibonacci Series
 
 #include <iostream>
 
-#define MAX 50
-
 using namespace std;
 
 int cnt;
@@ -15,6 +13,7 @@ int cnt;
 int fibo(int n)          // Time complexity is O(2^n).
 {
     ++cnt;
+
     if(n <= 2)
     {
         return n-1;

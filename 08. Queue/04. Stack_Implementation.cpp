@@ -15,14 +15,7 @@ private:
 public:
     bool Empty()
     {
-        if(top1 == -1 && top2 == -1)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (top1 == -1 && top2 == -1);
     }
 
     void push(int val)
@@ -32,7 +25,6 @@ public:
             cout << "Queue overflow\n";
             exit(1);
         }
-
         stack_arr1[++top1] = val;
         return;
     }
@@ -80,7 +72,7 @@ public:
     {
         if(top1 == -1 && top2 == -1)
         {
-            cout << "\nThe queue is empty\n";
+            cout << "\nThe queue is empty.\n";
             return;
         }
 
@@ -112,7 +104,7 @@ int main()
 {
     int ch, val;
     Queue q;
-    cout << "The queue has been initialized\n\n";
+    cout << "The queue has been initialized.\n\n";
 
     while(true)
     {
@@ -137,11 +129,11 @@ int main()
             case 3:
                 if(q.Empty())
                 {
-                    cout << "\nThe queue is empty\n";
+                    cout << "\nThe queue is empty.\n";
                 }
                 else
                 {
-                    cout << "\nThe front element is " << q.Front() << "\n";
+                    cout << "\nThe front element is " << q.Front() << ".\n";
                 }
                 break;
 

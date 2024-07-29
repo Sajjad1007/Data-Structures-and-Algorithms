@@ -332,21 +332,21 @@ int main()
                     cin >> key;
                     t.Insert(key);
                 }
-                cout << "\nThe AVL tree has been initialized";
+                cout << "\nThe AVL tree has been initialized.";
                 break;
 
             case 2:
                 cout << "Enter a node : ";
                 cin >> key;
                 t.Insert(key);
-                cout << "\n" << key << " has been inserted";
+                cout << "\n" << key << " has been inserted.";
                 break;
 
             case 3:
                 cout << "Enter a node : ";
                 cin >> key;
                 t.Delete(key);
-                cout << "\n" << key << " has been deleted";
+                cout << "\n" << key << " has been deleted.";
                 break;
 
             case 4:

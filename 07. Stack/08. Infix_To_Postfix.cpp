@@ -52,20 +52,13 @@ This is the result obtained after evaluating the postfix expression.
 
 using namespace std;
 
-stack <int> s;                // First the operators, then the operands will be pushed onto the stack.
+stack<int> s;                 // First the operators, then the operands will be pushed onto the stack.
 char infix[MAX];
 char postfix[MAX];
 
 bool space(char c)
 {
-    if(c == ' ' || c == '\t')
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (c == ' ' || c == '\t');
 }
 
 int precedence(char symbol)

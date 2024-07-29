@@ -65,9 +65,9 @@ bool loop()
         p = p->next;
         q = q->next;
         q = q ? q->next : nullptr;
-    } while(p and q);
+    } while(p && q);
 
-    return (p == q) ? true : false;
+    return (p == q);
 }
 
 bool sorted()
@@ -196,22 +196,22 @@ int main()
 
                 if(pos >= 1)
                 {
-                    printf("\n%d is at position %d\n", key, pos);
+                    printf("\n%d is at position %d.\n", key, pos);
                 }
                 else
                 {
-                    printf("\n%d is not found\n", key);
+                    printf("\n%d is not found.\n", key);
                 }
                 break;
 
             case 2:
                 if(loop())
                 {
-                    cout << "\nThe linked list has a loop\n";
+                    cout << "\nThe linked list has a loop.\n";
                 }
                 else
                 {
-                    cout << "\nThe linked list does not have a loop\n";
+                    cout << "\nThe linked list does not have a loop.\n";
                 }
                 break;
 
@@ -223,7 +223,7 @@ int main()
                 }
                 else
                 {
-                    cout << "\nThe linked list is not sorted\n";
+                    cout << "\nThe linked list is not sorted.\n";
                 }
                 break;
 
@@ -239,7 +239,7 @@ int main()
                 }
                 else
                 {
-                    cout << "\nThe linked list is not sorted\n";
+                    cout << "\nThe linked list is not sorted.\n";
                 }
                 break;
 

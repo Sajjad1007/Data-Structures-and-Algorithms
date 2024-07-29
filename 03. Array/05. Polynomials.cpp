@@ -63,7 +63,7 @@ polynomial add(polynomial p1, polynomial p2)
 {
     int i = 0, j = 0, k = 0;
     polynomial sum;
-    sum.terms_cnt = p1.terms_cnt+p2.terms_cnt;
+    sum.terms_cnt = p1.terms_cnt + p2.terms_cnt;
     sum.terms = new term[sum.terms_cnt];
 
     while(i < p1.terms_cnt && j < p2.terms_cnt)
@@ -79,7 +79,7 @@ polynomial add(polynomial p1, polynomial p2)
         else
         {
             sum.terms[k].expo = p1.terms[i].expo;
-            sum.terms[k].coef = p1.terms[i++].coef+p2.terms[j++].coef;
+            sum.terms[k].coef = p1.terms[i++].coef + p2.terms[j++].coef;
             if(sum.terms[k++].coef == 0)
             {
                 k--;

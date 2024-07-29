@@ -16,16 +16,16 @@ struct node
 
 struct number
 {
-    int n;
-    node *head;
-    node *tail;
+    node *head = nullptr;
+    node *tail = nullptr;
 
     void add_node(int val)
     {
         node *t = new node(val);
-        if(!tail)
+
+        if(this->tail == nullptr)
         {
-            tail =  t;
+            tail = head = t;
         }
         else
         {
@@ -35,12 +35,8 @@ struct number
         return;
     }
 
-    void init()
+    void init(int n)
     {
-        head = new node(n%10);
-        tail = head;
-        n /= 10;
-
         while(n)
         {
             add_node(n%10);
@@ -49,22 +45,20 @@ struct number
         return;
     }
 
-    void push_node(int val)
+    void display(node *p)
     {
-        node *t = new node(val);
-        t->next = head;
-        head = t;
+        if(p == nullptr)
+        {
+            return;
+        }
+        display(p->next);
+        cout << p->val;
         return;
     }
 
     void display()
     {
-        node *p = head;
-        while(p)
-        {
-            cout << p->val;
-            p = p->next;
-        }
+        display(this->head);
         cout << "\n";
         return;
     }
@@ -89,24 +83,25 @@ number add_number(number num1, number num2)
             sum += p2->val;
             p2 = p2->next;
         }
-        num3.push_node(sum%10);
+        num3.add_node(sum%10);
         sum /= 10;
     }
 
     if(sum != 0)
     {
-        num3.push_node(sum);
+        num3.add_node(sum);
     }
     return num3;
 }
 
 int main()
 {
+    int n1, n2;
     number num1, num2;
     cout << "Enter two positive numbers = ";
-    cin >> num1.n >> num2.n;
-    num1.init();
-    num2.init();
+    cin >> n1 >> n2;
+    num1.init(n1);
+    num2.init(n2);
 
     number num3 = add_number(num1, num2);
     cout << "\nThe sum of two numbers = ";

@@ -9,26 +9,12 @@ int top = -1;                 // Currently the stack is empty.
 
 bool empty()
 {
-    if(top == -1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (top == -1);
 }
 
 bool full()
 {
-    if(top == MAX-1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (top == MAX-1);
 }
 
 void push(int val)
@@ -38,7 +24,6 @@ void push(int val)
         printf("\nStack overflow\n");
         exit(1);              // exit(1) means abnormal termination of the program.
     }
-
     stack[++top] = val;
     return;
 }
@@ -50,7 +35,6 @@ void pop()
         printf("\nStack underflow\n");
         exit(1);
     }
-
     stack[top--];
     return;
 }
@@ -64,7 +48,7 @@ void display()
 {
     if(empty())
     {
-        printf("\nThe stack is empty\n");
+        printf("\nThe stack is empty.\n");
         return;
     }
 
@@ -90,7 +74,7 @@ void choice_list()
 int main(void)
 {
     int ch, val;
-    printf("The stack has been initialized\n\n");
+    printf("The stack has been initialized.\n\n");
 
     while(true)
     {
@@ -115,11 +99,11 @@ int main(void)
             case 3:
                 if(empty())
                 {
-                    printf("\nThe stack is empty\n");
+                    printf("\nThe stack is empty.\n");
                 }
                 else
                 {
-                    printf("\nThe top element is %d\n", Top());
+                    printf("\nThe top element is %d.\n", Top());
                 }
                 break;
 

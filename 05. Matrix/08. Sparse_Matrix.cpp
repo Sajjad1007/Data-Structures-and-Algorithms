@@ -115,7 +115,7 @@ int main()
     int r, c, n;
     cout << "Enter dimensions of 1st sparse matrix : ";
     cin >> r >> c;
-    cout << "Number of non-zero elements = ";
+    cout << "Number of non-zero elements : ";
     cin >> n;
     Sparse s1(r, c, n);
     if(n > 0)
@@ -125,7 +125,7 @@ int main()
 
     cout << "\nEnter dimensions of 2nd sparse matrix : ";
     cin >> r >> c;
-    cout << "Number of non-zero elements = ";
+    cout << "Number of non-zero elements : ";
     cin >> n;
     Sparse s2(r, c, n);
     if(n > 0)
@@ -140,7 +140,7 @@ int main()
 
     if(s1.rows != s2.rows || s1.cols != s2.cols)
     {
-        cout << "\nThe matrices are not addable\n";
+        cout << "\nThe matrices are not addable.\n";
     }
     else
     {
@@ -153,7 +153,7 @@ int main()
 
 /*
 Enter dimensions of 1st sparse matrix : 2 2
-Number of non-zero elements = 4
+Number of non-zero elements : 4
 
 Enter row no, column no and non-zero elements
 
@@ -163,7 +163,7 @@ Enter row no, column no and non-zero elements
 2 2 1
 
 Enter dimensions of 2nd sparse matrix : 2 2
-Number of non-zero elements = 3
+Number of non-zero elements : 3
 
 Enter row no, column no and non-zero elements
 

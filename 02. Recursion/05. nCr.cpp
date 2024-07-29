@@ -10,6 +10,7 @@ int C[MAX][MAX];
 int nCr(int n, int r)
 {
     ++cnt;
+
     if(r == 0 || n == r)
     {
         C[n][r] = 1;
@@ -26,12 +27,14 @@ int nCr(int n, int r)
 int main()
 {
     int n, r;
-    cout << "Enter the value of n and r : ";
-    cin >> n >> r;
+    cout << "Enter n : ";
+    cin >> n;
+    cout << "Enter r : ";
+    cin >> r;
 
     if(n < r)
     {
-        cout << "\nn cannot be less than r\n";
+        cout << "\nn cannot be less than r.\n";
         exit(1);
     }
     else
@@ -44,7 +47,8 @@ int main()
 }
 
 /*
-Enter the value of n and r : 10 5
+Enter n : 10
+Enter r : 5
 
 10C5 = 252
 Total function calls = 51

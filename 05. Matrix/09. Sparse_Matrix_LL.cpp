@@ -102,7 +102,7 @@ int main()
     int r, c, n;
     cout << "Enter dimensions of the sparse matrix : ";
     cin >> r >> c;
-    cout << "Number of non-zero elements = ";
+    cout << "Number of non-zero elements : ";
     cin >> n;
     Sparse s(r, c, n);
 
@@ -117,7 +117,7 @@ int main()
 
 /*
 Enter dimensions of the sparse matrix : 2 2
-Number of non-zero elements = 4
+Number of non-zero elements : 4
 
 Enter row no, column no and non-zero elements
 

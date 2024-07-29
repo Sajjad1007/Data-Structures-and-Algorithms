@@ -6,8 +6,8 @@ using namespace std;
 
 struct Set
 {
-    int arr[20];
     int sz;
+    int arr[20];
 
     void input()
     {

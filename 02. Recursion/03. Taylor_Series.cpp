@@ -14,8 +14,8 @@ int cnt1 = 0;
 
 double e(int x, int n)
 {
-    static double pow = 1, fact = 1;
     double sum;
+    static double pow = 1, fact = 1;
 
     if(n == 0)
     {
@@ -54,7 +54,7 @@ double e_horner(int x, int n)
 int main()
 {
     int x, n;
-    cout << "Enter power of e = ";
+    cout << "Enter power of e : ";
     cin >> x;
     cout << "Enter number of terms : ";
     cin >> n;
@@ -69,7 +69,7 @@ int main()
 }
 
 /*
-Enter power of e = 8
+Enter power of e : 8
 Enter number of terms : 30
 
 General  rule : e^8 = 2980.96

@@ -8,14 +8,7 @@ int top = -1;
 
 bool empty()
 {
-    if(top == -1)
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (top == -1);
 }
 
 void push(int data)
@@ -56,10 +49,7 @@ void prime_fact(int num)
     while(!empty())
     {
         copy = pop();
-        if(copy != Top())
-        {
-            printf(" %d", copy);
-        }
+        printf(" %d", copy);
     }
     printf("\n");
     return;
@@ -73,7 +63,7 @@ int main(void)
 
     if(num <= 1)
     {
-        printf("\nError 404 not found\n");
+        printf("\nError 404 not found.\n");
         return 0;
     }
     printf("\nPrime factors of %d in descending order :", num);
@@ -84,5 +74,5 @@ int main(void)
 /*
 Enter a positive number : 1200
 
-Prime factors of 1200 in descending order : 5 3 2
+Prime factors of 1200 in descending order : 5 5 3 2 2 2 2
 */

@@ -37,14 +37,7 @@ public:
 
     bool Empty()
     {
-        if(top == nullptr)
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        return (top == nullptr);
     }
 
     void push(int val)
@@ -79,7 +72,7 @@ public:
     {
         if(Empty())
         {
-            cout << "\nThe stack is empty\n";
+            cout << "\nThe stack is empty.\n";
             return;
         }
 
@@ -109,7 +102,7 @@ int main()
 {
     int ch, val;
     Stack s;
-    cout << "The stack has been initialized\n\n";
+    cout << "The stack has been initialized.\n\n";
 
     while(true)
     {
@@ -134,11 +127,11 @@ int main()
             case 3:
                 if(s.Empty())
                 {
-                    cout << "\nThe stack is empty\n";
+                    cout << "\nThe stack is empty.\n";
                 }
                 else
                 {
-                    cout << "\nThe top element is " << s.Top() << "\n";
+                    cout << "\nThe top element is " << s.Top() << ".\n";
                 }
                 break;
 

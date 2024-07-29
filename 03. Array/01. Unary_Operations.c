@@ -127,10 +127,10 @@ void rearrange()
 void left_rotation()
 {
     int i, j, n;
-    int *r = (int *)malloc(n*sizeof(int));        // Create dynamic array to store rotating elements.
     printf("Number of elements to rotate : ");
     scanf("%d", &n);
     n %= arr.size;
+    int *r = (int *)malloc(n*sizeof(int));        // Create dynamic array to store rotating elements.
 
     if(n >= 1 && n <= arr.size)
     {
@@ -178,14 +178,13 @@ void max_min()
 void sum_average()
 {
     int i, sum = 0;
-    float avg;
 
     for(i = 0; i < arr.size; i++)
     {
         sum += arr.p[i];
     }
 
-    avg = (float)sum/arr.size;
+    float avg = (float)sum/arr.size;
     printf("\nSum = %d\n", sum);
     printf("Average = %g\n", avg);
     return;
@@ -221,7 +220,7 @@ int main(void)
 {
     int ch;
     input();
-    printf("\nThe array has been initialized\n\n");
+    printf("\nThe array has been initialized.\n\n");
 
     while(true)
     {

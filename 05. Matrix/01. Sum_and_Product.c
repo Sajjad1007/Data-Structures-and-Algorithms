@@ -66,7 +66,7 @@ void sum(int a[][dim], int b[][dim], int c[][dim])
     {
         for(int col = 0; col < dim; ++col)
         {
-            c[row][col] = a[row][col]+b[row][col];
+            c[row][col] = a[row][col] + b[row][col];
         }
     }
     return;
@@ -81,7 +81,7 @@ void product(int a[][dim], int b[][dim], int c[][dim])
             c[row][col] = 0;
             for(int k = 0; k < dim; k++)
             {
-                c[row][col] += a[row][k]*b[k][col];
+                c[row][col] += a[row][k] * b[k][col];
             }
         }
     }

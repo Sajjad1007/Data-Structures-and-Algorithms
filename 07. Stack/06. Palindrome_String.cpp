@@ -7,7 +7,7 @@ using namespace std;
 bool palindrome(char *str)
 {
     int i = 0, len = strlen(str);
-    stack <char> s;
+    stack<char> s;
 
     while(i < len/2)
     {
@@ -27,15 +27,7 @@ bool palindrome(char *str)
         }
         s.pop();
     }
-
-    if(s.empty())
-    {
-        return true;
-    }
-    else
-    {
-        return false;
-    }
+    return (s.empty());
 }
 
 int main()
@@ -46,11 +38,11 @@ int main()
 
     if(palindrome(str))
     {
-        cout << "\n\"" << str << "\" is a palindrome\n";
+        cout << "\n\"" << str << "\" is a palindrome.\n";
     }
     else
     {
-        cout << "\n\"" << str << "\" is not a palindrome\n";
+        cout << "\n\"" << str << "\" is not a palindrome.\n";
     }
     return 0;
 }
@@ -58,5 +50,5 @@ int main()
 /*
 Enter a string : abbccbab
 
-"abbccbab" is not a palindrome
+"abbccbab" is not a palindrome.
 */

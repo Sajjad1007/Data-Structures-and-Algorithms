@@ -13,6 +13,7 @@ After doing some operations, going back and taking another possible root is call
 void print_permutations(char str[], int k)
 {
     int i;
+
     if(str[k] == '\0')
     {
         res[k] = '\0';
@@ -21,6 +22,7 @@ void print_permutations(char str[], int k)
     else
     {
         int len = strlen(str);
+
         for(i = 0; i < len; i++)
         {
             if(flag[i] == false)
@@ -42,7 +44,7 @@ int main(void)
     scanf("%s", str);
 
     int l = 0, h = strlen(str)-1;
-    printf("\nAll possible permutations of \'%s\'\n\n", str);
+    printf("\nAll possible permutations of \'%s\' are\n\n", str);
     print_permutations(str, 0);
     return 0;
 }
@@ -50,7 +52,7 @@ int main(void)
 /*
 Enter a word (maximum 5 letters) : abcd
 
-All possible permutations of 'abcd'
+All possible permutations of 'abcd' are
 
 001  abcd
 002  abdc

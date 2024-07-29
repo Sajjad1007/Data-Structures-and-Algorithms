@@ -1,36 +1,43 @@
 #include <iostream>
 
+#define MAX 30
+
 using namespace std;
 
 int cnt;
+int fact[MAX];
 
-int fact(int n)
+int factorial(int n)
 {
     ++cnt;
+
     if(n == 1)
     {
-        return 1;
+        fact[n] = 1;
     }
-    else
+    else if(fact[n] == 0)
     {
-        return n*fact(n-1);
+        fact[n] = n*factorial(n-1);
     }
+    return fact[n];
 }
 
 int main()
 {
     int n, r;
-    cout << "Enter the value of n and r : ";
-    cin >> n >> r;
+    cout << "Enter n : ";
+    cin >> n;
+    cout << "Enter r : ";
+    cin >> r;
 
     if(n < r)
     {
-        cout << "\nn cannot be less than r\n";
+        cout << "\nn cannot be less than r.\n";
         exit(1);
     }
     else
     {
-        int ans = fact(n)/fact(n-r);
+        int ans = factorial(n)/factorial(n-r);
         printf("\n%dP%d = %d\n", n, r, ans);
         printf("Total function calls = %d\n", cnt);
         exit(0);
@@ -38,8 +45,9 @@ int main()
 }
 
 /*
-Enter the value of n and r : 10 5
+Enter n : 10
+Enter r : 5
 
 10P5 = 30240
-Total function calls = 15
+Total function calls = 11
 */

@@ -3,7 +3,7 @@
 
 using namespace std;
 
-queue <int> q;
+queue<int> q;
 
 int josephous(int n, int k)
 {
@@ -20,8 +20,7 @@ int josephous(int n, int k)
     {
         for(i = 1; i <= k; i++)
         {
-            temp = q.front();
-            q.push(temp);
+            q.push(q.front());
             q.pop();
         }
         cout << " " << q.front();
@@ -33,9 +32,9 @@ int josephous(int n, int k)
 int main()
 {
     int n, k;
-    cout << "Number of people = ";
+    cout << "Number of people : ";
     cin >> n;
-    cout << "Positions to be skipped = ";
+    cout << "Positions to be skipped : ";
     cin >> k;
     int safe = josephous(n, k);
     cout << "\nSafest position : " << safe << "\n";
@@ -43,8 +42,8 @@ int main()
 }
 
 /*
-Number of people = 5
-Positions to be skipped = 1
+Number of people : 5
+Positions to be skipped : 1
 
 Executed people : 2 4 1 5
 Safest position : 3

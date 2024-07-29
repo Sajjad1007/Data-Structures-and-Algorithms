@@ -115,11 +115,11 @@ int main()
     cin >> val;
     if(Search(val))
     {
-        cout << "\n" << val << " is found\n";
+        cout << "\n" << val << " is found.\n";
     }
     else
     {
-        cout << "\n" << val << " is not found\n";
+        cout << "\n" << val << " is not found.\n";
     }
     return 0;
 }
@@ -143,5 +143,5 @@ index 9 : 9 19
 
 Enter an element to be searched : 33
 
-33 is found
+33 is found.
 */
